@@ -15,7 +15,7 @@ This line installs Webpack on your Cloud9 workspace.
 ## Install `npm` dependencies from `package.json`
 
 This line starts `npm`, which looks inside our `package.json` file, retrieves a list of
-packages, and installs them to the `node_modules` folder inside your repository. This file does not need to be pushed to heroku or GitHub.
+packages, and installs them to the `node_modules` folder inside your repository. This folder **does not** need to be pushed to heroku or GitHub.
 
 ```$ npm install```
 
@@ -39,5 +39,5 @@ print a bunch of stuff.
 
 Open a new terminal in your AWS Cloud9 environment (google this if you don't know how). Run `app.py` and verify that the React renders. You should see "Hello, World!" in the preview.
 
-**You will always need to do a refresh (Ctrl+R/Cmd+Shift+R) of your browser (while Webpack is running) to see changes **
+**You will always need to do a refresh (Ctrl+R/Cmd+Shift+R) of your browser (while Webpack is running) to see changes**
 
