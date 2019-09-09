@@ -19,7 +19,7 @@ packages, and installs them to the `node_modules` folder inside your repository.
 
 ```$ npm install```
 
-**Note: This command MUST be ran from the folder that contains package.json! You will get an error if you are in a different folder**
+**Note: This command MUST be ran from the folder that contains package.json! You will get an error if you are in a different folder!**
 
 ## Compile Javascript using Webpack
 
@@ -42,5 +42,5 @@ Find the text that says "Hello World from React!" Make a change. Your webpack sh
 
 PS This is a known problem for a bunch of people. Unfortunately, there is no known fix besides turning off the cache option for the whole browser (which we don't want to do).
 
-**You will always need to do a hard refresh (Ctrl+R/Cmd+Shift+R) of your browser (while Webpack is running) to see changes**
+**You will always need to do a hard refresh (Ctrl+R/Cmd+Shift+R) of an external tab in your browser (while Webpack is running) to see changes**
 
