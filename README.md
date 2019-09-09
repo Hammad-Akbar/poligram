@@ -24,20 +24,21 @@ packages, and installs them to the `node_modules` folder inside your repository.
 This line starts up Webpack, which looks inside `webpack.config.js`, loads
 configuration options, and starts transpiling your JS code into `static/script.js`.
 
-```$ npn run watch```
+```$ npm run watch```
 
 (The program should not stop running. Leave it running.)
 
-## Edit a JS file
-
-Make a change to `scripts/Content.js`. Webpack should detect the change and
-print a bunch of stuff.
-
-**Do not manually edit `static/script.js`!! You do need to push this file to Heroku and GitHub**
-
 ## Run the web app
 
-Open a new terminal in your AWS Cloud9 environment (google this if you don't know how). Run `app.py` and verify that the React renders. You should see "Hello, World!" in the preview.
+Open a new terminal in your AWS Cloud9 environment (click the little green + button near your current terminal and choose 'New Terminal'). Run `app.py` (from the same folder, but new terminal) and verify that the React renders. You should see "Hello World from React!" in the preview.
 
-**You will always need to do a refresh (Ctrl+R/Cmd+Shift+R) of your browser (while Webpack is running) to see changes**
+**Do not manually edit `static/script.js`! It will update when you make changes. You do need to push this file to Heroku and GitHub**
+
+## Edit HTML
+
+Find the text that says "Hello World from React!." Make a change. Your webpack should still be running in the other terminal (and some logs will spit out). Try previewing the changes in the Preview Window in AWS. Notice that nothing is updating. You need to click 'Pop out to New Window', and hard refresh the browser (see command below). 
+
+PS This is a known problem for a bunch of people. Unfortunately, there is no known fix besides turning off the cache option for the whole browser (which we don't want to do).
+
+**You will always need to do a hard refresh (Ctrl+R/Cmd+Shift+R) of your browser (while Webpack is running) to see changes**
 
