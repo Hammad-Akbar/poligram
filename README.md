@@ -1,6 +1,6 @@
 # lecture9-react
 
-Let's get React up and running with Flask
+Let's get React up and running with Flask. Run these commands in your Project 2 (or scratch) folder.
 
 ## Upgrade Node version to 7
 
