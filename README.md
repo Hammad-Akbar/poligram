@@ -18,6 +18,7 @@ This line starts `npm`, which looks inside our `package.json` file, retrieves a 
 packages, and installs them to the `node_modules` folder inside your repository. `node_modules` folder **does not** need to be pushed to Heroku or GitHub.
 
 ```$ npm install```
+**Note: This command MUST be ran from the folder that contains package.json! You will get an error if you are in a different folder**
 
 ## Compile Javascript using Webpack
 
