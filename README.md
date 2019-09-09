@@ -36,7 +36,7 @@ Open a new terminal in your AWS Cloud9 environment (click the little green + but
 
 ## Edit HTML
 
-Find the text that says "Hello World from React!." Make a change. Your webpack should still be running in the other terminal (and some logs will spit out). Try previewing the changes in the Preview Window in AWS. Notice that nothing is updating. You need to click 'Pop out to New Window', and hard refresh the browser (see command below). 
+Find the text that says "Hello World from React!" Make a change. Your webpack should still be running in the other terminal (and some logs will spit out). Try previewing the changes in the Preview Window in AWS. Notice that nothing is updating. You need to click 'Pop out to New Window', and hard refresh the browser (see command below). 
 
 PS This is a known problem for a bunch of people. Unfortunately, there is no known fix besides turning off the cache option for the whole browser (which we don't want to do).
 
