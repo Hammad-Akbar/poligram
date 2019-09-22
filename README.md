@@ -10,7 +10,7 @@ Let's get React up and running with Flask. Run these commands in your Project 2 
 
 This line installs Webpack on your Cloud9 workspace.
 
-```$npm i webpack --save-dev```
+```$npm install webpack --save-dev```
 
 ## Install `npm` dependencies from `package.json`
 
