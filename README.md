@@ -1,6 +1,6 @@
 # lecture-10-react
 
-Let's get React up and running with Flask. Run these commands in your Project 2 (or scratch) folder.
+Let's get React up and running with Flask. If you navigate to the folder now and try to run the python file, we will get a blank page in our browser preview. We want the browser to display **Hello World from React!!!**. In order to do that, we need to install some libraries to get our client-side code up and running!
 
 ## Upgrade Node version to 7
 
