@@ -12,11 +12,6 @@ This line installs Webpack on your Cloud9 workspace.
 
 ```$ npm install --save-dev webpack ```
 
-## Make sure Babel handles our .jsx files correctly
-
-This line enables babel to effectively
-```$ npm install --save-dev @babel/preset-react ```
-
 ## Install `npm` dependencies from `package.json`
 
 This line starts `npm`, which looks inside our `package.json` file, retrieves a list of
