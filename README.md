@@ -6,6 +6,13 @@ Let's get React up and running with Flask. If you try to run the python file, we
 
 ```$ nvm install 7```
 
+## Install initial `npm` dependencies from `package.json`
+
+This line run  `npm`, which looks inside our `package.json` file, retrieves a list of
+packages, and installs them to the `node_modules` folder inside your repository. `node_modules` folder **does not** need to be pushed to Heroku or GitHub.
+
+```$ npm install```
+
 ## Install Webpack
 
 This line installs Webpack on your Cloud9 workspace.
@@ -14,12 +21,6 @@ This line installs Webpack on your Cloud9 workspace.
 
 You may be asked to install webpack-cli. Type **yes**.
 
-## Install `npm` dependencies from `package.json`
-
-This line starts `npm`, which looks inside our `package.json` file, retrieves a list of
-packages, and installs them to the `node_modules` folder inside your repository. `node_modules` folder **does not** need to be pushed to Heroku or GitHub.
-
-```$ npm install```
 
 **Note: This command MUST be ran from the folder that contains package.json! You will get an error if you are in a different folder!**
 
