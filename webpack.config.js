@@ -5,7 +5,7 @@ module.exports = {
         filename: "./static/script.js"
     },
     module: {
-        loaders: [
+        rules: [
             { test: /\.css$/, loader: "style!css" },
             {
                 test: /\.(js|jsx)$/,

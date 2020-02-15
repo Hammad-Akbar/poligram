@@ -12,6 +12,8 @@ This line installs Webpack on your Cloud9 workspace.
 
 ```$ npm install --save-dev webpack ```
 
+You may be asked to install webpack-cli. Type **yes**.
+
 ## Install `npm` dependencies from `package.json`
 
 This line starts `npm`, which looks inside our `package.json` file, retrieves a list of
