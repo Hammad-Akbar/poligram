@@ -15,12 +15,9 @@ packages, and installs them to the `node_modules` folder inside your repository.
 
 ## Install Webpack
 
-This line installs Webpack on your Cloud9 workspace.
+This line installs Webpack on your Cloud9 workspace. You may be asked to also install webpack-cli. Type **yes**.
 
 ```$ npm install --save-dev webpack ```
-
-You may be asked to install webpack-cli. Type **yes**.
-
 
 **Note: This command MUST be ran from the folder that contains package.json! You will get an error if you are in a different folder!**
 
