@@ -15,7 +15,7 @@ packages, and installs them to the `node_modules` folder inside your repository.
 
 ## Install Webpack
 
-This line installs Webpack on your Cloud9 workspace. You may be asked to also install webpack-cli. Type **yes**.
+This line installs Webpack on your Cloud9 workspace.
 
 ```$ npm install --save-dev webpack ```
 
@@ -24,7 +24,7 @@ This line installs Webpack on your Cloud9 workspace. You may be asked to also in
 ## Compile Javascript using Webpack
 
 This line starts up Webpack, which looks inside `webpack.config.js`, loads
-configuration options, and starts transpiling your JS code into `static/script.js`.
+configuration options, and starts transpiling your JS code into `static/script.js`. You may be asked to also install webpack-cli. Type **yes**.
 
 ```$ npm run watch```
 
