@@ -46,6 +46,9 @@ configuration options, and starts transpiling your JS code into
 
 (The program should not stop running. Leave it running.)
 
+If this step fails for whatever reason, please close your terminal and restart it,
+and re-run the command.
+
 ## 6. Run the web app
 
 Open a new terminal in your AWS Cloud9 environment (click the little green + 
