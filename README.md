@@ -5,6 +5,9 @@ we will get a blank page in our browser preview. We want the browser to
 display **Hello World from React!!!**. In order to do that, we need to install
 some libraries to get our client-side code up and running!
 
+## 0. Clone this repo
+```$ git clone https://github.com/Sresht/lect8-react```
+
 ## 1. Upgrade Node version to 7
 
 ```$ nvm install 7```
