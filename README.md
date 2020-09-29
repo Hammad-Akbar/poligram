@@ -36,6 +36,9 @@ This command installs Webpack on your Cloud9 workspace.
 
 ```$ npm install --save-dev webpack ```
 
+If this doesn't work. close and restart your terminal. 
+If it still doesn't work, run `$ yarn upgrade`
+
 ## 5. Compile Javascript using Webpack
 
 This line starts up Webpack, which looks inside `webpack.config.js`, loads
