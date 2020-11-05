@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import SearchBar from './Components/SearchBar'
 import socket from './Components/Socket'
 
-const Content = () => {
+function Content () {
 
     const [text, setText] = useState('')
     const [message, setMessage] = useState('')
@@ -13,7 +13,7 @@ const Content = () => {
         })
     }, [])
 
-    const handleSubmit = (e) => {
+    function handleSubmit (e) {
         e.preventDefault()
         socket.emit('send message', text)
         setText('')

@@ -1,8 +1,8 @@
 import React from 'react'
 
-const SearchBar = ( { setText, text } ) => {
+function SearchBar ( { setText, text } ) {
 
-    const handleChange = (e) => {
+    function handleChange (e) {
         setText(e.target.value)
     }
 
