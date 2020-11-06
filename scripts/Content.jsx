@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'
+import SearchBar from './Components/SearchBar'
+import Socket from './Components/Socket'
 
-const Content = () => {
+function Content () {
+
+    const [message, setMessage] = useState('')
+
+    useEffect(() => {
+        Socket.on('forward message', (data) => {
+            setMessage(data)
+        })
+        return () => {
+            window.removeEventListener("beforeunload", () => {
+                Socket.close()
+            })
+        }
+    }, [])
+
     return (
         <div>
-            Hello World
+            <SearchBar />
+            <h3>{message}</h3>
         </div>
     )
 }

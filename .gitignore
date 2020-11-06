@@ -2,3 +2,5 @@ node_modules/
 static/script.js
 package-lock.json
 .vscode
+.env
+.idea
