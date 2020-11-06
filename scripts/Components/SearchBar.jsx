@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import socket from './Socket'
+import Socket from './Socket'
 
 function SearchBar () {
 
@@ -11,7 +11,7 @@ function SearchBar () {
 
     function handleSubmit (e) {
         e.preventDefault()
-        socket.emit('send message', text)
+        Socket.emit('send message', text)
         setText('')
     }
 

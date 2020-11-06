@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import SearchBar from './Components/SearchBar'
-import socket from './Components/Socket'
+import Socket from './Components/Socket'
 
 function Content () {
 
     const [message, setMessage] = useState('')
 
     useEffect(() => {
-        socket.on('forward message', (data) => {
+        Socket.on('forward message', (data) => {
             setMessage(data)
         })
         return () => {

@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DICTIONARY_API_KEY = os.getenv('API_KEY')
+DICTIONARY_API_KEY = os.getenv('DICT_API_KEY')
 
 app = flask.Flask(__name__)
 socketio = flask_socketio.SocketIO(app)
