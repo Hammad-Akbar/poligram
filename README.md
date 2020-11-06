@@ -8,6 +8,8 @@ basic setup:
 
 `npm install  --save-dev webpack`
 
+`npm install --save react-router-dom`
+
 to run:
 
 `npm run watch`
