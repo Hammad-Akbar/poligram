@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-API_KEY = os.getenv('API_KEY')
+DICTIONARY_API_KEY = os.getenv('API_KEY')
 
 app = flask.Flask(__name__)
 socketio = flask_socketio.SocketIO(app)
@@ -18,13 +18,14 @@ def hello():
 
 @socketio.on('send message')
 def send_message(text):
-    response = requests.get(f'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{text}?key={API_KEY}')
+    response = requests.get(f'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{text}?key={DICTIONARY_API_KEY}')
     result = response.json()
+
     messageReceived = ''
-    try:
+    if 'shortdef' in result[0]:
         definition = result[0]['shortdef']
         messageReceived = ', '.join(definition)
-    except:
+    else:
         messageReceived = "Sorry, we can't find the definition of the term you are looking for."
 
     socketio.emit('forward message', messageReceived)

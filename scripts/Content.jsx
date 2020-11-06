@@ -4,27 +4,22 @@ import socket from './Components/Socket'
 
 function Content () {
 
-    const [text, setText] = useState('')
     const [message, setMessage] = useState('')
 
     useEffect(() => {
         socket.on('forward message', (data) => {
             setMessage(data)
         })
+        return () => {
+            window.removeEventListener("beforeunload", () => {
+                socket.close();
+            })
+        }
     }, [])
-
-    function handleSubmit (e) {
-        e.preventDefault()
-        socket.emit('send message', text)
-        setText('')
-    }
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <SearchBar setText={setText} text={text} />
-                <button type='submit'> Submit </button>
-            </form>
+            <SearchBar />
             <h3>{message}</h3>
         </div>
     )

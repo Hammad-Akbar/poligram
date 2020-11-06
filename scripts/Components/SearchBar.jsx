@@ -1,15 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
+import socket from './Socket'
 
-function SearchBar ( { setText, text } ) {
+function SearchBar () {
+
+    const [text, setText] = useState('')
 
     function handleChange (e) {
         setText(e.target.value)
     }
 
+    function handleSubmit (e) {
+        e.preventDefault()
+        socket.emit('send message', text)
+        setText('')
+    }
+
     return (
         <div>
-            <input type={text} className="input-area" onChange={handleChange}
-             value={text} placeholder="Enter text.." required />
+             <form onSubmit={handleSubmit}>
+                <input type={text} className="input-area" onChange={handleChange}
+                    value={text} placeholder="Enter text.." required />
+                <button type='submit'> Submit </button>
+             </form>
         </div>
     )
 }
