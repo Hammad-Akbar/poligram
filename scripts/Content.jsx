@@ -12,7 +12,7 @@ function Content () {
         })
         return () => {
             window.removeEventListener("beforeunload", () => {
-                socket.close();
+                Socket.close()
             })
         }
     }, [])

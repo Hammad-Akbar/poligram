@@ -12,13 +12,16 @@ app = flask.Flask(__name__)
 socketio = flask_socketio.SocketIO(app)
 socketio.init_app(app, cors_allowed_origins="*")
 
+
 @app.route('/')
 def hello():
     return flask.render_template('index.html')
 
+
 @socketio.on('send message')
 def send_message(text):
-    response = requests.get(f'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{text}?key={DICTIONARY_API_KEY}')
+    response = requests.get(
+        f'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{text}?key={DICTIONARY_API_KEY}')
     result = response.json()
 
     messageReceived = ''
@@ -29,6 +32,7 @@ def send_message(text):
         messageReceived = "Sorry, we can't find the definition of the term you are looking for."
 
     socketio.emit('forward message', messageReceived)
+
 
 if __name__ == '__main__':
     socketio.run(
