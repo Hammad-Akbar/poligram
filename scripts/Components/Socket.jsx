@@ -1,5 +1,4 @@
 import * as SocketIO from 'socket.io-client'
 
-const Socket = SocketIO.connect('http://localhost:8080/')
-
+var Socket = SocketIO.connect()
 export default Socket

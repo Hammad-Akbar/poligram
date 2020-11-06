@@ -1,27 +1,24 @@
 import React, { useState, useEffect } from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import SearchBar from './Components/SearchBar'
 import Socket from './Components/Socket'
+import Dictionary from './Components/Dictionary'
+import Home from './Components/Home';
+import Navigation from './Components/Navigation';
 
-function Content () {
-
-    const [message, setMessage] = useState('')
-
-    useEffect(() => {
-        Socket.on('forward message', (data) => {
-            setMessage(data)
-        })
-        return () => {
-            window.removeEventListener("beforeunload", () => {
-                Socket.close()
-            })
-        }
-    }, [])
+const Content = () => {
 
     return (
+       <BrowserRouter>
         <div>
-            <SearchBar />
-            <h3>{message}</h3>
-        </div>
+          <Navigation />
+            <Switch>
+             <Route path="/" component={Home} exact/>
+             <Route path="/Dictionary" component={Dictionary}/>
+            <Route component={Error}/>
+           </Switch>
+        </div> 
+      </BrowserRouter>
     )
 }
 

@@ -26,9 +26,10 @@
     ]
   },
   "dependencies": {
-    "react-socket-io": "^0.2.5",
     "react": "^16.12.0",
     "react-bootstrap": "^0.31.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.2.0",
+    "react-socket-io": "^0.2.5"
   }
 }
