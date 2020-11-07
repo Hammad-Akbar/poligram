@@ -1,25 +1,27 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import SearchBar from './Components/SearchBar'
-import Socket from './Components/Socket'
-import Dictionary from './Components/Dictionary'
+import SearchBar from './Components/SearchBar';
+import Socket from './Components/Socket';
+import Dictionary from './Components/Dictionary';
 import Home from './Components/Home';
 import Navigation from './Components/Navigation';
+import Quiz from './Components/Quiz';
 
 const Content = () => {
 
     return (
-       <BrowserRouter>
-        <div>
-          <Navigation />
-            <Switch>
-             <Route path="/" component={Home} exact/>
-             <Route path="/Dictionary" component={Dictionary}/>
-            <Route component={Error}/>
-           </Switch>
-        </div> 
-      </BrowserRouter>
-    )
-}
+        <BrowserRouter>
+            <div>
+                <Navigation />
+                <Switch>
+                    <Route path="/" component={Home} exact/>
+                    <Route path="/Dictionary" component={Dictionary}/>
+                    <Route path="/Quiz" component={Quiz} />
+                    <Route component={Error}/>
+                </Switch>
+            </div>
+        </BrowserRouter>
+    );
+};
 
-export default Content
+export default Content;
