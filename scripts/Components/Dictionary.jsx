@@ -17,10 +17,23 @@ function Dictionary () {
         }
     }, [])
 
+    function toogleParagraph() {
+        if (message === '') {
+            return null
+        }
+        return (
+            <>
+                <p className='definition'><strong>Definition: </strong>{message}</p>
+            </>
+        )
+    }
+
     return (
-        <div>
+        <div className='dictionary'>
             <SearchBar />
-            <h3>{message}</h3>
+            <div>
+                {toogleParagraph()}
+            </div>
         </div>
     )
 }

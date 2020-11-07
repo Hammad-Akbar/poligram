@@ -16,11 +16,11 @@ function SearchBar () {
     }
 
     return (
-        <div>
+        <div className='form'>
              <form onSubmit={handleSubmit}>
-                <input type={text} className="input-area" onChange={handleChange}
-                    value={text} placeholder="Enter text.." required />
-                <button type='submit'> Submit </button>
+                <input className='search-bar' type={text} onChange={handleChange}
+                    value={text} placeholder="Enter a political term.." required />
+                <button className='button' type='submit'> Search </button>
              </form>
         </div>
     )
