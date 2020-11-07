@@ -11,9 +11,9 @@ const Content = () => {
         <div>
           <Navigation />
           <Switch>
-          <Route path="/" component={Home} exact/>
-          <Route path="/Dictionary" component={Dictionary}/>
-          <Route component={Error}/>
+            <Route path="/" component={Home} exact/>
+            <Route path="/Dictionary" component={Dictionary}/>
+            <Route component={Error}/>
           </Switch>
         </div> 
       </BrowserRouter>

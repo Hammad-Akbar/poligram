@@ -17,14 +17,14 @@ function Dictionary () {
         }
     }, [])
 
-    function toogleParagraph() {
+    function toggleParagraph() {
         if (message === '') {
             return null
         }
         return (
-            <>
+            <React.Fragment>
                 <p className='definition'><strong>Definition: </strong>{message}</p>
-            </>
+            </React.Fragment>
         )
     }
 
@@ -32,7 +32,7 @@ function Dictionary () {
         <div className='dictionary'>
             <SearchBar />
             <div>
-                {toogleParagraph()}
+                {toggleParagraph()}
             </div>
         </div>
     )
