@@ -13,3 +13,6 @@ class TestModel(db.Model):
         self.field1 = field1
         self.field2 = field2
         self.field3 = field3
+
+db.create_all()
+db.session.commit()

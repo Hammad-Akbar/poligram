@@ -1,16 +1,25 @@
 import os
 import flask
 import flask_socketio
+import flask_sqlalchemy
 import requests
-from dotenv import load_dotenv
+import dotenv
 
-load_dotenv()
+
+dotenv.load_dotenv()
 
 DICTIONARY_API_KEY = os.getenv('DICT_API_KEY')
 
 app = flask.Flask(__name__)
 socketio = flask_socketio.SocketIO(app)
 socketio.init_app(app, cors_allowed_origins="*")
+
+DATABASE_URI = os.environ["DATABASE_URL"]
+app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URI
+
+db = flask_sqlalchemy.SQLAlchemy()
+db.init_app(app)
+db.app = app
 
 
 @app.route('/')
