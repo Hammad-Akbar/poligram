@@ -32,5 +32,8 @@ body {
 
 
 .definition {
-    flex-direction: column;
+	height: auto;
+  	background-color: lightgray;
+	padding: 10px;
+	box-shadow: 0.5px 0.5px #888888;
 }
