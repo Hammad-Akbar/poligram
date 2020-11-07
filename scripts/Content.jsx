@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import SearchBar from './Components/SearchBar';
-import Socket from './Components/Socket';
-import Dictionary from './Components/Dictionary';
+import Dictionary from './Components/Dictionary'
 import Home from './Components/Home';
 import Navigation from './Components/Navigation';
 import Quiz from './Components/Quiz';

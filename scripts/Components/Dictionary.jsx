@@ -17,10 +17,23 @@ function Dictionary () {
         }
     }, [])
 
+    function toggleParagraph() {
+        if (message === '') {
+            return null
+        }
+        return (
+            <React.Fragment>
+                <p className='definition'><strong>Definition: </strong>{message}</p>
+            </React.Fragment>
+        )
+    }
+
     return (
-        <div>
+        <div className='dictionary'>
             <SearchBar />
-            <h3>{message}</h3>
+            <div>
+                {toggleParagraph()}
+            </div>
         </div>
     )
 }
