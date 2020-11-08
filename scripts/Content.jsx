@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Dictionary from './Components/Dictionary'
 import Home from './Components/Home';
 import Navigation from './Components/Navigation';
-import Quiz from './Components/Quiz';
+import Quiz from './Components/Quiz/Quiz';
 
 const Content = () => {
 
