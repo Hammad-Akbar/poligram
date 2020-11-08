@@ -57,6 +57,14 @@
                 {
                     "text": "The United States should incorporate more socialistic policies in order to balance out the issues of rampant capitalism",
                     "multiplier": 1
+                },
+                {
+                    "text": "Capitalism is the best economic system and has allowed the United States to flourish into one of the most successful economies in the world.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "Unrestriced capitalism is a bad system which has created historic levels of wealth inequality in the United States.",
+                    "multiplier": 1
                 }
             ]
         },
@@ -64,12 +72,12 @@
             "groupName": "education",
             "questions": [
                 {
-                    "text": "",
+                    "text": "The Government should put more money into improving public education rather than wasting it on school vouchers.",
                     "multiplier": 1
                 },
                 {
-                    "text": "",
-                    "multiplier": 1
+                    "text": "School vouchers allow parents to decide for themselves which school their child should go to and should receive more funding.",
+                    "multiplier": -1
                 }
             ]
         },
@@ -78,7 +86,7 @@
             "questions": [
                 {
                     "text": "",
-                    "multiplier": 1
+                    "multiplier": -1
                 },
                 {
                     "text": "",
