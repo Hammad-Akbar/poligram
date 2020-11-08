@@ -67,11 +67,11 @@ body {
 	font-size: 40px;
 	letter-spacing: 2px;
 	text-align: center;
+	padding: 1.5%;
 }
 
 .message {
 	text-align: center;
-	padding: 1.5%;
 }
 
 .slogan-description {
