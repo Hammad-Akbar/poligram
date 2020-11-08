@@ -85,11 +85,11 @@
             "groupName": "energy",
             "questions": [
                 {
-                    "text": "",
+                    "text": "Oil and gas usage should not be restricted since these resources plentiful in the United States and help keep energy affordable.",
                     "multiplier": -1
                 },
                 {
-                    "text": "",
+                    "text": "Renewable energy is the future and we should move to it as quickly as possible.",
                     "multiplier": 1
                 }
             ]
@@ -98,12 +98,12 @@
             "groupName": "climate change",
             "questions": [
                 {
-                    "text": "",
+                    "text": "Climate change is one of the biggest threats the world faces today.",
                     "multiplier": 1
                 },
                 {
-                    "text": "",
-                    "multiplier": 1
+                    "text": "Climate change is not a significant threat and we don't need to take drastic action to stop it.",
+                    "multiplier": -1
                 }
             ]
         },
@@ -111,11 +111,11 @@
             "groupName": "gun control",
             "questions": [
                 {
-                    "text": "",
-                    "multiplier": 1
+                    "text": "The right to own guns is a fundamental right which the government should not restrict.",
+                    "multiplier": -1
                 },
                 {
-                    "text": "",
+                    "text": "Gun ownership must be strictly regulated in order to preserve people's safety.",
                     "multiplier": 1
                 }
             ]
@@ -124,12 +124,20 @@
             "groupName": "healthcare",
             "questions": [
                 {
-                    "text": "",
+                    "text": "Healthcare is a human right and the government should do everything it can to make sure that everyone has access to affordable health care.",
                     "multiplier": 1
                 },
                 {
-                    "text": "",
+                    "text": "The healthcare system requires healthy competition and a market free of government intervention in order to provide people with the best deal.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "It is the government's responsibility to provide healthcare and healthcare programs like Medicare and Medicaid should be expanded to meet this need.",
                     "multiplier": 1
+                },
+                {
+                    "text": "Greater government intervention in healthcare would lead to lower-quality care and an overall worse healthcare system.",
+                    "multiplier": -1
                 }
             ]
         },
