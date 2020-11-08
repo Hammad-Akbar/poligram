@@ -1,5 +1,6 @@
 import os
-import flask
+import flask 
+from flask import request
 import flask_socketio
 import flask_sqlalchemy
 import requests
@@ -25,6 +26,19 @@ db.app = app
 @app.route('/')
 def hello():
     return flask.render_template('index.html')
+
+@socketio.on('connect user')
+def on_connect(userProfile):
+    socketId = request.sid
+    name = userProfile['name']
+    email = userProfile['email']
+    image = userProfile['imageUrl']
+
+    socketio.emit('new connection', {
+        "user": name,
+        "userEmail": email,
+        "userImage": image
+    }, room=socketId)
 
 
 @socketio.on('send message')

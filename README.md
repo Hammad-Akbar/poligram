@@ -12,6 +12,8 @@ basic setup:
 
 `npm install --save-dev style-loader css-loader`
 
+`npm install react-google-login`
+
 to run:
 
 `npm run watch`
