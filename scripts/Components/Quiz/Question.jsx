@@ -4,8 +4,10 @@ function Question() {
     
     const answerBlockStyle = {
         display: "inline-block",
-        paddingRight: "2em",
-        textAlign: "center"
+        textAlign: "center",
+        width: "7em",
+        verticalAlign: "top",
+        fontFamily: "verdana"
     };
     
     return (
