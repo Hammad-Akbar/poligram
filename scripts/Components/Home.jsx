@@ -20,7 +20,9 @@ const Home = () => {
             </div>
             <div className='horizontal-line'></div>
             <div className='rectangle-blue'>
-                <div className='slogan'> Get in touch with us! </div>
+                <div className='slogan'> 
+                    <span className='message'>Get in touch with us!</span>
+                </div>
             </div>
         </body>
     );
