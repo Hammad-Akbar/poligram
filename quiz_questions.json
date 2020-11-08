@@ -10,6 +10,14 @@
                 {
                     "text": "Abortion should not be legal.",
                     "multiplier": -1
+                },
+                {
+                    "text": "A woman must be able to control her body, including the right to terminate a fetus.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "An unborn child's life must be protected the same way any other child's would be.",
+                    "multiplier": -1
                 }
             ]
         },
@@ -23,6 +31,14 @@
                 {
                     "text": "The death penalty is wrong and should not be used as a punishment.",
                     "multiplier": 1
+                },
+                {
+                    "text": "It is wrong and cruel for the government to take someone's life as a form of punishment for a crime.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "Some crimes are so heinous that the only fair punishment for them is death.",
+                    "multiplier": -1
                 }
             ]
         },
@@ -78,6 +94,14 @@
                 {
                     "text": "School vouchers allow parents to decide for themselves which school their child should go to and should receive more funding.",
                     "multiplier": -1
+                },
+                {
+                    "text": "Public schools have been neglected by the government and need greater funding.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "Public schools do not provide the best education for many children and so the government should financially support other forms of schooling, such as charter schools.",
+                    "multiplier": -1
                 }
             ]
         },
@@ -90,6 +114,14 @@
                 },
                 {
                     "text": "Renewable energy is the future and we should move to it as quickly as possible.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "Renewable energy sources are not currently capable of handling the country's energy demands and so we should continue to use fossil fuels.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "Fossil fuels are an environmentally-unclean and outdated source of energy.",
                     "multiplier": 1
                 }
             ]
@@ -104,6 +136,14 @@
                 {
                     "text": "Climate change is not a significant threat and we don't need to take drastic action to stop it.",
                     "multiplier": -1
+                },
+                {
+                    "text": "If we don't act fast, the effects of climate change will continue to get worse and cause irreparable damage.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "The dangers of climate change are exaggerated and are not currently a significant concern.",
+                    "multiplier": -1
                 }
             ]
         },
@@ -116,6 +156,14 @@
                 },
                 {
                     "text": "Gun ownership must be strictly regulated in order to preserve people's safety.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "The Constitution makes clear that people have the right to own guns.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "The government is well within its rights to restrict and regulate gun ownership",
                     "multiplier": 1
                 }
             ]
@@ -172,6 +220,14 @@
                 {
                     "text": "The government should not do anything which could endanger the free practice of religion and must do everything possible to uphold religious liberty.",
                     "multiplier": -1
+                },
+                {
+                    "text": "The government must ensure that laws and regulations are kept free of religion and religious influence.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "Religion and faith are an important part of American life and so the government must uphold these values.",
+                    "multiplier": -1
                 }
             ]
         },
@@ -185,6 +241,14 @@
                 {
                     "text": "Taxes need to be reduced, even if that requires government programs to be cut.",
                     "multiplier": -1
+                },
+                {
+                    "text": "The government needs to provide more services to its citizens, even if that means raising taxes.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "Taxes are too high and the government must reduce them, even if that causes government programs to be weakened or cut.",
+                    "multiplier": -1
                 }
             ]
         },
@@ -197,6 +261,14 @@
                 },
                 {
                     "text": "Welfare services cause people to become dependent on the government and prevent them from improving their lives.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "The poorest in our society need welfare programs (e.g. food stamps) to help them survive.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "The poor should be enouraged to improve their lives through grit and determination, and welfare programs undermine that goal.",
                     "multiplier": -1
                 }
             ]
