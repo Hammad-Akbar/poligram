@@ -1,0 +1,44 @@
+{
+    "questions": [
+        {
+            "text": "The Government should be larger (more services, higher taxes, etc.) than it currently is.",
+            "multiplier": 1
+        },
+        {
+            "text": "Taxes should be reduced, even if it means cutting social services.",
+            "multiplier": -1
+        },
+        {
+            "text": "",
+            "multiplier": -1
+        },
+        {
+            "text": "",
+            "multiplier": -1
+        },
+        {
+            "text": "",
+            "multiplier": -1
+        },
+        {
+            "text": "",
+            "multiplier": -1
+        },
+        {
+            "text": "",
+            "multiplier": -1
+        },
+        {
+            "text": "",
+            "multiplier": -1
+        },
+        {
+            "text": "",
+            "multiplier": -1
+        },
+        {
+            "text": "",
+            "multiplier": -1
+        }
+    ]
+}
