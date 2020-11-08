@@ -17,24 +17,45 @@
             "groupName": "death penalty",
             "questions": [
                 {
-                    "text": "",
-                    "multiplier": 1
+                    "text": "The death penalty is a just and fair punishment for certain crimes.",
+                    "multiplier": -1
                 },
                 {
-                    "text": "",
+                    "text": "The death penalty is wrong and should not be used as a punishment.",
                     "multiplier": 1
                 }
             ]
         },
         {
-            "groupName": "economy",
+            "groupName": "economic regulation",
             "questions": [
                 {
-                    "text": "",
+                    "text": "There should be greater economic regulation.",
                     "multiplier": 1
                 },
                 {
-                    "text": "",
+                    "text": "There should be less economic regulation.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "There is not enough economic regulation, especially on large corporations.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "There is too much economic regulation, which especially hurts small businesses",
+                    "multiplier": -1
+                }
+            ]
+        },
+        {
+            "groupName": "economic system",
+            "questions": [
+                {
+                    "text": "The United States is a fundamentally capitalistic nation and should avoid all socialistic policies.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "The United States should incorporate more socialistic policies in order to balance out the issues of rampant capitalism",
                     "multiplier": 1
                 }
             ]
