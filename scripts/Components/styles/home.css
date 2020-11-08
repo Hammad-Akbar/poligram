@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Aclonica');
+
+body {
+    background-color: white;
+}
+
+.rectangle-red {
+    background-color: #C96567
+}
+
+.rectangle-blue {
+    background-color: #97AABD;
+}
+
+.rectangle-white{
+    background-color: white;
+}
+
+.heading {
+	width: 365px;
+	height: 102px;
+	color: white;
+	font-family: "Aclonica";
+	font-weight: 400;
+	font-size: 60px;
+	text-align: left;
+	padding-top: 1em;
+	padding-left: 1em;
+}
+
+.topnav {
+  background-color: #314455;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: white;
+  font-family: "Source Sans Pro";
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #644E5B;
+  color: white;
+}
+
+.slogan {
+	height: 86px;
+	color: white;
+	font-family: "Lato";
+	font-weight: 300;
+	font-size: 40px;
+	line-height: 1px;
+	letter-spacing: 2px;
+	text-align: center;
+	padding-top: 1em;
+}
+.slogan-description {
+	height: 87px;
+	color: white;
+	font-family: "Source Sans Pro";
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.6px;
+	text-align: center;
+}
+
+.slogan-black {
+	height: 86px;
+	color: black;
+	font-family: "Lato";
+	font-weight: 300;
+	font-size: 40px;
+	line-height: 1px;
+	letter-spacing: 2px;
+	text-align: center;
+	padding-top: 1em;
+}
+.slogan-description-black {
+	height: 87px;
+	color: black;
+	font-family: "Source Sans Pro";
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.6px;
+	text-align: center;
+}
+
+.horizontal-line {
+	width: 100%;
+	height: 0px;
+	border-color: #7a7a7a;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.section-1 {
+	width: 57px;
+	height: 29px;
+	color: black;
+	font-family: "Lato";
+	font-weight: 400;
+	font-size: 21px;
+	letter-spacing: 1px;
+	text-align: left;
+}
+.section-1-description {
+	width: 300px;
+	word-wrap: break-word;
+	height: 130px;
+	color: black;
+	font-family: "Source Sans Pro";
+	font-size: 14px;
+	line-height: 1.3px;
+	text-align: left;
+}
