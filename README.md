@@ -17,3 +17,8 @@ to run:
 `npm run watch`
 
 `python app.py`
+
+
+References:
+
+quiz: https://www.studentnewsdaily.com/conservative-vs-liberal-beliefs/
