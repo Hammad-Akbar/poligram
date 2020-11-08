@@ -1,44 +1,160 @@
 {
-    "questions": [
+    "groups": [
         {
-            "text": "The Government should be larger (more services, higher taxes, etc.) than it currently is.",
-            "multiplier": 1
+            "groupName": "abortion",
+            "questions": [
+                {
+                    "text": "Abortion should be legal.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "Abortion should not be legal.",
+                    "multiplier": -1
+                }
+            ]
         },
         {
-            "text": "Taxes should be reduced, even if it means cutting social services.",
-            "multiplier": -1
+            "groupName": "death penalty",
+            "questions": [
+                {
+                    "text": "",
+                    "multiplier": 1
+                },
+                {
+                    "text": "",
+                    "multiplier": 1
+                }
+            ]
         },
         {
-            "text": "",
-            "multiplier": -1
+            "groupName": "economy",
+            "questions": [
+                {
+                    "text": "",
+                    "multiplier": 1
+                },
+                {
+                    "text": "",
+                    "multiplier": 1
+                }
+            ]
         },
         {
-            "text": "",
-            "multiplier": -1
+            "groupName": "education",
+            "questions": [
+                {
+                    "text": "",
+                    "multiplier": 1
+                },
+                {
+                    "text": "",
+                    "multiplier": 1
+                }
+            ]
         },
         {
-            "text": "",
-            "multiplier": -1
+            "groupName": "energy",
+            "questions": [
+                {
+                    "text": "",
+                    "multiplier": 1
+                },
+                {
+                    "text": "",
+                    "multiplier": 1
+                }
+            ]
         },
         {
-            "text": "",
-            "multiplier": -1
+            "groupName": "climate change",
+            "questions": [
+                {
+                    "text": "",
+                    "multiplier": 1
+                },
+                {
+                    "text": "",
+                    "multiplier": 1
+                }
+            ]
         },
         {
-            "text": "",
-            "multiplier": -1
+            "groupName": "gun control",
+            "questions": [
+                {
+                    "text": "",
+                    "multiplier": 1
+                },
+                {
+                    "text": "",
+                    "multiplier": 1
+                }
+            ]
         },
         {
-            "text": "",
-            "multiplier": -1
+            "groupName": "healthcare",
+            "questions": [
+                {
+                    "text": "",
+                    "multiplier": 1
+                },
+                {
+                    "text": "",
+                    "multiplier": 1
+                }
+            ]
         },
         {
-            "text": "",
-            "multiplier": -1
+            "groupName": "immigration",
+            "questions": [
+                {
+                    "text": "",
+                    "multiplier": 1
+                },
+                {
+                    "text": "",
+                    "multiplier": 1
+                }
+            ]
         },
         {
-            "text": "",
-            "multiplier": -1
+            "groupName": "religion",
+            "questions": [
+                {
+                    "text": "",
+                    "multiplier": 1
+                },
+                {
+                    "text": "",
+                    "multiplier": 1
+                }
+            ]
+        },
+        {
+            "groupName": "taxes",
+            "questions": [
+                {
+                    "text": "",
+                    "multiplier": 1
+                },
+                {
+                    "text": "",
+                    "multiplier": 1
+                }
+            ]
+        },
+        {
+            "groupName": "welfare",
+            "questions": [
+                {
+                    "text": "",
+                    "multiplier": 1
+                },
+                {
+                    "text": "",
+                    "multiplier": 1
+                }
+            ]
         }
     ]
 }
