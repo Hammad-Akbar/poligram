@@ -145,12 +145,20 @@
             "groupName": "immigration",
             "questions": [
                 {
-                    "text": "",
+                    "text": "The United States has a long history of immigration and should continue to welcome immigrants searching for a better life.",
                     "multiplier": 1
                 },
                 {
-                    "text": "",
+                    "text": "The United States must maintain strict control over who can and cannot immigrate and is well within its right to impose fair requirements for immigration.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "Undocumented immigrants should be allowed to stay in the United States and given a fair pathway to citizenship.",
                     "multiplier": 1
+                },
+                {
+                    "text": "The United States has a legal immigration system and everyone who wants to immigrate must go through it if they want to stay.",
+                    "multiplier": -1
                 }
             ]
         },
@@ -158,12 +166,12 @@
             "groupName": "religion",
             "questions": [
                 {
-                    "text": "",
+                    "text": "Separation of church and state is an extremely important principle and it means that religion must be kept out of government.",
                     "multiplier": 1
                 },
                 {
-                    "text": "",
-                    "multiplier": 1
+                    "text": "The government should not do anything which could endanger the free practice of religion and must do everything possible to uphold religious liberty.",
+                    "multiplier": -1
                 }
             ]
         },
@@ -171,12 +179,12 @@
             "groupName": "taxes",
             "questions": [
                 {
-                    "text": "",
+                    "text": "Higher taxes may be necessary in order to provide citizens with the services they need.",
                     "multiplier": 1
                 },
                 {
-                    "text": "",
-                    "multiplier": 1
+                    "text": "Taxes need to be reduced, even if that requires government programs to be cut.",
+                    "multiplier": -1
                 }
             ]
         },
@@ -184,12 +192,12 @@
             "groupName": "welfare",
             "questions": [
                 {
-                    "text": "",
+                    "text": "Welfare services allow the poor to support themselves and help them get back on their feet.",
                     "multiplier": 1
                 },
                 {
-                    "text": "",
-                    "multiplier": 1
+                    "text": "Welfare services cause people to become dependent on the government and prevent them from improving their lives.",
+                    "multiplier": -1
                 }
             ]
         }
