@@ -19,7 +19,7 @@ function LoginPage ({setIsAuth}) {
   };
 
   function responseGoogleFailure (error) {
-    alert(error);
+    alert('Sorry, login failed!');
   };
 
   return (
