@@ -7,7 +7,7 @@ function Quiz() {
     return (
         <div>
             <h2>This is the quiz</h2>
-            <Question />
+            <Question text="This is a sample text prop" index="1" />
         </div>
     );
 }
