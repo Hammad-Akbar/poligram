@@ -4,6 +4,7 @@ import flask_socketio
 import flask_sqlalchemy
 import requests
 import dotenv
+import json
 
 
 dotenv.load_dotenv()
@@ -45,7 +46,9 @@ def send_message(text):
 
 @socketio.on('request quiz')
 def request_quiz():
-    print('quiz request received')
+    questions_file = open('quiz_questions.json', 'r')
+    question_json = json.load(questions_file)
+    questions_file.close()
     
 
 if __name__ == '__main__':
