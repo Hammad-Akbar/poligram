@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Socket from './Socket'
-
+import './styles/dictionary.css'
 
 function News () {
 
@@ -24,13 +24,12 @@ function News () {
 
     const news = newsData.map((news) => (
         <p>
-            {news.title}
-            {news.author}
-            {news.content}
-            {news.published}
-            {news.source}
-            {news.url}
-            {news.img}
+            {news.title}<br></br>
+            {news.author}<br></br>
+            {news.content}<a href={news.url} target="_blank">Click Here</a><br></br>
+            {news.published}<br></br>
+            {news.source}<br></br>
+            <img src={news.img}/><br></br>
         </p>
     ))
 
