@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SearchBar from './SearchBar'
 import Socket from './Socket'
+import './styles/dictionary.css'
 
 function Dictionary () {
 

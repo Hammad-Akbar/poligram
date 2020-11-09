@@ -10,8 +10,15 @@ basic setup:
 
 `npm install --save react-router-dom`
 
+`npm install --save-dev style-loader css-loader`
+
 to run:
 
 `npm run watch`
 
 `python app.py`
+
+
+References:
+
+quiz: https://www.studentnewsdaily.com/conservative-vs-liberal-beliefs/
