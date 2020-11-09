@@ -58,19 +58,18 @@ def news_api_call():
 	response_json = response.json()
 	news_list = response_json["articles"]
 	
-	print(news_list, "response");
-	print("\n\n")
+	#print(news_list, "response");
 	
-
 	newsObjectLst = []
 
-
 	for i in news_list:
+		news_content = i["content"].split("…")
+		final_news_content = str(news_content[0]) + "(continue reading)... "
 		newsObjectLst.append(
 			{
 			'title': i["title"], 
 			'author': i["author"], 
-			'content': i["content"], 
+			'content': final_news_content, 
 			'published': i["publishedAt"], 
 			'source': i["source"]["name"], 
 			'url': i["url"], 
@@ -80,7 +79,6 @@ def news_api_call():
 
 
 	print(newsObjectLst)
-
 
 	socketio.emit('newsData', {
 		'newsObjectLst': newsObjectLst
