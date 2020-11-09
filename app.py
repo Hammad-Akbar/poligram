@@ -5,6 +5,7 @@ import flask_sqlalchemy
 import requests
 import dotenv
 import json
+import random
 
 
 dotenv.load_dotenv()
@@ -47,8 +48,13 @@ def send_message(text):
 @socketio.on('request quiz')
 def request_quiz():
     questions_file = open('quiz_questions.json', 'r')
-    question_json = json.load(questions_file)
+    questions_json = json.load(questions_file)
     questions_file.close()
+    
+    group_indexes = [n for n in range(len(questions_json['groups']))]
+    random.shuffle(group_indexes)
+    
+    print(group_indexes)
     
 
 if __name__ == '__main__':
