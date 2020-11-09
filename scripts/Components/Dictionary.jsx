@@ -9,12 +9,10 @@ function Dictionary () {
 
     useEffect(() => {
         Socket.on('forward message', (data) => {
-            setMessage(data)
+            setMessage(data['messageReceived'])
         })
         return () => {
-            window.removeEventListener("beforeunload", () => {
-                Socket.close()
-            })
+            Socket.off('forward message')
         }
     }, [])
 

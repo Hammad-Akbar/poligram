@@ -1,5 +1,6 @@
 import os
-import flask
+import flask 
+from flask import request
 import flask_socketio
 import flask_sqlalchemy
 import requests
@@ -26,9 +27,23 @@ db.app = app
 def hello():
     return flask.render_template('index.html')
 
+@socketio.on('connect user')
+def on_connect(userProfile):
+    socketId = request.sid
+    name = userProfile['name']
+    email = userProfile['email']
+    image = userProfile['imageUrl']
+
+    socketio.emit('new connection', {
+        "user": name,
+        "userEmail": email,
+        "userImage": image
+    }, room=socketId)
+
 
 @socketio.on('send message')
 def send_message(text):
+    socketId = request.sid
     response = requests.get(
         f'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{text}?key={DICTIONARY_API_KEY}')
     result = response.json()
@@ -40,7 +55,9 @@ def send_message(text):
     else:
         messageReceived = "Sorry, we can't find the definition of the term you are looking for."
 
-    socketio.emit('forward message', messageReceived)
+    socketio.emit('forward message', {
+        'messageReceived': messageReceived
+    }, room=socketId)
 
 
 if __name__ == '__main__':
