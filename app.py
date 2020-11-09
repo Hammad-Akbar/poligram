@@ -29,7 +29,11 @@ FEEDBACK_FORM = "https://app.traggr.com/embed/v1/feedbackform?token={}&verificat
 @app.route('/')
 def hello():
     return flask.render_template('index.html')
-
+    
+@socketio.on('new feedback')
+def create_feedback_form():
+	socketio.emit('feedback created', FEEDBACK_FORM)
+	
 @socketio.on('send message')
 def send_message(text):
     response = requests.get(
