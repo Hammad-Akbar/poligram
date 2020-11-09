@@ -63,7 +63,9 @@ def request_quiz():
         
         quiz_out.append(questions[q_index])
         
-    print(quiz_out)
+    sid = flask.request.sid
+    
+    socketio.emit('quiz generated', quiz_out, room=sid)
     
     
 if __name__ == '__main__':

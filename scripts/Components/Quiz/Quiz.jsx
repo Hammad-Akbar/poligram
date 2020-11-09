@@ -5,6 +5,13 @@ import Socket from "../Socket"
 
 function Quiz() {
     
+    React.useEffect(() => {
+        Socket.on("quiz generated", (data) => {
+            console.log("quiz gen!");
+            console.log(data);
+        });
+    });
+    
     function generateQuiz() {
         Socket.emit("request quiz");
     }
