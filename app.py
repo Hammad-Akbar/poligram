@@ -81,6 +81,7 @@ def news_api_call(data):
 	    link.append(i["url"])
 	    print("Original Link: ", i["urlToImage"])
 	    imglink.append(i["urlToImage"])
+	    print("\n\n")
 
 	socketio.emit('newsData', {
      	'img': imglink,
