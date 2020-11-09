@@ -4,18 +4,18 @@ import './styles/dictionary.css'
 
 function News () {
 
-    const [title, setTitle] = React.useState([]);
-    const[author, setAuthor] = React.useState([]);
-    const[content, setContent] = React.useState([]);
-    const[source, setSource] = React.useState([]);
-    const[link, setLink] = React.useState([]);
-    const[imglink, setImglink] = React.useState([]);
+    const [title, setTitle] = useState([]);
+    const[author, setAuthor] = useState([]);
+    const[content, setContent] = useState([]);
+    const[source, setSource] = useState([]);
+    const[link, setLink] = useState([]);
+    const[imglink, setImglink] = useState([]);
    
     
     
     
      function getTitles() {
-        React.useEffect(() => {
+        useEffect(() => {
             Socket.on('newsData', (data) => {
                console.log("Received a news title from server: " + data['title']);
                 setTitle(data['title']);
@@ -24,7 +24,7 @@ function News () {
      }
     
      function getAuthor() {
-        React.useEffect(() => {
+        useEffect(() => {
              Socket.on('newsData', (data) => {
              console.log("Received a news author from server: " + data['author']);
                 setAuthor(data['author']);
@@ -33,7 +33,7 @@ function News () {
      }
     
      function getcontent() {
-         React.useEffect(() => {
+         useEffect(() => {
              Socket.on('newsData', (data) => {
                  console.log("Received a news content from server: " + data['content']);
                  setContent(data['content']);
@@ -42,7 +42,7 @@ function News () {
      }
     
      function getsource() {
-         React.useEffect(() => {
+         useEffect(() => {
              Socket.on('newsData', (data) => {
                  console.log("Received a news content from server: " + data['source']);
                  setSource(data['source']);
@@ -51,7 +51,7 @@ function News () {
      }
     
      function getlink() {
-         React.useEffect(() => {
+         useEffect(() => {
              Socket.on('newsData', (data) => {
                  console.log("Received a news content from server: " + data['link']);
                 setLink(data['link']);
@@ -60,7 +60,7 @@ function News () {
     }
     
      function getimagelink() {
-       React.useEffect(() => {
+       useEffect(() => {
             Socket.on('newsData', (data) => {
                console.log("Received a news content from server: " + data['img']);
                  setImglink(data['img']);
