@@ -4,8 +4,8 @@ import './styles/dictionary.css'
 
 function News () {
 
-     const [title, setTitle] = React.useState([]);
-   const[author, setAuthor] = React.useState([]);
+    const [title, setTitle] = React.useState([]);
+    const[author, setAuthor] = React.useState([]);
     const[content, setContent] = React.useState([]);
     const[source, setSource] = React.useState([]);
     const[link, setLink] = React.useState([]);
@@ -80,6 +80,11 @@ function News () {
         <div>
             <h1>Recieved News titles</h1>
             {title}
+            {content}
+            {author}
+            {source}
+            {imglink}
+            {link}
         </div>
     );
 }
