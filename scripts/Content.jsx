@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Dictionary from './Components/Dictionary'
+import Dictionary from './Components/Dictionary';
 import Home from './Components/Home';
 import Navigation from './Components/Navigation';
 import LoginPage from './Components/LoginPage';
-import Socket from './Components/Socket'
+import Socket from './Components/Socket';
+import Quiz from "./Components/Quiz/Quiz";
 
 const Content = () => {
 
@@ -33,6 +34,7 @@ const Content = () => {
               <Switch>
                 <Route path="/" component={Home} exact/>
                 <Route path="/Dictionary" component={Dictionary}/>
+                <Route path="/Quiz" component={Quiz} />
                 <Route component={Error}/>
               </Switch>
             </div> 
@@ -54,4 +56,4 @@ const Content = () => {
   )
 }
 
-export default Content
+export default Content;
