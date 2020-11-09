@@ -60,37 +60,27 @@ def news_api_call():
 	
 	#print(news_list, "response");
 	
-	Title = []
-	Author = []
-	content = []
-	source = []
-	link = []
-	imglink = []
+	newsObjectLst = []
 
 	for i in news_list:
-	    Title.append(i["title"])
-	    print("Title : ", i["title"])
-	    print("Author: ", i["author"])
-	    Author.append(i["author"])
-	    print("Content: ", i["content"])
-	    content.append(i["content"])
-	    print("Published At: ", i["publishedAt"])
-	    print("sources: ", i["source"]["name"])
-	    source.append(i["source"]["name"])
-	    print("Original Link: ", i["url"])
-	    link.append(i["url"])
-	    print("Original Link: ", i["urlToImage"])
-	    imglink.append(i["urlToImage"])
-	    print("\n\n")
+		newsObjectLst.append(
+			{
+			'title': i["title"], 
+			'author': i["author"], 
+			'content': i["content"], 
+			'published': i["publishedAt"], 
+			'source': i["source"]["name"], 
+			'url': i["url"], 
+			'img': i["urlToImage"]
+			}
+		)
+
+
+	print(newsObjectLst)
 
 	socketio.emit('newsData', {
-     	'img': imglink,
-     	'link': link,
-    	'source': source,
-     	'content': content,
-     	'author': Author,
-     	'title': Title
-    })
+		'newsObjectLst': newsObjectLst
+	})
 
 
 if __name__ == '__main__':

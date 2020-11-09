@@ -7,24 +7,13 @@ function News () {
     console.log('ON NEWS PAGE')
 
 
-    const [title, setTitle] = useState([]);
-    const[author, setAuthor] = useState([]);
-    const[content, setContent] = useState([]);
-    const[source, setSource] = useState([]);
-    const[link, setLink] = useState([]);
-    const[imglink, setImglink] = useState([]);
+    const [newsData, setNewsData] = useState([]);
    
     useEffect(() => {
         Socket.emit('news api call')
 
         Socket.on('newsData', (data) => {
-            console.log(data)
-            setTitle(data['title'])
-            setContent(data['content'])
-            setAuthor(data['author'])
-            setSource(data['source'])
-            setImglink(data['img'])
-            setLink(data['link'])
+            setNewsData(data.newsObjectLst)
         })
 
         return () => {
@@ -32,17 +21,23 @@ function News () {
         }
 
     }, [])
-    
+
+    const news = newsData.map((news) => (
+        <p>
+            {news.title}
+            {news.author}
+            {news.content}
+            {news.published}
+            {news.source}
+            {news.url}
+            {news.img}
+        </p>
+    ))
 
     return (
         <div>
             <h1>Recieved News titles</h1>
-            {title}
-            {content}
-            {author}
-            {source}
-            {imglink}
-            {link}
+            {news}
         </div>
     );
 }
