@@ -8,16 +8,23 @@ function Quiz() {
     
     React.useEffect(() => {
         Socket.on("quiz generated", (data) => {
-            let questions = data.map((question) => {
+            let questions = data.map((question, i) => {
+                let bgColor;
+                if (i % 2 == 0) {
+                    bgColor = "white";
+                } else {
+                    bgColor = "#D3D3D3";
+                }
+                
                 return (
-                    <div style={{margin: "2em"}}>
+                    <div style={{padding: "1em", background: bgColor}}>
                         <Question text={question['text']} />
                     </div>
                 );
             });
             
             setQuiz(
-                <div style={{margin: "2em"}}>
+                <div style={{margin: "2em", border: "solid"}}>
                     {questions}
                 </div>
             );
