@@ -9,7 +9,7 @@ import dotenv
 dotenv.load_dotenv()
 
 DICTIONARY_API_KEY = os.getenv('DICT_API_KEY')
-news_api_key = os.getenv('NEWS_API_KEY')
+NEWS_API_KEY = os.getenv('NEWS_API_KEY')
 
 app = flask.Flask(__name__)
 socketio = flask_socketio.SocketIO(app)
@@ -43,15 +43,15 @@ def send_message(text):
 
     socketio.emit('forward message', messageReceived)
     
-    
-   
-def news_api_call(data):
-	print("Got an event for newz:", data)
+
+@socketio.on('news api call')
+def news_api_call():
+	print("Got an event for newz:")
 	url = 'https://newsapi.org/v2/everything?'
 	parameters = {
 	    'q': 'politics', # query phrase
 	    'pageSize': 5,  # maximum is 100
-	    'apiKey': news_api_key
+	    'apiKey': NEWS_API_KEY
 	}
 
 	response = requests.get(url, params=parameters)
@@ -61,45 +61,34 @@ def news_api_call(data):
 	print(news_list, "response");
 	print("\n\n")
 	
-	socketio.emit('newsData', {
-     	'news_data' : news_list
-     })
-     
-	Title = []
-	Author = []
-	content = []
-	source = []
-	link = []
-	imglink = []
+
+	newsObjectLst = []
+
 
 	for i in news_list:
-	    Title.append(i["title"])
-	    print("Title : ", i["title"])
-	    print("Author: ", i["author"])
-	    Author.append(i["author"])
-	    print("Content: ", i["content"])
-	    content.append(i["content"])
-	    print("Published At: ", i["publishedAt"])
-	    print("sources: ", i["source"]["name"])
-	    source.append(i["source"]["name"])
-	    print("Original Link: ", i["url"])
-	    link.append(i["url"])
-	    print("Original Link: ", i["urlToImage"])
-	    imglink.append(i["urlToImage"])
-	    print("\n\n")
+		newsObjectLst.append(
+			{
+			'title': i["title"], 
+			'author': i["author"], 
+			'content': i["content"], 
+			'published': i["publishedAt"], 
+			'source': i["source"]["name"], 
+			'url': i["url"], 
+			'img': i["urlToImage"]
+			}
+		)
 
-# 	socketio.emit('newsData', {
-#      	'img': imglink,
-#      	'link': link,
-#     	'source': source,
-#      	'content': content,
-#      	'author': Author,
-#      	'title': Title
-#      })
 
-news_api_call("news")
+	print(newsObjectLst)
+
+
+	socketio.emit('newsData', {
+		'newsObjectLst': newsObjectLst
+	})
+
+
 if __name__ == '__main__':
-    socketio.run(
+	socketio.run(
         app,
         host=os.getenv('IP', '0.0.0.0'),
         port=int(os.getenv('PORT', 8080)),
