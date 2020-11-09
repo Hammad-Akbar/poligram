@@ -43,6 +43,11 @@ def send_message(text):
     socketio.emit('forward message', messageReceived)
 
 
+@socketio.on('request quiz')
+def request_quiz():
+    print('quiz request received')
+    
+
 if __name__ == '__main__':
     socketio.run(
         app,

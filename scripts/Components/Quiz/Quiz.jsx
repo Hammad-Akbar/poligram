@@ -1,11 +1,12 @@
 import React from "react";
 
 import Question from "./Question";
+import Socket from "../Socket"
 
 function Quiz() {
     
     function generateQuiz() {
-        console.log("quiz");
+        Socket.emit("request quiz");
     }
     
     return (
