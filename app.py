@@ -51,12 +51,21 @@ def request_quiz():
     questions_json = json.load(questions_file)
     questions_file.close()
     
-    group_indexes = [n for n in range(len(questions_json['groups']))]
+    groups = questions_json['groups']
+    group_indexes = [n for n in range(len(groups))]
     random.shuffle(group_indexes)
     
-    print(group_indexes)
+    quiz_out = []
     
-
+    for i in group_indexes:
+        questions = groups[i]['questions']
+        q_index = random.randrange(len(questions))
+        
+        quiz_out.append(questions[q_index])
+        
+    print(quiz_out)
+    
+    
 if __name__ == '__main__':
     socketio.run(
         app,
