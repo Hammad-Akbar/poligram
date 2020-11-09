@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Socket from './Socket'
-import './styles/dictionary.css'
+
 
 function News () {
+
+    console.log('ON NEWS PAGE')
+
 
     const [title, setTitle] = useState([]);
     const[author, setAuthor] = useState([]);
@@ -12,7 +15,10 @@ function News () {
     const[imglink, setImglink] = useState([]);
    
     useEffect(() => {
+        Socket.emit('news api call')
+
         Socket.on('newsData', (data) => {
+            console.log(data)
             setTitle(data['title'])
             setContent(data['content'])
             setAuthor(data['author'])

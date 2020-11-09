@@ -43,10 +43,10 @@ def send_message(text):
 
     socketio.emit('forward message', messageReceived)
     
-    
-   
-def news_api_call(data):
-	print("Got an event for newz:", data)
+
+@socketio.on('news api call')
+def news_api_call():
+	print("Got an event for newz:")
 	url = 'https://newsapi.org/v2/everything?'
 	parameters = {
 	    'q': 'politics', # query phrase
@@ -90,12 +90,11 @@ def news_api_call(data):
      	'content': content,
      	'author': Author,
      	'title': Title
-     })
+    })
 
-news_api_call("news")
 
 if __name__ == '__main__':
-    socketio.run(
+	socketio.run(
         app,
         host=os.getenv('IP', '0.0.0.0'),
         port=int(os.getenv('PORT', 8080)),
