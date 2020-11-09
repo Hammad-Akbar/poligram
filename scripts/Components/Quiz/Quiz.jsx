@@ -24,8 +24,11 @@ function Quiz() {
             });
             
             setQuiz(
-                <div style={{margin: "2em", border: "solid"}}>
-                    {questions}
+                <div>
+                    <div style={{margin: "2em", border: "solid"}}>
+                        {questions}
+                    </div>
+                    <button style={{marginBottom: "3em"}}>Submit quiz</button>
                 </div>
             );
         });
