@@ -58,8 +58,13 @@ def news_api_call(data):
 	response_json = response.json()
 	news_list = response_json["articles"]
 	
-	#print(news_list, "response");
+	print(news_list, "response");
+	print("\n\n")
 	
+	socketio.emit('newsData', {
+     	'news_data' : news_list
+     })
+     
 	Title = []
 	Author = []
 	content = []
@@ -83,14 +88,14 @@ def news_api_call(data):
 	    imglink.append(i["urlToImage"])
 	    print("\n\n")
 
-	socketio.emit('newsData', {
-     	'img': imglink,
-     	'link': link,
-    	'source': source,
-     	'content': content,
-     	'author': Author,
-     	'title': Title
-     })
+# 	socketio.emit('newsData', {
+#      	'img': imglink,
+#      	'link': link,
+#     	'source': source,
+#      	'content': content,
+#      	'author': Author,
+#      	'title': Title
+#      })
 
 news_api_call("news")
 if __name__ == '__main__':
