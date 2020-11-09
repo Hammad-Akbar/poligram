@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Socket from './Socket';
+import './styles/home.css'
 
 function handleSubmit(event) {
   const newFeedback = document.getElementByTagName('button_clicked');
@@ -12,8 +13,10 @@ function handleSubmit(event) {
 
 export default function FeedbackButton() {
   return (
-    <form onSubmit={handleSubmit}>
-      <button type="submit">Give Feedback</button>
-    </form>
+    <div className='feedback-button'>
+        <form onSubmit={handleSubmit}>
+            <button type="submit">Give Feedback</button>
+        </form>
+    </div>
   );
 }

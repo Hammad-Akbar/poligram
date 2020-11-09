@@ -38,7 +38,7 @@ export default function Home() {
                 <div className='slogan'> 
                     <span className='message'>Get in touch with us!</span>
                 </div>
-                <FeedbackButton />
+                <div className='center'> <FeedbackButton /> </div>
             </div>
         </body>
     );
