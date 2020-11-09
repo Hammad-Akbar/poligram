@@ -9,7 +9,7 @@ import dotenv
 dotenv.load_dotenv()
 
 DICTIONARY_API_KEY = os.getenv('DICT_API_KEY')
-news_api_key = os.getenv('NEWS_API_KEY')
+NEWS_API_KEY = os.getenv('NEWS_API_KEY')
 
 app = flask.Flask(__name__)
 socketio = flask_socketio.SocketIO(app)
@@ -51,7 +51,7 @@ def news_api_call(data):
 	parameters = {
 	    'q': 'politics', # query phrase
 	    'pageSize': 5,  # maximum is 100
-	    'apiKey': news_api_key
+	    'apiKey': NEWS_API_KEY
 	}
 
 	response = requests.get(url, params=parameters)
@@ -93,6 +93,7 @@ def news_api_call(data):
      })
 
 news_api_call("news")
+
 if __name__ == '__main__':
     socketio.run(
         app,
