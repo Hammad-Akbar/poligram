@@ -17,9 +17,7 @@ const Content = () => {
     });
 
     return () => {
-      window.removeEventListener('beforeunload', () => {
-        Socket.close();
-      });
+      Socket.off("new connection");  
     };
     
   }, [])
