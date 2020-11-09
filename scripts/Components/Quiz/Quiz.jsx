@@ -8,9 +8,19 @@ function Quiz() {
     
     React.useEffect(() => {
         Socket.on("quiz generated", (data) => {
-            setQuiz(data.map((question) => {
-                return <Question text={question['text']} />;
-            }));
+            let questions = data.map((question) => {
+                return (
+                    <div style={{margin: "2em"}}>
+                        <Question text={question['text']} />
+                    </div>
+                );
+            });
+            
+            setQuiz(
+                <div style={{margin: "2em"}}>
+                    {questions}
+                </div>
+            );
         });
         
         return () => {
