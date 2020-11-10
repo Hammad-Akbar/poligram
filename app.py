@@ -31,8 +31,23 @@ def hello():
     return flask.render_template('index.html')
 
 
+@socketio.on('connect user')
+def on_connect(userProfile):
+    socketId = request.sid
+    name = userProfile['name']
+    email = userProfile['email']
+    image = userProfile['imageUrl']
+
+    socketio.emit('new connection', {
+        "user": name,
+        "userEmail": email,
+        "userImage": image
+    }, room=socketId)
+
+
 @socketio.on('send message')
 def send_message(text):
+    socketId = request.sid
     response = requests.get(
         f'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{text}?key={DICTIONARY_API_KEY}')
     result = response.json()
@@ -44,7 +59,32 @@ def send_message(text):
     else:
         messageReceived = "Sorry, we can't find the definition of the term you are looking for."
 
-    socketio.emit('forward message', messageReceived)
+    socketio.emit('forward message', {
+        'messageReceived': messageReceived
+    }, room=socketId)
+
+
+@socketio.on('request quiz')
+def request_quiz():
+    questions_file = open('quiz_questions.json', 'r')
+    questions_json = json.load(questions_file)
+    questions_file.close()
+    
+    groups = questions_json['groups']
+    group_indexes = [n for n in range(len(groups))]
+    random.shuffle(group_indexes)
+    
+    quiz_out = []
+    
+    for i in group_indexes:
+        questions = groups[i]['questions']
+        q_index = random.randrange(len(questions))
+        
+        quiz_out.append(questions[q_index])
+        
+    sid = flask.request.sid
+    
+    socketio.emit('quiz generated', quiz_out, room=sid)
     
 
 @socketio.on('news api call')
@@ -77,9 +117,6 @@ def news_api_call():
 			'img': news["urlToImage"]
 			}
 		)
-
-
-	print(newsObjectLst)
 
 	socketio.emit('newsData', {
 		'newsObjectLst': newsObjectLst
