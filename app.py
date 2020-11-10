@@ -43,7 +43,6 @@ def on_connect(userProfile):
         "userImage": image
     }, room=socketId)
 
-
 @socketio.on('send message')
 def send_message(text):
     socketId = request.sid
