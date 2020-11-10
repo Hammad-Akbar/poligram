@@ -28,7 +28,7 @@ function News () {
             {newsData.map((news) => (
          <p>
             
-             <div className='headerclass'>{news.title}</div><br></br>
+             <div className='headerclass'>{news.title}</div><br/>
              
             <div className="row">
                 <div className="column"><p>Article: {news.content}<a href={news.url} target="_blank">Click Here</a></p>
@@ -38,7 +38,7 @@ function News () {
                 
                 <div className="column"><img src={news.img} width="300" height="300"/></div>
                 
-            </div><br></br>
+            </div><br/>
             
             
             
