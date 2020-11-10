@@ -30,6 +30,19 @@ db.app = app
 def hello():
     return flask.render_template('index.html')
 
+@socketio.on('connect user')
+def on_connect(userProfile):
+    socketId = request.sid
+    name = userProfile['name']
+    email = userProfile['email']
+    image = userProfile['imageUrl']
+
+    socketio.emit('new connection', {
+        "user": name,
+        "userEmail": email,
+        "userImage": image
+    }, room=socketId)
+
 
 @socketio.on('connect user')
 def on_connect(userProfile):
@@ -122,7 +135,7 @@ def news_api_call():
 		'newsObjectLst': newsObjectLst
 	})
 
-
+    
 if __name__ == '__main__':
 	socketio.run(
         app,
