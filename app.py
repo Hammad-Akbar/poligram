@@ -1,9 +1,12 @@
 import os
-import flask
+import flask 
+from flask import request
 import flask_socketio
 import flask_sqlalchemy
 import requests
 import dotenv
+import json
+import random
 
 
 dotenv.load_dotenv()
@@ -47,7 +50,7 @@ def send_message(text):
 @socketio.on('news api call')
 def news_api_call():
 	print("Got an event for newz:")
-	url = 'https://newsapi.org/v2/everything?'
+	url = 'https://newsapi.org/v2/everything'
 	parameters = {
 	    'q': 'politics', # query phrase
 	    'pageSize': 15,# maximum is 100
@@ -58,22 +61,20 @@ def news_api_call():
 	response_json = response.json()
 	news_list = response_json["articles"]
 	
-	#print(news_list, "response");
-	
 	newsObjectLst = []
 
-	for i in news_list:
-		news_content = i["content"].split("…")
+	for news in news_list:
+		news_content = news["content"].split("…")
 		final_news_content = str(news_content[0]) + "(continue reading)... "
 		newsObjectLst.append(
 			{
-			'title': i["title"], 
-			'author': i["author"], 
+			'title': news["title"], 
+			'author': news["author"], 
 			'content': final_news_content, 
-			'published': i["publishedAt"], 
-			'source': i["source"]["name"], 
-			'url': i["url"], 
-			'img': i["urlToImage"]
+			'published': news["publishedAt"], 
+			'source': news["source"]["name"], 
+			'url': news["url"], 
+			'img': news["urlToImage"]
 			}
 		)
 
