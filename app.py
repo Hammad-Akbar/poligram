@@ -44,20 +44,6 @@ def on_connect(userProfile):
     }, room=socketId)
 
 
-@socketio.on('connect user')
-def on_connect(userProfile):
-    socketId = request.sid
-    name = userProfile['name']
-    email = userProfile['email']
-    image = userProfile['imageUrl']
-
-    socketio.emit('new connection', {
-        "user": name,
-        "userEmail": email,
-        "userImage": image
-    }, room=socketId)
-
-
 @socketio.on('send message')
 def send_message(text):
     socketId = request.sid
