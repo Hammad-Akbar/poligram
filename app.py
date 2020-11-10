@@ -50,7 +50,7 @@ def news_api_call():
 	url = 'https://newsapi.org/v2/everything?'
 	parameters = {
 	    'q': 'politics', # query phrase
-	    'pageSize': 5,  # maximum is 100
+	    'pageSize': 15,# maximum is 100
 	    'apiKey': NEWS_API_KEY
 	}
 
