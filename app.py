@@ -27,25 +27,19 @@ db.session.commit()
 def hello():
     return flask.render_template('index.html')
  
-@socketio.on('new feedback name')
+@socketio.on('new feedback')
 def on_new_feedback(data):
-    """ when receiving a new feedback name """
-    text = data["feedback"]
+    """ when receiving new feedback """
+    name = data["name"]
+    feedback = data["feedback"]
 
-    db.session.add(models.FeedbackLog(text))
+    db.session.add(models.NameLog(name))
+    db.session.add(models.FeedbackLog(feedback))
+    
     db.session.commit()
     
-    print("Recieved name")
-    
-@socketio.on('new feedback message')
-def on_new_feedback_name(data):
-    """ when receiving a new message """
-    text = data["name"]
-
-    db.session.add(models.NameLog(text))
-    db.session.commit()
-    
-    print("Received feedback")
+    print("Recieved name: " , name)
+    print("Received feedback: " , feedback)
     
 @socketio.on('send message')
 def send_message(text):
