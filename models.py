@@ -1,18 +1,29 @@
+""" models.py - creates database tables """
+
 from app import db
 
+class NameLog(db.Model):
+    """ Add name table to database """
 
-class TestModel(db.Model):
-    ''' test model '''
-    __tablename__ = "poligram_test_table"
-    
-    field1 = db.Column(db.String(32), primary_key=True)
-    field2 = db.Column(db.Integer)
-    field3 = db.Column(db.String(64))
-    
-    def __init__(self, field1, field2, field3):
-        self.field1 = field1
-        self.field2 = field2
-        self.field3 = field3
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(1000))
 
-db.create_all()
-db.session.commit()
+    def __init__(self, a_name):
+        self.name = a_name
+
+    def __repr__(self):
+        return '<Name: %s>' % self.name
+
+class FeedbackLog(db.Model):
+    """ Add feedback table to database """
+
+    id = db.Column(db.Integer, primary_key=True)
+    feedback = db.Column(db.String(1000))
+
+    def __init__(self, a_feedback):
+        self.feedback = a_feedback
+
+    def __repr__(self):
+        return '<Feedback: %s>' % self.feedback
+
+
