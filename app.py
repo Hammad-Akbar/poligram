@@ -33,8 +33,7 @@ def on_new_feedback(data):
     name = data["name"]
     feedback = data["feedback"]
 
-    db.session.add(models.NameLog(name))
-    db.session.add(models.FeedbackLog(feedback))
+    db.session.add(models.FeedbackLog(feedback, name))
     
     db.session.commit()
     
