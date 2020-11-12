@@ -85,9 +85,7 @@ def request_quiz():
     socketio.emit('quiz generated', quiz_out, room=sid)
     
 
-@socketio.on('news api call')
-def news_api_call():
-	print("Got an event for newz:")
+def api_call_for_news():
 	url = 'https://newsapi.org/v2/everything'
 	parameters = {
 	    'q': 'politics', # query phrase
@@ -97,8 +95,14 @@ def news_api_call():
 
 	response = requests.get(url, params=parameters)
 	response_json = response.json()
-	news_list = response_json["articles"]
 	
+	return response_json["articles"]
+
+
+@socketio.on('news api call')
+def news_api_call():
+	print("Got an event for newz:")
+	news_list = api_call_for_news()
 	newsObjectLst = []
 
 	for news in news_list:
@@ -115,10 +119,12 @@ def news_api_call():
 			'img': news["urlToImage"]
 			}
 		)
-
+	
 	socketio.emit('newsData', {
 		'newsObjectLst': newsObjectLst
 	})
+	
+	return newsObjectLst
 
     
 if __name__ == '__main__':
