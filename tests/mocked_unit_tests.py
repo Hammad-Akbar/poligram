@@ -29,8 +29,8 @@ class mockedTest(unittest.TestCase):
         response = app.messageDict(mocked_get.return_value.json.return_value)
         result = "a piece of paper indicating a person\u0027s " \
                  "preferences in an election, " \
-                 "the right to formally express one\u0027s "\
-                 "position "\
+                 "the right to formally express one\u0027s " \
+                 "position " \
                  "or will in an election"
         self.assertEqual(response, result)
 
@@ -57,6 +57,10 @@ class mockedTest(unittest.TestCase):
         self.assertEqual(message, "a piece of paper indicating a person's preferences in an election, "
                                   "the right to formally express one's position or will in an election")
 
+    def test_home(self):
+        tester = app.app.test_client(self)
+        response = tester.get('/', content_type='html')
+        self.assertEqual(response.status_code, 200)
 
 
 if __name__ == '__main__':
