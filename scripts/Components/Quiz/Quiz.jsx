@@ -18,7 +18,7 @@ function Quiz() {
                 
                 return (
                     <div style={{padding: "1em", background: bgColor}}>
-                        <Question text={question['text']} updateCallback={updateQuestion} />
+                        <Question text={question['text']} multiplier={question['multiplier']} index={i} updateCallback={updateQuestion} />
                     </div>
                 );
             });
@@ -40,8 +40,10 @@ function Quiz() {
         };
     });
     
-    function updateQuestion() {
+    function updateQuestion(event) {
         console.log("question update!");
+        console.log(event.target.name);
+        console.log(event.target.value);
     }
     
     function generateQuiz() {
