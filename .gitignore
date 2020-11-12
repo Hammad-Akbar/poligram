@@ -5,3 +5,5 @@ package-lock.json
 .env
 .idea
 news.env
+.coverage
+__pycache__
