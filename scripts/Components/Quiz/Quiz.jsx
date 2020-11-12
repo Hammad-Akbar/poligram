@@ -25,10 +25,12 @@ function Quiz() {
             
             setQuiz(
                 <div>
-                    <div style={{margin: "2em", border: "solid"}}>
-                        {questions}
-                    </div>
-                    <button style={{marginBottom: "3em"}}>Submit quiz</button>
+                    <form onSubmit={submitQuiz}>
+                        <div style={{margin: "2em", border: "solid"}}>
+                            {questions}
+                        </div>
+                        <button style={{marginBottom: "3em"}}>Submit quiz</button>
+                    </form>
                 </div>
             );
         });
@@ -40,6 +42,12 @@ function Quiz() {
     
     function generateQuiz() {
         Socket.emit("request quiz");
+    }
+    
+    function submitQuiz(event) {
+        alert("hello!");
+        
+        event.preventDefault();
     }
     
     return (
