@@ -31,16 +31,18 @@ TODO: Fill out description
 7. If you are still having issues, you may use `heroku logs --tail` to see what's wrong.
 
 ### Setting up React     
-1. Install your stuff!    
-  a) `npm install`    
-  b) `pip install flask-socketio`    
-  c) `pip install eventlet`    
-  d) `npm install -g webpack`    
-  e) `npm install --save-dev webpack`    
-  f) `npm install socket.io-client --save`    
-  g) `npm install --save react-router-dom`
-  h) `npm install --save-dev style-loader css-loader`
-  i) `npm install react-google-login`
+1. Install your stuff! 
+```
+`npm install`    
+`pip install flask-socketio`    
+`pip install eventlet`    
+`npm install -g webpack`    
+`npm install --save-dev webpack`    
+`npm install socket.io-client --save`    
+`npm install --save react-router-dom`
+`npm install --save-dev style-loader css-loader`
+`npm install react-google-login`
+```
 
 :warning: :warning: :warning: If you see any error messages, make sure you use `sudo pip` or `sudo npm`. If it says "pip cannot be found", run `which pip` and use `sudo [path to pip from which pip] install` :warning: :warning: :warning:    
   

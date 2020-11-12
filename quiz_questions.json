@@ -1,0 +1,277 @@
+{
+    "groups": [
+        {
+            "groupName": "abortion",
+            "questions": [
+                {
+                    "text": "Abortion should be legal.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "Abortion should not be legal.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "A woman must be able to control her body, including the right to terminate a fetus.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "An unborn child's life must be protected the same way any other child's would be.",
+                    "multiplier": -1
+                }
+            ]
+        },
+        {
+            "groupName": "death penalty",
+            "questions": [
+                {
+                    "text": "The death penalty is a just and fair punishment for certain crimes.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "The death penalty is wrong and should not be used as a punishment.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "It is wrong and cruel for the government to take someone's life as a form of punishment for a crime.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "Some crimes are so heinous that the only fair punishment for them is death.",
+                    "multiplier": -1
+                }
+            ]
+        },
+        {
+            "groupName": "economic regulation",
+            "questions": [
+                {
+                    "text": "There should be greater economic regulation.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "There should be less economic regulation.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "There is not enough economic regulation, especially on large corporations.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "There is too much economic regulation, which especially hurts small businesses",
+                    "multiplier": -1
+                }
+            ]
+        },
+        {
+            "groupName": "economic system",
+            "questions": [
+                {
+                    "text": "The United States is a fundamentally capitalistic nation and should avoid all socialistic policies.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "The United States should incorporate more socialistic policies in order to balance out the issues of rampant capitalism",
+                    "multiplier": 1
+                },
+                {
+                    "text": "Capitalism is the best economic system and has allowed the United States to flourish into one of the most successful economies in the world.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "Unrestricted capitalism is a bad system which has created historic levels of wealth inequality in the United States.",
+                    "multiplier": 1
+                }
+            ]
+        },
+        {
+            "groupName": "education",
+            "questions": [
+                {
+                    "text": "The Government should put more money into improving public education rather than wasting it on school vouchers.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "School vouchers allow parents to decide for themselves which school their child should go to and should receive more funding.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "Public schools have been neglected by the government and need greater funding.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "Public schools do not provide the best education for many children and so the government should financially support other forms of schooling, such as charter schools.",
+                    "multiplier": -1
+                }
+            ]
+        },
+        {
+            "groupName": "energy",
+            "questions": [
+                {
+                    "text": "Oil and gas usage should not be restricted since these resources plentiful in the United States and help keep energy affordable.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "Renewable energy is the future and we should move to it as quickly as possible.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "Renewable energy sources are not currently capable of handling the country's energy demands and so we should continue to use fossil fuels.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "Fossil fuels are an environmentally-unclean and outdated source of energy.",
+                    "multiplier": 1
+                }
+            ]
+        },
+        {
+            "groupName": "climate change",
+            "questions": [
+                {
+                    "text": "Climate change is one of the biggest threats the world faces today.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "Climate change is not a significant threat and we don't need to take drastic action to stop it.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "If we don't act fast, the effects of climate change will continue to get worse and cause irreparable damage.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "The dangers of climate change are exaggerated and are not currently a significant concern.",
+                    "multiplier": -1
+                }
+            ]
+        },
+        {
+            "groupName": "gun control",
+            "questions": [
+                {
+                    "text": "The right to own guns is a fundamental right which the government should not restrict.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "Gun ownership must be strictly regulated in order to preserve people's safety.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "The Constitution makes clear that people have the right to own guns.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "The government is well within its rights to restrict and regulate gun ownership",
+                    "multiplier": 1
+                }
+            ]
+        },
+        {
+            "groupName": "healthcare",
+            "questions": [
+                {
+                    "text": "Healthcare is a human right and the government should do everything it can to make sure that everyone has access to affordable health care.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "The healthcare system requires healthy competition and a market free of government intervention in order to provide people with the best deal.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "It is the government's responsibility to provide healthcare and healthcare programs like Medicare and Medicaid should be expanded to meet this need.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "Greater government intervention in healthcare would lead to lower-quality care and an overall worse healthcare system.",
+                    "multiplier": -1
+                }
+            ]
+        },
+        {
+            "groupName": "immigration",
+            "questions": [
+                {
+                    "text": "The United States has a long history of immigration and should continue to welcome immigrants searching for a better life.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "The United States must maintain strict control over who can and cannot immigrate and is well within its right to impose fair requirements for immigration.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "Undocumented immigrants should be allowed to stay in the United States and given a fair pathway to citizenship.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "The United States has a legal immigration system and everyone who wants to immigrate must go through it if they want to stay.",
+                    "multiplier": -1
+                }
+            ]
+        },
+        {
+            "groupName": "religion",
+            "questions": [
+                {
+                    "text": "Separation of church and state is an extremely important principle and it means that religion must be kept out of government.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "The government should not do anything which could endanger the free practice of religion and must do everything possible to uphold religious liberty.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "The government must ensure that laws and regulations are kept free of religion and religious influence.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "Religion and faith are an important part of American life and so the government must uphold these values.",
+                    "multiplier": -1
+                }
+            ]
+        },
+        {
+            "groupName": "taxes",
+            "questions": [
+                {
+                    "text": "Higher taxes may be necessary in order to provide citizens with the services they need.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "Taxes need to be reduced, even if that requires government programs to be cut.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "The government needs to provide more services to its citizens, even if that means raising taxes.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "Taxes are too high and the government must reduce them, even if that causes government programs to be weakened or cut.",
+                    "multiplier": -1
+                }
+            ]
+        },
+        {
+            "groupName": "welfare",
+            "questions": [
+                {
+                    "text": "Welfare services allow the poor to support themselves and help them get back on their feet.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "Welfare services cause people to become dependent on the government and prevent them from improving their lives.",
+                    "multiplier": -1
+                },
+                {
+                    "text": "The poorest in our society need welfare programs (e.g. food stamps) to help them survive.",
+                    "multiplier": 1
+                },
+                {
+                    "text": "The poor should be enouraged to improve their lives through grit and determination, and welfare programs undermine that goal.",
+                    "multiplier": -1
+                }
+            ]
+        }
+    ]
+}
