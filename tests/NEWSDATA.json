@@ -1,0 +1,19 @@
+{
+   "status":"okkk",
+   "totalResults":46285,
+   "articles":[
+      {
+         "source":{
+            "id":"None",
+            "name":"New York Times"
+         },
+         "author":"Lisa Lerer",
+         "title":"Debate Night: The ‘On Politics’ Breakdown",
+         "description":"President Trump and Joe Biden essentially fought to a draw last night. That’s not what Mr. Trump needed.",
+         "url":"https://www.nytimes.com/2020/10/23/us/politics/debate-trump-biden-draw.html",
+         "urlToImage":"https://static01.nyt.com/images/2020/05/20/us/onpolitics-clash/onpolitics-clash-facebookJumbo.jpg",
+         "publishedAt":"2020-10-23T11:02:54Z",
+         "content":"For his part, Mr. Biden remained unfazed by the assault. He accused the president of trafficking in Russian disinformation and challenged him to release his taxes.\r\nEven with mute buttons and social … [+1493 chars]"
+      }
+   ]
+}
