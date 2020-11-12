@@ -24,8 +24,6 @@ app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URI
 db = flask_sqlalchemy.SQLAlchemy()
 db.init_app(app)
 db.app = app
-db.create_all()
-db.session.commit()
 
 @app.route('/')
 def hello():
@@ -34,9 +32,10 @@ def hello():
 @socketio.on('new feedback')
 def on_new_feedback(data):
     """ when receiving new feedback """
+    
     name = data["name"]
     feedback = data["feedback"]
-    db.session.add(models.FeedbackLog(feedback, name))
+    db.session.add(models.FeedbackLog(name, feedback))
     db.session.commit()
     
     print("Recieved name: " , name)
@@ -54,6 +53,7 @@ def on_connect(userProfile):
         "userEmail": email,
         "userImage": image
     }, room=socketId)
+    
 
 @socketio.on('send message')
 def send_message(text):
