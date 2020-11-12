@@ -47,6 +47,17 @@ class mockedTest(unittest.TestCase):
         user = result[0]['args'][0]['user']
         self.assertEqual(user, 'Jay Amin')
 
+    def test_socket_send_dict(self):
+        flask_test_client = app.app.test_client()
+        socketio_test_client = app.socketio.test_client(app.app,
+                                                        flask_test_client=flask_test_client)
+        socketio_test_client.emit('send message', 'ballot')
+        result = socketio_test_client.get_received()
+        message = result[0]['args'][0]['messageReceived']
+        self.assertEqual(message, "a piece of paper indicating a person's preferences in an election, "
+                                  "the right to formally express one's position or will in an election")
+
+
 
 if __name__ == '__main__':
     unittest.main()
