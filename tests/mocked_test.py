@@ -18,6 +18,9 @@ class TestNews(unittest.TestCase):
 	    r_json = json.loads(app.api_call_for_news())
 	    
 	    self.assertEqual(r_json["status"], 'okkk')
+	    self.assertEqual(r_json["articles"][0]["author"], 'Lisa Lerer')
+	    self.assertEqual(r_json["articles"][0]["source"]["id"], 'None')
+	    self.assertEqual(r_json["articles"][0]["source"]["name"], 'New York Times')
 	    
 	    f.close()
     
