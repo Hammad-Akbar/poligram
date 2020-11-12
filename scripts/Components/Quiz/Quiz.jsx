@@ -18,7 +18,7 @@ function Quiz() {
                 
                 return (
                     <div style={{padding: "1em", background: bgColor}}>
-                        <Question text={question['text']} />
+                        <Question text={question['text']} updateCallback={updateQuestion} />
                     </div>
                 );
             });
@@ -39,6 +39,10 @@ function Quiz() {
             Socket.off("quiz generated");  
         };
     });
+    
+    function updateQuestion() {
+        console.log("question update!");
+    }
     
     function generateQuiz() {
         Socket.emit("request quiz");
