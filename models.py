@@ -14,6 +14,9 @@ class FeedbackLog(db.Model):
         self.name = a_name
 
     def __repr__(self):
-        return '<Name, Feedback: %s , %s>' % self.name , self.feedback
+        return str({
+            'name' : self.name, 
+            'feedback' : self.feedback
+        })
 
 

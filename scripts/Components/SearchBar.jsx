@@ -19,7 +19,7 @@ function SearchBar () {
         <div className='form'>
              <form onSubmit={handleSubmit}>
                 <input className='search-bar' type={text} onChange={handleChange}
-                    value={text} placeholder="Enter a political term.." required />
+                    value={text} placeholder="Enter a political term..." required />
                 <button className='button' type='submit'> Search </button>
              </form>
         </div>
