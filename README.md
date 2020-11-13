@@ -1,6 +1,12 @@
 # Poligram
 
-TODO: Fill out description
+Poligram aims to deliver a politically inspiring app accessible from the browser. 
+Poligram will provide an interactive way to learn about politics and politicians in America. 
+Poligram will feature a way to search for politicians and learn about their views on topics, take meaningful quizzes to test your knowledge, and keep up with current issues in the news.
+
+## Motivation
+
+We've seen some political websites that quiz you on different things about politics, however, as some people don’t know much about politics and at this time especially with elections coming up, we wanted to make an application to provide people with the knowledge of some important political figures, news about them, and quiz them on one single application. 
 
 
 ## Setup:
@@ -107,6 +113,23 @@ After you create your heroku app, you will need to push the database to heroku:
 2. To see coverage report, preview the file `index.html` in the `htmlcov` folder.
 3. When making changes, need to rerun, `coverage run -m --source=. unittest tests/*.py && coverage html`
 
-##References:
+
+## Individual Contributions
+
+### Hammad
+1. Created the landing page and set up page linking using router dom.
+2. Created a feedback section on the landing page which allows users of the app to submit their thoughts. Incorporated database persistance through this step.
+3. Unit testing and linted for associated parts.
+
+### What is left to do
+1. Create the politician search page and include an interactive map to search for politicians [Struggling to find APIs to help with politician search]
+2. Ability to share scores with others [only allowed if registered]
+3. OAuth login with Facebook
+4. Create a section which shows people reviews [50/50 on if we should or should not do this]
+5. Store questions from the quiz into a database instead of the current JSON file
+6. Add character counters for feedback entry
+
+
+## References:
 
 quiz: https://www.studentnewsdaily.com/conservative-vs-liberal-beliefs/
