@@ -1,12 +1,10 @@
 import React from 'react';
 import GoogleLogin from 'react-google-login';
 import socket from './Socket';
-import './styles/home.css'
+import './styles/home.css';
 
-
-function LoginPage ({setIsAuth}) {
-  function responseGoogleSuccess (response) {
-
+function LoginPage({ setIsAuth }) {
+  function responseGoogleSuccess(response) {
     setIsAuth(true);
     if ('profileObj' in response) {
       const { email, name, imageUrl } = response.profileObj;
@@ -16,11 +14,11 @@ function LoginPage ({setIsAuth}) {
         imageUrl,
       });
     }
-  };
+  }
 
-  function responseGoogleFailure (error) {
+  function responseGoogleFailure(error) {
     alert('Sorry, login failed!');
-  };
+  }
 
   return (
     <div className="login-page">
@@ -38,6 +36,6 @@ function LoginPage ({setIsAuth}) {
       </div>
     </div>
   );
-};
+}
 
 export default LoginPage;

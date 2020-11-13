@@ -19,12 +19,11 @@ socketio.init_app(app, cors_allowed_origins="*")
 
 DATABASE_URI = os.getenv("DATABASE_URL")
 app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URI
-
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = flask_sqlalchemy.SQLAlchemy()
 db.init_app(app)
 db.app = app
 import models
-
 
 def messageDict(result):
     messageReceived = ''
