@@ -1,3 +1,4 @@
+import models
 import os
 import flask 
 from flask import request
@@ -7,7 +8,6 @@ import requests
 import dotenv
 import json
 import random
-
 
 dotenv.load_dotenv()
 
@@ -25,10 +25,22 @@ db = flask_sqlalchemy.SQLAlchemy()
 db.init_app(app)
 db.app = app
 
-
 @app.route('/')
 def hello():
     return flask.render_template('index.html')
+ 
+@socketio.on('new feedback')
+def on_new_feedback(data):
+    """ when receiving new feedback """
+    
+    name = data["name"]
+    feedback = data["feedback"]
+    db.session.add(models.FeedbackLog(name, feedback))
+    db.session.commit()
+    
+    print("Recieved name: " , name)
+    print("Received feedback: " , feedback)
+
 
 @socketio.on('connect user')
 def on_connect(userProfile):
@@ -42,6 +54,7 @@ def on_connect(userProfile):
         "userEmail": email,
         "userImage": image
     }, room=socketId)
+    
 
 @socketio.on('send message')
 def send_message(text):
@@ -120,7 +133,6 @@ def news_api_call():
 		'newsObjectLst': newsObjectLst
 	})
 
-    
 if __name__ == '__main__':
 	socketio.run(
         app,

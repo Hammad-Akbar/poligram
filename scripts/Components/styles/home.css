@@ -151,3 +151,54 @@ body {
 	text-align: left;
 	padding-left: 3em;
 }
+
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.feedback-button button {
+	display: inline-block;
+	padding: 0.35em 1.2em;
+	border: 0.1em solid #314455;
+	margin: 0 0.3em 0.3em 0;
+	border-radius: 0.12em;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	color: white;
+	background-color: #314455;
+	text-align: center;
+	transition: all 0.2s;
+}
+
+.feedback-button button a:hover{
+	color: #000000;
+	background-color: #FFFFFF;
+}
+
+@media all and (max-width:30em) {
+	.feedback-button button a {
+		display: block;
+		margin: 0.4em auto;
+	}
+}
+.name-box {
+	padding-left: 25px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.message-box {
+	padding: 25px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.message-box input {
+	min-height: 200px;
+}

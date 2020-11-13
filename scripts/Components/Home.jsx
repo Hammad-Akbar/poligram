@@ -1,7 +1,25 @@
 import React from 'react'
+import FeedbackButton from './FeedbackButton';
+import Socket from './Socket';
 import './styles/home.css'
 
-const Home = () => {
+
+export default function Home() {
+    const [feedback, setFeedback] = React.useState("");
+    
+    function getFeedback() {
+        React.useEffect(() => {
+            Socket.on('feedback sent', (data) => {
+                setFeedback(data);
+            });
+            return () => {
+                Socket.off('feedback sent')
+            }
+        });
+    }
+
+    getFeedback();
+
     return (
         <body>
             <div className='rectangle-red'>
@@ -23,9 +41,9 @@ const Home = () => {
                 <div className='slogan'> 
                     <span className='message'>Get in touch with us!</span>
                 </div>
+                <FeedbackButton />
             </div>
         </body>
     );
 }
  
-export default Home
