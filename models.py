@@ -2,6 +2,7 @@
 
 from app import db
 
+
 class FeedbackLog(db.Model):
     """ Add feedback table to database """
 
@@ -15,11 +16,7 @@ class FeedbackLog(db.Model):
 
     def __repr__(self):
         return str({
-            'name' : self.name, 
-            'feedback' : self.feedback
+            'name': self.name,
+            'feedback': self.feedback
         })
-
-db.create_all()
-db.session.commit()
-
 

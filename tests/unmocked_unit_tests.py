@@ -1,27 +1,40 @@
 import unittest
 from os.path import dirname, join
 import sys
+
 sys.path.insert(1, join(dirname(__file__), '../'))
 import app
+import models
 
 
-class TestNews(unittest.TestCase):
+class unmockedTest(unittest.TestCase):
 
-	def test_app_mock(self):
-	    
-	    r_json = (app.news_api_call())
-	    
-	    assert len(r_json) > 1
-	    
-	    for i in r_json:
-	        self.assertFalse(i["source"] == " ", "False or True")
-	        self.assertFalse(i["author"] == " ", "False or True")
-	        self.assertFalse(i["title"] == " ", "False or True")
-	        self.assertFalse(i["img"] == " ", "False or True")
-	        self.assertFalse(i["url"] == " ", "False or True")
-	        self.assertFalse(i["published"] == " ", "False or True")
-	        self.assertFalse(i["content"] == " ", "False or True")
-	        
+    def setUp(self):
+        self.user = models.FeedbackLog('Jay Amin', 'I learned a lot about politics')
 
-if __name__ == "__main__":
-	unittest.main()
+    def test_app_mock(self):
+        r_json = (app.news_api_call())
+
+        assert len(r_json) > 1
+
+        for i in r_json:
+            self.assertFalse(i["source"] == " ", "False or True")
+            self.assertFalse(i["author"] == " ", "False or True")
+            self.assertFalse(i["title"] == " ", "False or True")
+            self.assertFalse(i["img"] == " ", "False or True")
+            self.assertFalse(i["url"] == " ", "False or True")
+            self.assertFalse(i["published"] == " ", "False or True")
+            self.assertFalse(i["content"] == " ", "False or True")
+
+    def test_database(self):
+        self.assertEqual(self.user.feedback, 'I learned a lot about politics')
+        self.assertEqual(self.user.name, 'Jay Amin')
+
+    def test_repr(self):
+        response = self.user.__repr__()
+        result = str({'name': 'Jay Amin', 'feedback': 'I learned a lot about politics'})
+        self.assertEqual(response, result)
+
+
+if __name__ == '__main__':
+    unittest.main()
