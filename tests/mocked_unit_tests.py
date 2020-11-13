@@ -113,6 +113,26 @@ class mockedTest(unittest.TestCase):
         tester = app.app.test_client(self)
         response = tester.get('/', content_type='html')
         self.assertEqual(response.status_code, 200)
+    
+    @patch('app.flask')
+    def test_quiz_generation(self, mocked_flask):
+        mocked_flask.request.sid = 'abcdef'
+        
+        def mocked_open(file, mode):
+            return open("fake_questions.json", 'r')
+            
+        def mocked_emit(event, data, room):
+            self.assertEqual(event, "quiz generated")
+            self.assertEqual(room, "abcdef")
+            self.assertTrue(isinstance(data, list))
+            self.assertEqual(len(data), 1)
+            self.assertTrue(isinstance(data[0], dict))
+            self.assertEqual(data[0]['text'], "Test question for unittest")
+            self.assertEqual(data[0]['multiplier'], 99)
+        
+        with unittest.mock.patch('app.open', mocked_open):
+            with unittest.mock.patch('app.socketio.emit', mocked_emit):
+                app.request_quiz()
 
 
 if __name__ == '__main__':

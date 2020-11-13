@@ -1,11 +1,11 @@
 {
     "groups": [
         {
-            "groupName": "abortion",
+            "groupName": "unittest group",
             "questions": [
                 {
-                    "text": "Abortion should be legal.",
-                    "multiplier": 1
+                    "text": "Test question for unittest",
+                    "multiplier": 99
                 }
             ]
         }
