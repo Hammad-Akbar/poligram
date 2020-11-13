@@ -9,6 +9,21 @@ import json
 
 
 class mockedTest(unittest.TestCase):
+    def setUp(self):
+        self.success_test_params = [
+            {
+                "name" : "Hammad",
+                "feedback" : "test"
+            }
+        ]
+
+        self.failure_test_params = [
+            {
+                "name" : 123,
+                "feedback" : 123
+            }
+        ]
+  
     @patch("app.api_call_for_news")
     def test_app_mock(self, mock_api_call):
         f = open("tests/NEWSDATA.json", "r")
@@ -48,7 +63,7 @@ class mockedTest(unittest.TestCase):
                  "position " \
                  "or will in an election"
         self.assertEqual(response, result)
-
+    
     def test_new_user_connection(self):
         flask_test_client = app.app.test_client()
         socketio_test_client = app.socketio.test_client(app.app,
@@ -71,6 +86,28 @@ class mockedTest(unittest.TestCase):
         message = result[0]['args'][0]['messageReceived']
         self.assertEqual(message, "a piece of paper indicating a person's preferences in an election, "
                                   "the right to formally express one's position or will in an election")
+
+    def test_on_new_message_success(self):
+        """ testing success of new feedback  """
+
+        for test in self.success_test_params:
+            with unittest.mock.patch('flask_sqlalchemy.SignallingSession.add', self.mock_session_add):
+                app.on_new_feedback(test)
+
+    def test_on_new_message_failure(self):
+        """ testing failure of new feedback  """
+
+        for test in self.failure_test_params:
+            with unittest.mock.patch('flask_sqlalchemy.SignallingSession.add', self.mock_session_add):
+                app.on_new_feedback(test)
+                
+    def mock_session_commit(self):
+        """ mock session.commit() for db """
+        return
+
+    def mock_session_add(self, holder):
+        """ mock session.add() for db """
+        return
 
     def test_home(self):
         tester = app.app.test_client(self)
