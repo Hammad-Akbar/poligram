@@ -89,6 +89,11 @@ If that doesn't work: `sudo vim $(psql -c "show hba_file;" | grep pg_hba.conf)`
 3. After changing those lines, run `sudo service postgresql restart`  
 4. Ensure that `sql.env` has the username/password of the superuser you created!  
 
+### Claim your API Keys
+1. Go to `https://newsapi.org/` and Sign up!
+2. Create a file news.env in your root directory, Copy `export NEWS_API_KEY='YOUR API KEYS'` and save it to news.env.
+
+
 ### Run your code!    
 1. `npm run watch`. If prompted to install webpack-cli, type "yes"    
 2. Go into the python interactive shell and run the following:
@@ -96,8 +101,9 @@ If that doesn't work: `sudo vim $(psql -c "show hba_file;" | grep pg_hba.conf)`
     b) `models.db.create_all()`
     c) `quit()`
 3. In a new terminal, `sudo service postgresql start` to start PSQL
-4. `python app.py`    
-5. Preview Running Application (might have to clear your cache by doing a hard refresh)    
+4. `source news.env`
+5. `python app.py`    
+6. Preview Running Application (might have to clear your cache by doing a hard refresh)    
 
 ### Pushing to Heroku
 After you create your heroku app, you will need to push the database to heroku:
@@ -109,7 +115,7 @@ After you create your heroku app, you will need to push the database to heroku:
 4. Now push the database onto heroku, `heroku pg:push postgres DATABASE_URL`
 
 ### Unit Testing
-1. In order to run unit tests, `coverage run -m --source=. unittest tests/*.py`
+1. In order to run unit tests source any .env files you have, `coverage run -m --source=. unittest tests/*.py`
 2. To see coverage report, preview the file `index.html` in the `htmlcov` folder.
 3. When making changes, need to rerun, `coverage run -m --source=. unittest tests/*.py && coverage html`
 
@@ -130,6 +136,11 @@ pip install pylint_flask_sqlalchemy
 2. Created a feedback section on the landing page which allows users of the app to submit their thoughts. Incorporated database persistance through this step.
 3. Unit testing and linted for associated parts.
 
+### Shivani
+1. Created the News page.
+2. User can see any politics related news on this section which was completed with the help of news API.
+3. Unit testing and linted for associated parts.
+
 ### What is left to do
 1. Create the politician search page and include an interactive map to search for politicians [Struggling to find APIs to help with politician search]
 2. Ability to share scores with others [only allowed if registered]
@@ -137,6 +148,7 @@ pip install pylint_flask_sqlalchemy
 4. Create a section which shows people reviews [50/50 on if we should or should not do this]
 5. Store questions from the quiz into a database instead of the current JSON file
 6. Add character counters for feedback entry
+7. Create a public discussion room.
 
 
 ## References:

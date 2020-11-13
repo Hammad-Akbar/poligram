@@ -1,12 +1,17 @@
+"""app.py Server to validate client request"""
+#pylint: disable=C0301
+#pylint: disable=C0103
+#pylint: disable=E1101
 import os
+import json
+import random
 import flask
 from flask import request
 import flask_socketio
 import flask_sqlalchemy
 import requests
 import dotenv
-import json
-import random
+
 
 dotenv.load_dotenv()
 
@@ -26,6 +31,7 @@ db.app = app
 import models
 
 def messageDict(result):
+    """ API call for dictionary """
     messageReceived = ''
     if 'shortdef' in result[0]:
         definition = result[0]['shortdef']
@@ -37,6 +43,7 @@ def messageDict(result):
 
 @app.route('/')
 def hello():
+    """ Render function """
     return flask.render_template('index.html')
 
 
@@ -55,6 +62,7 @@ def on_new_feedback(data):
 
 @socketio.on('connect user')
 def on_connect(userProfile):
+    """ User's profile validating """
     socketId = request.sid
     name = userProfile['name']
     email = userProfile['email']
@@ -69,9 +77,9 @@ def on_connect(userProfile):
 
 @socketio.on('send message')
 def send_message(text):
+    """ finding synonym for word entered by user. """
     socketId = request.sid
-    response = requests.get(
-        f'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{text}?key={DICTIONARY_API_KEY}')
+    response = requests.get(f'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{text}?key={DICTIONARY_API_KEY}')
     result = response.json()
 
     messageReceived = messageDict(result)
@@ -82,6 +90,7 @@ def send_message(text):
 
 @socketio.on('request quiz')
 def request_quiz():
+    """Getting quiz question from json file"""
     questions_file = open('quiz_questions.json', 'r')
     questions_json = json.load(questions_file)
     questions_file.close()
@@ -104,6 +113,7 @@ def request_quiz():
 
 
 def api_call_for_news():
+    """ API call for News """
     url = 'https://newsapi.org/v2/everything'
     parameters = {
         'q': 'politics',  # query phrase
@@ -119,6 +129,7 @@ def api_call_for_news():
 
 @socketio.on('news api call')
 def news_api_call():
+    """ sending news back to client """
     print("Got an event for newz:")
     news_list = api_call_for_news()
     newsObjectLst = []
