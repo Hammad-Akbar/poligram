@@ -19,4 +19,3 @@ class FeedbackLog(db.Model):
             'name': self.name,
             'feedback': self.feedback
         })
-
