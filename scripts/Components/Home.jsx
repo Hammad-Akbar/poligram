@@ -12,6 +12,9 @@ export default function Home() {
             Socket.on('feedback sent', (data) => {
                 setFeedback(data);
             });
+            return () => {
+                Socket.off('feedback sent')
+            }
         });
     }
 

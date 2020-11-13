@@ -41,6 +41,7 @@ def on_new_feedback(data):
     print("Recieved name: " , name)
     print("Received feedback: " , feedback)
 
+
 @socketio.on('connect user')
 def on_connect(userProfile):
     socketId = request.sid
