@@ -1,0 +1,13 @@
+{
+    "groups": [
+        {
+            "groupName": "unittest group",
+            "questions": [
+                {
+                    "text": "Test question for unittest",
+                    "multiplier": 99
+                }
+            ]
+        }
+    ]
+}
