@@ -119,7 +119,7 @@ class mockedTest(unittest.TestCase):
         mocked_flask.request.sid = 'abcdef'
         
         def mocked_open(file, mode):
-            return open("fake_questions.json", 'r')
+            return open("tests/fake_questions.json", 'r')
             
         def mocked_emit(event, data, room):
             self.assertEqual(event, "quiz generated")
