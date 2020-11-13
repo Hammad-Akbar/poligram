@@ -23,27 +23,27 @@ function Question(props) {
             </div>
             <div>
                 <div style={answerBlockStyle}>
-                    <input type="radio" name={"quiz_answer_" + props.index} id="d3" value="d3" /><br />
+                    <input type="radio" name={props.index + "," + props.multiplier} value="-3" /><br />
                     <label>Strongly Disagree</label>
                 </div>
                 <div style={answerBlockStyle}>
-                    <input type="radio" name={"quiz_answer_" + props.index} id="d2" value="d2" /><br />
+                    <input type="radio" name={props.index + "," + props.multiplier} value="-2" /><br />
                     <label>Disagree</label>
                 </div>
                 <div style={answerBlockStyle}>
-                    <input type="radio" name={"quiz_answer_" + props.index} id="d1" value="d1" /><br />
+                    <input type="radio" name={props.index + "," + props.multiplier} value="-1" /><br />
                     <label>Somewhat Disagree</label>
                 </div>
                 <div style={answerBlockStyle}>
-                    <input type="radio" name={"quiz_answer_" + props.index} id="a1" value="a1" /><br />
+                    <input type="radio" name={props.index + "," + props.multiplier} value="1" /><br />
                     <label>Somewhat Agree</label>
                 </div>
                 <div style={answerBlockStyle}>
-                    <input type="radio" name={"quiz_answer_" + props.index} id="a2" value="a2" /><br />
+                    <input type="radio" name={props.index + "," + props.multiplier} value="2" /><br />
                     <label>Agree</label>
                 </div>
                 <div style={answerBlockStyle}>
-                    <input type="radio" name={"quiz_answer_" + props.index} id="a3" value="a3" /><br />
+                    <input type="radio" name={props.index + "," + props.multiplier} value="3" /><br />
                     <label>Strongly Agree</label>
                 </div>
             </div>
