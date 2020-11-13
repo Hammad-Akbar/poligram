@@ -18,7 +18,7 @@ function Quiz() {
                 
                 return (
                     <div style={{padding: "1em", background: bgColor}}>
-                        <Question text={question['text']} multiplier={question['multiplier']} index={i} updateCallback={updateQuestion} />
+                        <Question text={question['text']} multiplier={question['multiplier']} index={i} />
                     </div>
                 );
             });
@@ -40,18 +40,23 @@ function Quiz() {
         };
     });
     
-    function updateQuestion(event) {
-        console.log("question update!");
-        console.log(event.target.name);
-        console.log(event.target.value);
-    }
-    
     function generateQuiz() {
         Socket.emit("request quiz");
     }
     
     function submitQuiz(event) {
-        alert("hello!");
+        let score = 0;
+        
+        for (let radio of event.target) {
+            if (radio.checked) {
+                let multiplier = radio.name.substring(radio.name.indexOf(",")+1);
+                score += multiplier * radio.value;
+                
+                console.log("mult: " +  multiplier + ", val: " + radio.value + ", score: " + score);
+            }
+        }
+        
+        console.log("FINAL SCORE: " + score);
         
         event.preventDefault();
     }

@@ -23,27 +23,27 @@ function Question(props) {
             </div>
             <div>
                 <div style={answerBlockStyle}>
-                    <input type="radio" name={props.index + "," + props.multiplier} value="-3" onChange={props.updateCallback} /><br />
+                    <input type="radio" name={props.index + "," + props.multiplier} value="-3" /><br />
                     <label>Strongly Disagree</label>
                 </div>
                 <div style={answerBlockStyle}>
-                    <input type="radio" name={props.index + "," + props.multiplier} value="-2" onChange={props.updateCallback} /><br />
+                    <input type="radio" name={props.index + "," + props.multiplier} value="-2" /><br />
                     <label>Disagree</label>
                 </div>
                 <div style={answerBlockStyle}>
-                    <input type="radio" name={props.index + "," + props.multiplier} value="-1" onChange={props.updateCallback} /><br />
+                    <input type="radio" name={props.index + "," + props.multiplier} value="-1" /><br />
                     <label>Somewhat Disagree</label>
                 </div>
                 <div style={answerBlockStyle}>
-                    <input type="radio" name={props.index + "," + props.multiplier} value="1" onChange={props.updateCallback} /><br />
+                    <input type="radio" name={props.index + "," + props.multiplier} value="1" /><br />
                     <label>Somewhat Agree</label>
                 </div>
                 <div style={answerBlockStyle}>
-                    <input type="radio" name={props.index + "," + props.multiplier} value="2" onChange={props.updateCallback} /><br />
+                    <input type="radio" name={props.index + "," + props.multiplier} value="2" /><br />
                     <label>Agree</label>
                 </div>
                 <div style={answerBlockStyle}>
-                    <input type="radio" name={props.index + "," + props.multiplier} value="3" onChange={props.updateCallback} /><br />
+                    <input type="radio" name={props.index + "," + props.multiplier} value="3" /><br />
                     <label>Strongly Agree</label>
                 </div>
             </div>
