@@ -119,6 +119,15 @@ After you create your heroku app, you will need to push the database to heroku:
 2. To see coverage report, preview the file `index.html` in the `htmlcov` folder.
 3. When making changes, need to rerun, `coverage run -m --source=. unittest tests/*.py && coverage html`
 
+### Linting
+Install the dependencies!
+```
+pip install pylint-flask
+pip install pylint_flask_sqlalchemy
+```
+1. For any python file run the command, `pylint fileName.py` where fileName is the name of the python file.
+2. For models.py, run this command, `pylint --load-plugins pylint_flask_sqlalchemy models.py`
+
 
 ## Individual Contributions
 
@@ -145,3 +154,4 @@ After you create your heroku app, you will need to push the database to heroku:
 ## References:
 
 quiz: https://www.studentnewsdaily.com/conservative-vs-liberal-beliefs/
+pylint: https://pypi.org/project/pylint-flask-sqlalchemy/

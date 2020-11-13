@@ -1,7 +1,8 @@
 """ models.py - creates database tables """
 
-from app import db
+#pylint: disable=R0903
 
+from app import db
 
 class FeedbackLog(db.Model):
     """ Add feedback table to database """

@@ -1,40 +1,42 @@
-import React, { useState, useEffect } from 'react'
-import SearchBar from './SearchBar'
-import Socket from './Socket'
-import './styles/dictionary.css'
+import React, { useState, useEffect } from 'react';
+import SearchBar from './SearchBar';
+import Socket from './Socket';
+import './styles/dictionary.css';
 
-function Dictionary () {
+function Dictionary() {
+  const [message, setMessage] = useState('');
 
-    const [message, setMessage] = useState('')
+  useEffect(() => {
+    Socket.on('forward message', (data) => {
+      setMessage(data.messageReceived);
+    });
+    return () => {
+      Socket.off('forward message');
+    };
+  }, []);
 
-    useEffect(() => {
-        Socket.on('forward message', (data) => {
-            setMessage(data['messageReceived'])
-        })
-        return () => {
-            Socket.off('forward message')
-        }
-    }, [])
-
-    function toggleParagraph() {
-        if (message === '') {
-            return null
-        }
-        return (
-            <React.Fragment>
-                <p className='definition'><strong>Definition: </strong>{message}</p>
-            </React.Fragment>
-        )
+  function toggleParagraph() {
+    if (message === '') {
+      return null;
     }
-
     return (
-        <div className='dictionary'>
-            <SearchBar />
-            <div>
-                {toggleParagraph()}
-            </div>
-        </div>
-    )
+      <>
+        <p className="definition">
+          <strong>Definition: </strong>
+          {message}
+        </p>
+      </>
+    );
+  }
+
+  return (
+    <div className="dictionary">
+      <SearchBar />
+      <div>
+        {toggleParagraph()}
+      </div>
+    </div>
+  );
 }
 
-export default Dictionary
+export default Dictionary;
