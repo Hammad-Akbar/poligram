@@ -21,7 +21,6 @@ class TestNews(unittest.TestCase):
 	    self.assertEqual(r_json["articles"][0]["author"], 'Lisa Lerer')
 	    self.assertEqual(r_json["articles"][0]["source"]["id"], 'None')
 	    self.assertEqual(r_json["articles"][0]["source"]["name"], 'New York Times')
-	    
 	    f.close()
     
 
