@@ -139,6 +139,7 @@ After you create your heroku app, you will need to push the database to heroku:
 4. Create a section which shows people reviews [50/50 on if we should or should not do this]
 5. Store questions from the quiz into a database instead of the current JSON file
 6. Add character counters for feedback entry
+7. Create a public discussion room.
 
 
 ## References:
