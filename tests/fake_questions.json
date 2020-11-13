@@ -1,0 +1,13 @@
+{
+    "groups": [
+        {
+            "groupName": "abortion",
+            "questions": [
+                {
+                    "text": "Abortion should be legal.",
+                    "multiplier": 1
+                }
+            ]
+        }
+    ]
+}
