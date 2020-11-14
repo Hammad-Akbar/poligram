@@ -8,6 +8,9 @@ Poligram will feature a way to search for politicians and learn about their view
 
 We've seen some political websites that quiz you on different things about politics, however, as some people don’t know much about politics and at this time especially with elections coming up, we wanted to make an application to provide people with the knowledge of some important political figures, news about them, and quiz them on one single application. 
 
+#### Heroku Link
+
+``https://poligram.herokuapp.com``
 
 ## Setup:
 
