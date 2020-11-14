@@ -141,6 +141,11 @@ pip install pylint_flask_sqlalchemy
 2. User can see any politics related news on this section which was completed with the help of news API.
 3. Unit testing and linted for associated parts.
 
+### Jay
+1. Created Dictionary page, user can search for term related to politics.
+2. Created google login page, and the user will see his name on the landing page.
+3. Unit testing and linted for associated parts.
+
 ### What is left to do
 1. Create the politician search page and include an interactive map to search for politicians [Struggling to find APIs to help with politician search]
 2. Ability to share scores with others [only allowed if registered]
