@@ -149,6 +149,11 @@ pip install pylint_flask_sqlalchemy
 2. Created google login page, and the user will see his name on the landing page.
 3. Unit testing and linted for associated parts.
 
+### Akhil
+1. Created the quiz page where users can take a quiz about ideology.
+2. Created scoring system and question data for quiz + unit testing.
+3. Helped with initial set up of project (repo, setting up Sresht's lect8 as basis for app).
+
 ### What is left to do
 1. Create the politician search page and include an interactive map to search for politicians [Struggling to find APIs to help with politician search]
 2. Ability to share scores with others [only allowed if registered]
