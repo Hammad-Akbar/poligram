@@ -32,9 +32,7 @@ const Navigation = ({ user }) => {
             <NavLink to="/Dictionary">Dictionary</NavLink>
             <NavLink to="/Quiz">Quiz</NavLink>
             <NavLink to="/News">News</NavLink>
-            <p>
-              <LoginPage setIsAuth={setIsAuth} />
-            </p>
+            <LoginPage setIsAuth={setIsAuth} />
           </div>
         </>
       </>

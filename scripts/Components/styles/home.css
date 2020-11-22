@@ -6,12 +6,6 @@ body {
 	background-color: white;
 	margin: 0;
 }
-.login-page {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	justify-content: center;	
-}
 
 .rectangle-red {
     background-color: #C96567
@@ -40,9 +34,10 @@ body {
 .topnav {
   background-color: #314455;
   overflow: hidden;
-  position: -webkit-sticky;
-  position: sticky; 
+  position: -webkit-sticky; 
+  position: fixed;
   top: 0;
+  width: 100%;
 }
 
 /* Style the links inside the navigation bar */
@@ -58,16 +53,21 @@ body {
   font-size: 25px;
 }
 
+.login-page {
+	margin: 7px;
+	float: right;
+}
+
 .topnav p {
-  float: right;
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  margin: 0;
+	float: right;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 25px;
+	margin: 0;
 }
 
 /* Change the color of links on hover */
