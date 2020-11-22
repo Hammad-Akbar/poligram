@@ -9,7 +9,7 @@ import Quiz from './Components/Quiz/Quiz';
 import News from './Components/News';
 
 const Content = () => {
-  const [isAuth, setIsAuth] = useState(false);
+  
   const [user, setUser] = useState('');
 
   useEffect(() => {
@@ -22,36 +22,19 @@ const Content = () => {
     };
   }, []);
 
-  function Authenticated() {
-    if (isAuth) {
-      return (
-        <>
-          <BrowserRouter>
-            <div>
-              <Navigation user={user} />
-              <Switch>
-                <Route path="/" component={Home} exact />
-                <Route path="/Dictionary" component={Dictionary} />
-                <Route path="/Quiz" component={Quiz} />
-                <Route path="/News" component={News} />
-                <Route component={Error} />
-              </Switch>
-            </div>
-          </BrowserRouter>
-        </>
-      );
-    }
-    return (
-      <>
-        <LoginPage setIsAuth={setIsAuth} />
-      </>
-    );
-  }
-
   return (
-    <div>
-      {Authenticated()}
-    </div>
+    <BrowserRouter>
+      <div>
+        <Navigation user={user} />
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/Dictionary" component={Dictionary} />
+          <Route path="/Quiz" component={Quiz} />
+          <Route path="/News" component={News} />
+          <Route component={Error} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 };
 
