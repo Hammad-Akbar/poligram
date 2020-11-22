@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Dictionary from './Components/Dictionary';
 import Home from './Components/Home';
 import Navigation from './Components/Navigation';
-import LoginPage from './Components/LoginPage';
 import Socket from './Components/Socket';
 import Quiz from './Components/Quiz/Quiz';
 import News from './Components/News';
