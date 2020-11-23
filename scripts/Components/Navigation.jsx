@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import { NavLink } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  Redirect,
+  useLocation
+} from "react-router-dom";
 import LoginPage from './LoginPage'
 import './styles/home.css';
 
@@ -10,33 +17,67 @@ const Navigation = ({ user }) => {
   function Authenticated() {
     if (isAuth) {
       return (
-        <>
+        <Router>
           <div className="topnav">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/Dictionary">Dictionary</NavLink>
-            <NavLink to="/Quiz">Quiz</NavLink>
-            <NavLink to="/News">News</NavLink>
+            <Link to="/">Home</Link>
+            <Link to="/Dictionary">Dictionary</Link>
+            <Link to="/Quiz">Quiz</Link>
+            <Link to="/News">News</Link>
             <p>
-              Welcome:
+              Welcome: 
               {user}
             </p>
           </div>
-        </>
+          <Switch>
+          
+            <Route exact path="/">
+              <Home />
+            </Route>
+            
+            <Route path="/Dictionary">
+              <Redirect to="/Dictionary" />
+            </Route>
+            
+            <Route path="/Quiz">
+              <Redirect to="/Quiz" />
+            </Route>
+            
+            <Route path="/News">
+              <Redirect to="/News" />
+            </Route>
+            
+          </Switch>
+        </Router>
       )
     }
     return (
-      <>
-        <>
-          <div className="topnav">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/Dictionary">Dictionary</NavLink>
-            <NavLink to="/Quiz">Quiz</NavLink>
-            <NavLink to="/News">News</NavLink>
-            <LoginPage setIsAuth={setIsAuth} />
-          </div>
-        </>
-      </>
-    );
+      <Router>
+        <div className="topnav">
+          <Link to="/">Home</Link>
+          <Link to="/Dictionary">Dictionary</Link>
+          <Link to="/Quiz">Quiz</Link>
+          <Link to="/News">News</Link>
+        </div>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          
+          <Route path="/Dictionary">
+            <Redirect to="/Dictionary" />
+          </Route>
+          
+          <Route path="/Quiz">
+            <Redirect to="/Quiz" />
+          </Route>
+          
+          <Route path="/News">
+            <Redirect to="/News" />
+          </Route>
+          
+        </Switch>
+      </Router>
+    )
   }
 
   return(
