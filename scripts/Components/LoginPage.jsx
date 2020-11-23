@@ -23,9 +23,6 @@ function LoginPage({ setIsAuth }) {
   return (
     <div className="login-page">
       <div>
-        <h3> Please Login to Access Poligram </h3>
-      </div>
-      <div>
         <GoogleLogin
           clientId="326998400447-ku2me5to6bp01icn5m4pr7lgd1jbkfet.apps.googleusercontent.com"
           buttonText="Login with Google"
