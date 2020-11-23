@@ -11,6 +11,8 @@ import flask_socketio
 import flask_sqlalchemy
 import requests
 import dotenv
+from datetime import date
+from datetime import timedelta
 
 
 dotenv.load_dotenv()
@@ -114,9 +116,14 @@ def request_quiz():
 
 def api_call_for_news():
     """ API call for News """
+    today = date.today()
+    yesterday = today - timedelta(days = 2)
     url = 'https://newsapi.org/v2/everything'
     parameters = {
         'q': 'politics',  # query phrase
+        'from': yesterday,
+        'language': 'en',
+        'sortBy': 'relevancy',
         'pageSize': 15,  # maximum is 100
         'apiKey': NEWS_API_KEY
     }
@@ -125,7 +132,6 @@ def api_call_for_news():
     response_json = response.json()
 
     return response_json["articles"]
-
 
 @socketio.on('news api call')
 def news_api_call():
