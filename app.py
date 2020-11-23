@@ -117,7 +117,7 @@ def request_quiz():
 def api_call_for_news():
     """ API call for News """
     today = date.today()
-    yesterday = today - timedelta(days = 2)
+    yesterday = today - timedelta(days = 1)
     url = 'https://newsapi.org/v2/everything'
     parameters = {
         'q': 'politics',  # query phrase
