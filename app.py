@@ -129,7 +129,6 @@ def api_call_for_news():
 
     response = requests.get(url, params=parameters)
     response_json = response.json()
-    print(response_json["articles"])
 
     return response_json["articles"]
 

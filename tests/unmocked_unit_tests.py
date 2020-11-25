@@ -13,7 +13,7 @@ class unmockedTest(unittest.TestCase):
     """Unmocked unit test cases """
     def setUp(self):
         self.user = models.FeedbackLog('Jay Amin', 'I learned a lot about politics')
-    
+        
     def test_app_mock(self):
         """ News api unmocked test cases """
         r_json = (app.news_api_call())

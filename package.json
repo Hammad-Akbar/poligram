@@ -35,12 +35,8 @@
     "react": "^16.12.0",
     "react-bootstrap": "^0.31.0",
     "react-dom": "^16.12.0",
-<<<<<<< HEAD
-    "react-google-login": "^5.1.24",
-=======
     "react-google-login": "^5.1.22",
     "react-router": "^5.2.0",
->>>>>>> 581007cb5d7cee116323d7f011126773e8baca6f
     "react-router-dom": "^5.2.0",
     "socket.io-client": "^2.3.1"
   }
