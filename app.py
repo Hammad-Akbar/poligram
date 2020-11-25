@@ -11,8 +11,7 @@ import flask_socketio
 import flask_sqlalchemy
 import requests
 import dotenv
-from datetime import date
-from datetime import timedelta
+from datetime import date, timedelta
 
 
 dotenv.load_dotenv()
