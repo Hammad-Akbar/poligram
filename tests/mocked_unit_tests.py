@@ -54,7 +54,7 @@ class mockedTest(unittest.TestCase):
                                                         "died", "dodo", "dud", "dude", "duds", "dyad",
                                                         "dyed", "eddy", "odd", "odds"]
 
-            response = app.messageDict(mocked_get.return_value.json.return_value)
+            response = app.messageDict('dddd')
             result = "Sorry, we can't find the definition of the term you are looking for."
             self.assertEqual(response, result)
 
@@ -67,7 +67,7 @@ class mockedTest(unittest.TestCase):
                                                                         "the right to formally express one\u0027s "
                                                                         "position "
                                                                         "or will in an election"]}]
-            response = app.messageDict(mocked_get.return_value.json.return_value)
+            response = app.messageDict('ballot')
             result = "a piece of paper indicating a person\u0027s " \
                  "preferences in an election, " \
                  "the right to formally express one\u0027s " \
@@ -99,7 +99,7 @@ class mockedTest(unittest.TestCase):
         message = result[0]['args'][0]['messageReceived']
         emitmessage = result[0]['name']
         self.assertEqual(message, "a piece of paper indicating a person's preferences in an election, "
-                                  "the right to formally express one's position or will in an election")
+                                "the right to formally express one's position or will in an election")
         self.assertEqual(emitmessage, "forward message")
 
     def test_on_new_message_success(self):
