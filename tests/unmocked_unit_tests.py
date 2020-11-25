@@ -13,6 +13,21 @@ class unmockedTest(unittest.TestCase):
     """Unmocked unit test cases """
     def setUp(self):
         self.user = models.FeedbackLog('Jay Amin', 'I learned a lot about politics')
+        
+    def test_app_mock(self):
+        """ News api unmocked test cases """
+        r_json = (app.news_api_call())
+
+        assert len(r_json) > 1
+
+        for i in r_json:
+            self.assertFalse(i["source"] == " ", "False or True")
+            self.assertFalse(i["author"] == " ", "False or True")
+            self.assertFalse(i["title"] == " ", "False or True")
+            self.assertFalse(i["img"] == " ", "False or True")
+            self.assertFalse(i["url"] == " ", "False or True")
+            self.assertFalse(i["published"] == " ", "False or True")
+            self.assertFalse(i["content"] == " ", "False or True")
     
     def test_database(self):
         """ database unmocked test cases """
