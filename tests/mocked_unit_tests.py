@@ -29,6 +29,14 @@ class mockedTest(unittest.TestCase):
                 "feedback" : 123
             }
         ]
+        
+    class MockSession():
+        def add(self, value):
+            pass
+        
+        def commit(self):
+            pass
+            
 
     @patch("app.api_call_for_news")
     def test_app_mock(self, mock_api_call):
@@ -88,31 +96,20 @@ class mockedTest(unittest.TestCase):
         result = socketio_test_client.get_received()
         user = result[0]['args'][0]['user']
         self.assertEqual(user, 'Jay Amin')
-
-    
-    
         
     def test_on_new_message_success(self):
         """ testing success of new feedback  """
-
+        mock_session = self.MockSession()
         for test in self.success_test_params:
-            with unittest.mock.patch('flask_sqlalchemy.SignallingSession.add', self.mock_session_add):
+            with unittest.mock.patch('app.db.session', mock_session):
                 app.on_new_feedback(test)
 
     def test_on_new_message_failure(self):
         """ testing failure of new feedback  """
-
         for test in self.failure_test_params:
-            with unittest.mock.patch('flask_sqlalchemy.SignallingSession.add', self.mock_session_add):
+            mock_session = self.MockSession()
+            with unittest.mock.patch('app.db.session', mock_session):
                 app.on_new_feedback(test)
-
-    def mock_session_commit(self):
-        """ mock session.commit() for db """
-        return
-
-    def mock_session_add(self, holder):
-        """ mock session.add() for db """
-        return
 
     def test_home(self):
         """homepage api Mocked unit test"""
