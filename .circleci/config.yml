@@ -13,9 +13,6 @@ jobs:
       - python/install-deps
       - python/save-cache
       - run:
-          command: python ./app.py
-          name: Application test
-      - run:
           command: python ./tests/unmocked_unit_tests.py
           name: Unmocked Tests
       - run:
