@@ -89,12 +89,8 @@ class mockedTest(unittest.TestCase):
         user = result[0]['args'][0]['user']
         self.assertEqual(user, 'Jay Amin')
 
-    def test_socket_send_dict(self):
-        """dictionary api Mocked unit test"""
-        flask_test_client = app.app.test_client()
-        socketio_test_client = app.socketio.test_client(app.app,
-                                                        flask_test_client=flask_test_client)
-        socketio_test_client.emit('send message', 'ballot')
+    
+    
         
     def test_on_new_message_success(self):
         """ testing success of new feedback  """
