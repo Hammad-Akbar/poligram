@@ -48,30 +48,32 @@ class mockedTest(unittest.TestCase):
     @patch("app.send_message")
     def test_dictionary_failure(self, mocked_get):
         """dictionary api Mocked unit test"""
-        mocked_get.return_value.json.return_value = ["added", "daddy", "add", "adds", "dad", "dads", "dead",
-                                                     "deed", "did", "dido",
-                                                     "died", "dodo", "dud", "dude", "duds", "dyad",
-                                                     "dyed", "eddy", "odd", "odds"]
+        with patch('app.requests.get') as mocked_get:
+            mocked_get.return_value.json.return_value = ["added", "daddy", "add", "adds", "dad", "dads", "dead",
+                                                        "deed", "did", "dido",
+                                                        "died", "dodo", "dud", "dude", "duds", "dyad",
+                                                        "dyed", "eddy", "odd", "odds"]
 
-        response = app.messageDict(mocked_get.return_value.json.return_value)
-        result = "Sorry, we can't find the definition of the term you are looking for."
-        self.assertEqual(response, result)
+            response = app.messageDict(mocked_get.return_value.json.return_value)
+            result = "Sorry, we can't find the definition of the term you are looking for."
+            self.assertEqual(response, result)
 
     @patch("app.send_message")
     def test_dictionary_success(self, mocked_get):
         """dictionary api Mocked unit test"""
-        mocked_get.return_value.json.return_value = [{"shortdef": ["a piece of paper indicating a person\u0027s "
-                                                                   "preferences in an election",
-                                                                   "the right to formally express one\u0027s "
-                                                                   "position "
-                                                                   "or will in an election"]}]
-        response = app.messageDict(mocked_get.return_value.json.return_value)
-        result = "a piece of paper indicating a person\u0027s " \
+        with patch('app.requests.get') as mocked_get:
+            mocked_get.return_value.json.return_value = [{"shortdef": ["a piece of paper indicating a person\u0027s "
+                                                                        "preferences in an election",
+                                                                        "the right to formally express one\u0027s "
+                                                                        "position "
+                                                                        "or will in an election"]}]
+            response = app.messageDict(mocked_get.return_value.json.return_value)
+            result = "a piece of paper indicating a person\u0027s " \
                  "preferences in an election, " \
                  "the right to formally express one\u0027s " \
                  "position " \
                  "or will in an election"
-        self.assertEqual(response, result)
+            self.assertEqual(response, result)
 
     def test_new_user_connection(self):
         """user connection Mocked unit test"""
