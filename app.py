@@ -31,8 +31,10 @@ db.init_app(app)
 db.app = app
 import models
 
-def messageDict(result):
+def messageDict(text):
     """ API call for dictionary """
+    response = requests.get(f'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{text}?key={DICTIONARY_API_KEY}')
+    result = response.json()
     messageReceived = ''
     if 'shortdef' in result[0]:
         definition = result[0]['shortdef']
@@ -80,10 +82,7 @@ def on_connect(userProfile):
 def send_message(text):
     """ finding synonym for word entered by user. """
     socketId = request.sid
-    response = requests.get(f'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{text}?key={DICTIONARY_API_KEY}')
-    result = response.json()
-
-    messageReceived = messageDict(result)
+    messageReceived = messageDict(text)
     socketio.emit('forward message', {
         'messageReceived': messageReceived
     }, room=socketId)
