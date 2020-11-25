@@ -129,6 +129,7 @@ def api_call_for_news():
 
     response = requests.get(url, params=parameters)
     response_json = response.json()
+    print(response_json["articles"])
 
     return response_json["articles"]
 
@@ -140,8 +141,12 @@ def news_api_call():
     newsObjectLst = []
 
     for news in news_list:
-        news_content = news["content"].split("…")
-        final_news_content = str(news_content[0]) + "(continue reading)... "
+        if news["content"] == None:
+            final_news_content = "To read full article... "
+        else:
+            news_content = news["content"].split("…")
+            final_news_content = str(news_content[0]) + "(continue reading)... "
+        
         newsObjectLst.append(
             {
                 'title': news["title"],
