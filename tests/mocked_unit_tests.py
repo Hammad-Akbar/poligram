@@ -12,7 +12,7 @@ import json
 import app
 
 
-class mockedTest(unittest.TestCase):
+class MockedTest(unittest.TestCase):
     """ Mocked unit test cases """
     def setUp(self):
         """feedback db Mocked unit test"""
@@ -122,9 +122,21 @@ class mockedTest(unittest.TestCase):
         """Quiz Mocked unit test"""
         mocked_flask.request.sid = 'abcdef'
 
-        def mocked_open(file, mode):
-            """Quiz Mocked unit test"""
-            return open("tests/fake_questions.json", 'r')
+        class MockSession:
+            class MockQuery:
+                def all(self):
+                    class MockRecord:
+                        def __init__(self, text, group_name, multiplier):
+                            self.text = text
+                            self.group_name = group_name
+                            self.multiplier = multiplier
+                    
+                    return [MockRecord('Test question for unit test', 'unittest group', 99)]
+                    
+            
+            def query(self, param):
+                return self.MockQuery()
+
 
         def mocked_emit(event, data, room):
             """Quiz Mocked unit test"""
@@ -133,13 +145,37 @@ class mockedTest(unittest.TestCase):
             self.assertTrue(isinstance(data, list))
             self.assertEqual(len(data), 1)
             self.assertTrue(isinstance(data[0], dict))
-            self.assertEqual(data[0]['text'], "Test question for unittest")
+            self.assertEqual(data[0]['text'], "Test question for unit test")
             self.assertEqual(data[0]['multiplier'], 99)
 
-        with unittest.mock.patch('app.open', mocked_open):
+        with unittest.mock.patch('app.db.session', MockSession()):
             with unittest.mock.patch('app.socketio.emit', mocked_emit):
                 app.request_quiz()
-
+    
+    def test_quiz_load(self):
+        class MockSession:
+            def __init__(self, unittest_class):
+                self.questions = []
+                self.unittest_class = unittest_class
+            
+            class MockQuery:
+                def delete(self):
+                    pass
+            
+            def query(self, param):
+                return self.MockQuery()
+                
+            def commit(self):
+                pass
+            
+            def add(self, question_record):
+                # make sure question texts are all unique, since text is used as primary key
+                self.unittest_class.assertNotIn(question_record.text, self.questions)
+                self.questions.append(question_record.text)
+            
+        with unittest.mock.patch('app.db.session', MockSession(self)):
+            app.load_quiz_questions()
+    
 
 if __name__ == '__main__':
     unittest.main()
