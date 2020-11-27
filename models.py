@@ -23,17 +23,17 @@ class FeedbackLog(db.Model):
         
 class QuizQuestions(db.Model):
     text = db.Column(db.String(1024), primary_key=True)
-    groupName = db.Column(db.String(128))
+    group_name = db.Column(db.String(128))
     multiplier = db.Column(db.Float)
     
-    def __init__(self, text, groupName, multiplier):
+    def __init__(self, text, group_name, multiplier):
         self.text = text
-        self.groupName = groupName
+        self.group_name = group_name
         self.multiplier = multiplier
         
     def __repr__(self):
         return str({
             'text': self.text,
-            'group name': self.groupName,
+            'group name': self.group_name,
             'multiplier': self.multiplier
         })
