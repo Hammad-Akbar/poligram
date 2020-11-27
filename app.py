@@ -1,7 +1,7 @@
 """app.py Server to validate client request"""
-#pylint: disable=C0301
-#pylint: disable=C0103
-#pylint: disable=E1101
+# pylint: disable=C0301
+# pylint: disable=C0103
+# pylint: disable=E1101
 import os
 import json
 import random
@@ -12,7 +12,6 @@ import flask_sqlalchemy
 import requests
 import dotenv
 from datetime import date, timedelta
-
 
 dotenv.load_dotenv()
 
@@ -31,9 +30,11 @@ db.init_app(app)
 db.app = app
 import models
 
+
 def messageDict(text):
     """ API call for dictionary """
-    response = requests.get(f'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{text}?key={DICTIONARY_API_KEY}')
+    response = requests.get(
+        f'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{text}?key={DICTIONARY_API_KEY}')
     result = response.json()
     messageReceived = ''
     if 'shortdef' in result[0]:
@@ -115,7 +116,7 @@ def request_quiz():
 def api_call_for_news():
     """ API call for News """
     today = date.today()
-    yesterday = today - timedelta(days = 1)
+    yesterday = today - timedelta(days=1)
     url = 'https://newsapi.org/v2/everything'
     parameters = {
         'q': 'politics',  # query phrase
@@ -131,10 +132,10 @@ def api_call_for_news():
 
     return response_json["articles"]
 
+
 @socketio.on('news api call')
 def news_api_call():
     """ sending news back to client """
-    print("Got an event for newz:")
     news_list = api_call_for_news()
     newsObjectLst = []
 
@@ -144,7 +145,7 @@ def news_api_call():
         else:
             news_content = news["content"].split("…")
             final_news_content = str(news_content[0]) + "(continue reading)... "
-        
+
         newsObjectLst.append(
             {
                 'title': news["title"],
@@ -162,6 +163,23 @@ def news_api_call():
     })
 
     return newsObjectLst
+
+
+@socketio.on('state')
+def map_state(objState):
+    state = objState['state']
+    socketId = request.sid
+    sendData = ''
+    if state == 'NY':
+        sendData = 'User hits NY'
+    elif state == 'NJ':
+        sendData = 'User hits NJ'
+    else:
+        sendData = 'Please choose New Jersey or New York'
+
+    socketio.emit('sendState', {
+        'sendState': sendData
+    }, room=socketId)
 
 
 if __name__ == '__main__':
