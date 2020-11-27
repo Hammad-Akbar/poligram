@@ -9,7 +9,7 @@ import app
 import models
 
 
-class unmockedTest(unittest.TestCase):
+class UnmockedTest(unittest.TestCase):
     """Unmocked unit test cases """
     def setUp(self):
         self.feedback_test_user = models.FeedbackLog('Jay Amin', 'I learned a lot about politics')

@@ -12,7 +12,7 @@ import json
 import app
 
 
-class mockedTest(unittest.TestCase):
+class MockedTest(unittest.TestCase):
     """ Mocked unit test cases """
     def setUp(self):
         """feedback db Mocked unit test"""
@@ -151,7 +151,31 @@ class mockedTest(unittest.TestCase):
         with unittest.mock.patch('app.db.session', MockSession()):
             with unittest.mock.patch('app.socketio.emit', mocked_emit):
                 app.request_quiz()
-
+    
+    def test_quiz_load(self):
+        class MockSession:
+            def __init__(self, unittest_class):
+                self.questions = []
+                self.unittest_class = unittest_class
+            
+            class MockQuery:
+                def delete(self):
+                    pass
+            
+            def query(self, param):
+                return self.MockQuery()
+                
+            def commit(self):
+                pass
+            
+            def add(self, question_record):
+                # make sure question texts are all unique, since text is used as primary key
+                self.unittest_class.assertNotIn(question_record.text, self.questions)
+                self.questions.append(question_record.text)
+            
+        with unittest.mock.patch('app.db.session', MockSession(self)):
+            app.load_quiz_questions()
+    
 
 if __name__ == '__main__':
     unittest.main()
