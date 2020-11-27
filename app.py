@@ -131,6 +131,7 @@ def api_call_for_news():
 
     return response_json["articles"]
 
+
 @socketio.on('news api call')
 def news_api_call():
     """ sending news back to client """
@@ -164,8 +165,25 @@ def news_api_call():
     return newsObjectLst
 
 
+def load_quiz_questions():
+    db.session.query(models.QuizQuestions).delete()
+    
+    questions_file = open('quiz_questions.json', 'r')
+    questions_json = json.load(questions_file)
+    questions_file.close()
+    
+    for group in questions_json['groups']:
+        group_name = group['groupName']
+        for question in group['questions']:
+            db.session.add(models.QuizQuestions(question['text'], group_name, question['multiplier']))
+    
+    db.session.commit()
+    
+
 if __name__ == '__main__':
     models.db.create_all()
+    load_quiz_questions()
+    
     socketio.run(
         app,
         host=os.getenv('IP', '0.0.0.0'),
