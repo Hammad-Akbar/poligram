@@ -12,7 +12,9 @@ import models
 class unmockedTest(unittest.TestCase):
     """Unmocked unit test cases """
     def setUp(self):
-        self.user = models.FeedbackLog('Jay Amin', 'I learned a lot about politics')
+        self.feedback_test_user = models.FeedbackLog('Jay Amin', 'I learned a lot about politics')
+        self.quiz_test_question = models.QuizQuestions('Test question for unit test', 'test group', -32)
+        
         
     def test_app_mock(self):
         """ News api unmocked test cases """
@@ -29,16 +31,24 @@ class unmockedTest(unittest.TestCase):
             self.assertFalse(i["published"] == " ", "False or True")
             self.assertFalse(i["content"] == " ", "False or True")
     
-    def test_database(self):
-        """ database unmocked test cases """
-        self.assertEqual(self.user.feedback, 'I learned a lot about politics')
-        self.assertEqual(self.user.name, 'Jay Amin')
+    def test_models(self):
+        """ Test instances of models from models.py """
+        self.assertEqual(self.feedback_test_user.feedback, 'I learned a lot about politics')
+        self.assertEqual(self.feedback_test_user.name, 'Jay Amin')
+        
+        self.assertEqual(self.quiz_test_question.text, 'Test question for unit test')
+        self.assertEqual(self.quiz_test_question.group_name, 'test group')
+        self.assertEqual(self.quiz_test_question.multiplier, -32)
 
     def test_repr(self):
-        """ Feedback form unmocked test cases """
-        response = self.user.__repr__()
-        result = str({'name': 'Jay Amin', 'feedback': 'I learned a lot about politics'})
-        self.assertEqual(response, result)
+        """ Test string form of model instances from models.py """
+        test_repr = self.feedback_test_user.__repr__()
+        correct_repr = "{'name': 'Jay Amin', 'feedback': 'I learned a lot about politics'}"
+        self.assertEqual(test_repr, correct_repr)
+        
+        test_repr = self.quiz_test_question.__repr__()
+        correct_repr = "{'text': 'Test question for unit test', 'group name': 'test group', 'multiplier': -32}"
+        self.assertEqual(test_repr, correct_repr)
 
 
 if __name__ == '__main__':
