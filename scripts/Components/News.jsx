@@ -6,7 +6,7 @@ import './styles/news.css';
 function News() {
   const [newsData, setNewsData] = useState([]);
   useEffect(() => {
-    //Socket.emit('news api call');
+    Socket.emit('news api call');
 
     Socket.on('newsData', (data) => {
       setNewsData(data.newsObjectLst);
