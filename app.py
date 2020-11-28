@@ -119,9 +119,9 @@ def api_call_for_news(data):
     """ API call for News """
     print("we got query to search", data)
     if data == "":
-        query = data
-    else:
         query = 'politics'
+    else:
+        query = data
     today = date.today()
     yesterday = today - timedelta(days = 1)
     url = 'https://newsapi.org/v2/everything'
@@ -136,15 +136,10 @@ def api_call_for_news(data):
 
     response = requests.get(url, params=parameters)
     response_json = response.json()
-
-    return response_json["articles"]
-
-@socketio.on('news api call')
-def news_api_call():
-    """ sending news back to client """
-    print("Got an event for newz:")
-    news_list = api_call_for_news('news')
+    
+    global newsObjectLst
     newsObjectLst = []
+    news_list = response_json["articles"]
 
     for news in news_list:
         if news["content"] == None:
@@ -164,7 +159,18 @@ def news_api_call():
                 'img': news["urlToImage"]
             }
         )
+    socketio.emit('newsData', {
+        'newsObjectLst': newsObjectLst
+    })
 
+    return response_json["articles"]
+
+@socketio.on('news api call')
+def news_api_call():
+    """ sending news back to client """
+    print("Got an event for newz:")
+    news_list = api_call_for_news('news')
+    
     socketio.emit('newsData', {
         'newsObjectLst': newsObjectLst
     })
