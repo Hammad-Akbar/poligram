@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import NewsSearch from './NewsSearch';
 import Socket from './Socket';
 import './styles/news.css';
 
@@ -17,10 +18,14 @@ function News() {
   }, []);
 
   return (
-    <div>
+    <div> 
+    <br />
+    <br />
+    <NewsSearch /> 
+     <br />
       {newsData.map((news) => (
         <p>
-
+          
           <div className="headerclass">{news.title}</div>
           <br />
 
