@@ -45,7 +45,7 @@ class MockedTest(unittest.TestCase):
         mock_api_call.return_value.status_code = 200
         mock_api_call.return_value = f.read()
 
-        r_json = json.loads(app.api_call_for_news())
+        r_json = json.loads(app.api_call_for_news("news"))
 
         self.assertEqual(r_json["status"], 'okkk')
         self.assertEqual(r_json["articles"][0]["author"], 'Lisa Lerer')
