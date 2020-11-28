@@ -134,7 +134,6 @@ def api_call_for_news():
 
     return response_json["articles"]
 
-
 @socketio.on('news api call')
 def news_api_call():
     """ sending news back to client """
