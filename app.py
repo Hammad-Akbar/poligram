@@ -167,7 +167,6 @@ def news_api_call():
     return newsObjectLst
 
 
-<<<<<<< HEAD
 @socketio.on('state')
 def map_state(objState):
     state = objState['state']
@@ -184,7 +183,6 @@ def map_state(objState):
         'sendState': sendData
     }, room=socketId)
 
-=======
 def load_quiz_questions():
     """ Loads the questions for the quiz into the database from the questions JSON file """
     
@@ -201,7 +199,6 @@ def load_quiz_questions():
     
     db.session.commit()
     
->>>>>>> master
 
 if __name__ == '__main__':
     models.db.create_all()
