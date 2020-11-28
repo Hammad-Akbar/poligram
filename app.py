@@ -114,14 +114,19 @@ def request_quiz():
     sid = flask.request.sid
     socketio.emit('quiz generated', quiz_out, room=sid)
 
-
-def api_call_for_news():
+@socketio.on('search news')
+def api_call_for_news(data):
     """ API call for News """
+    print("we got query to search", data)
+    if data == "":
+        query = data
+    else:
+        query = 'politics'
     today = date.today()
     yesterday = today - timedelta(days = 1)
     url = 'https://newsapi.org/v2/everything'
     parameters = {
-        'q': 'politics',  # query phrase
+        'q': query,  # query phrase
         'from': yesterday,
         'language': 'en',
         'sortBy': 'relevancy',
@@ -138,7 +143,7 @@ def api_call_for_news():
 def news_api_call():
     """ sending news back to client """
     print("Got an event for newz:")
-    news_list = api_call_for_news()
+    news_list = api_call_for_news('news')
     newsObjectLst = []
 
     for news in news_list:
