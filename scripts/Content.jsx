@@ -6,9 +6,9 @@ import Navigation from './Components/Navigation';
 import Socket from './Components/Socket';
 import Quiz from './Components/Quiz/Quiz';
 import News from './Components/News';
+import Map from './Components/Map';
 
 const Content = () => {
-  
   const [user, setUser] = useState('');
 
   useEffect(() => {
@@ -30,6 +30,7 @@ const Content = () => {
           <Route path="/Dictionary" component={Dictionary} />
           <Route path="/Quiz" component={Quiz} />
           <Route path="/News" component={News} />
+          <Route path="/Map" component={Map} />
           <Route component={Error} />
         </Switch>
       </div>

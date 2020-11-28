@@ -1,7 +1,7 @@
 """app.py Server to validate client request"""
-#pylint: disable=C0301
-#pylint: disable=C0103
-#pylint: disable=E1101
+# pylint: disable=C0301
+# pylint: disable=C0103
+# pylint: disable=E1101
 import os
 import json
 import random
@@ -12,7 +12,6 @@ import flask_sqlalchemy
 import requests
 import dotenv
 from datetime import date, timedelta
-
 
 dotenv.load_dotenv()
 
@@ -34,7 +33,8 @@ import models
 
 def messageDict(text):
     """ API call for dictionary """
-    response = requests.get(f'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{text}?key={DICTIONARY_API_KEY}')
+    response = requests.get(
+        f'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{text}?key={DICTIONARY_API_KEY}')
     result = response.json()
     messageReceived = ''
     if 'shortdef' in result[0]:
@@ -177,6 +177,22 @@ def news_api_call():
 
     return newsObjectLst
 
+
+@socketio.on('state')
+def map_state(objState):
+    state = objState['state']
+    socketId = request.sid
+    sendData = ''
+    if state == 'NY':
+        sendData = 'User hits NY'
+    elif state == 'NJ':
+        sendData = 'User hits NJ'
+    else:
+        sendData = 'Please choose New Jersey or New York'
+
+    socketio.emit('sendState', {
+        'sendState': sendData
+    }, room=socketId)
 
 def load_quiz_questions():
     """ Loads the questions for the quiz into the database from the questions JSON file """
