@@ -1,7 +1,7 @@
 """app.py Server to validate client request"""
-#pylint: disable=C0301
-#pylint: disable=C0103
-#pylint: disable=E1101
+# pylint: disable=C0301
+# pylint: disable=C0103
+# pylint: disable=E1101
 import os
 import json
 import random
@@ -12,7 +12,6 @@ import flask_sqlalchemy
 import requests
 import dotenv
 from datetime import date, timedelta
-
 
 dotenv.load_dotenv()
 
@@ -31,8 +30,12 @@ db.init_app(app)
 db.app = app
 import models
 
-def messageDict(result):
+
+def messageDict(text):
     """ API call for dictionary """
+    response = requests.get(
+        f'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{text}?key={DICTIONARY_API_KEY}')
+    result = response.json()
     messageReceived = ''
     if 'shortdef' in result[0]:
         definition = result[0]['shortdef']
@@ -43,7 +46,7 @@ def messageDict(result):
 
 
 @app.route('/')
-def hello():
+def index():
     """ Render function """
     return flask.render_template('index.html')
 
@@ -80,10 +83,7 @@ def on_connect(userProfile):
 def send_message(text):
     """ finding synonym for word entered by user. """
     socketId = request.sid
-    response = requests.get(f'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{text}?key={DICTIONARY_API_KEY}')
-    result = response.json()
-
-    messageReceived = messageDict(result)
+    messageReceived = messageDict(text)
     socketio.emit('forward message', {
         'messageReceived': messageReceived
     }, room=socketId)
@@ -91,32 +91,34 @@ def send_message(text):
 
 @socketio.on('request quiz')
 def request_quiz():
-    """Getting quiz question from json file"""
-    questions_file = open('quiz_questions.json', 'r')
-    questions_json = json.load(questions_file)
-    questions_file.close()
+    """ Selects random quiz questions (one per question group) and sends to user """
+    
+    groups = {}
+    for row in db.session.query(models.QuizQuestions).all():
+        if row.group_name not in groups:
+            groups[row.group_name] = []
+        
+        groups[row.group_name].append({'text': row.text, 'multiplier': row.multiplier})
 
-    groups = questions_json['groups']
-    group_indexes = [n for n in range(len(groups))]
-    random.shuffle(group_indexes)
+    group_names = list(groups.keys())
+    random.shuffle(group_names)
 
     quiz_out = []
 
-    for i in group_indexes:
-        questions = groups[i]['questions']
-        q_index = random.randrange(len(questions))
+    for name in group_names:
+        group = groups[name]
+        question_index = random.randrange(len(group))
 
-        quiz_out.append(questions[q_index])
+        quiz_out.append(group[question_index])
 
     sid = flask.request.sid
-
     socketio.emit('quiz generated', quiz_out, room=sid)
 
 
 def api_call_for_news():
     """ API call for News """
     today = date.today()
-    yesterday = today - timedelta(days = 1)
+    yesterday = today - timedelta(days=1)
     url = 'https://newsapi.org/v2/everything'
     parameters = {
         'q': 'politics',  # query phrase
@@ -129,14 +131,13 @@ def api_call_for_news():
 
     response = requests.get(url, params=parameters)
     response_json = response.json()
-    print(response_json["articles"])
 
     return response_json["articles"]
+
 
 @socketio.on('news api call')
 def news_api_call():
     """ sending news back to client """
-    print("Got an event for newz:")
     news_list = api_call_for_news()
     newsObjectLst = []
 
@@ -146,7 +147,7 @@ def news_api_call():
         else:
             news_content = news["content"].split("…")
             final_news_content = str(news_content[0]) + "(continue reading)... "
-        
+
         newsObjectLst.append(
             {
                 'title': news["title"],
@@ -166,8 +167,43 @@ def news_api_call():
     return newsObjectLst
 
 
+@socketio.on('state')
+def map_state(objState):
+    state = objState['state']
+    socketId = request.sid
+    sendData = ''
+    if state == 'NY':
+        sendData = 'User hits NY'
+    elif state == 'NJ':
+        sendData = 'User hits NJ'
+    else:
+        sendData = 'Please choose New Jersey or New York'
+
+    socketio.emit('sendState', {
+        'sendState': sendData
+    }, room=socketId)
+
+def load_quiz_questions():
+    """ Loads the questions for the quiz into the database from the questions JSON file """
+    
+    db.session.query(models.QuizQuestions).delete()
+    
+    questions_file = open('quiz_questions.json', 'r')
+    questions_json = json.load(questions_file)
+    questions_file.close()
+    
+    for group in questions_json['groups']:
+        group_name = group['groupName']
+        for question in group['questions']:
+            db.session.add(models.QuizQuestions(question['text'], group_name, question['multiplier']))
+    
+    db.session.commit()
+    
+
 if __name__ == '__main__':
     models.db.create_all()
+    load_quiz_questions()
+    
     socketio.run(
         app,
         host=os.getenv('IP', '0.0.0.0'),
