@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import Dictionary from './Components/Dictionary';
 import Home from './Components/Home';
 import Navigation from './Components/Navigation';
@@ -22,7 +22,7 @@ const Content = () => {
   }, []);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div>
         <Navigation user={user} />
         <Switch>
@@ -33,7 +33,7 @@ const Content = () => {
           <Route component={Error} />
         </Switch>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

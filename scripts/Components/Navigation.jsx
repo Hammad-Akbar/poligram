@@ -38,12 +38,10 @@ const Navigation = ({ user }) => {
       </>
     );
   }
-
   return(
     <div>
       {Authenticated()}
     </div>
   )
 };
-
 export default Navigation;
