@@ -11,20 +11,26 @@ body {
 
 .form {
 	margin-top: 20px;
+	display: flex;
 }
 
 .search-bar {
-	width: 600px;
+	width: 400px;
 	height: 40px;
 	box-shadow: none;
 	font-size: 18px;
 }
 
-.button {
-	display:inline-block;
+.input-form {
+	display: flex;
+	flex-direction: row;
+}
+
+.button-form {
+	margin-top: 25px;
+	margin-left: 1px;
 	padding:0.35em 1.2em;
 	border:0.1em solid #FFFFFF;
-	margin:0 0.3em 0.3em 0.3em;
 	border-radius:0.12em;
 	box-sizing: border-box;
 	font-weight:300;

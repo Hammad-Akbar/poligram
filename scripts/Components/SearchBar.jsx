@@ -10,6 +10,12 @@ function SearchBar() {
     { label: 'Ballot' },
     { label: 'Election' },
     { label: 'Voter' },
+    { label: 'Campaign' },
+    { label: 'Convention' },
+    { label: 'Lobby' },
+    { label: 'Muckraker' },
+    { label: 'Nominee' },
+    { label: 'Nomination' },
   ];
 
   function handleChange(e) {
@@ -22,7 +28,7 @@ function SearchBar() {
   }
   return (
     <div className="form">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="input-form">
         <Autocomplete
           onSubmit={handleSubmit}
           onInputChange={(event, newInputVal) => {
@@ -45,6 +51,7 @@ function SearchBar() {
             />
           )}
         />
+        <button className="button-form" type="submit"> Search </button>
       </form>
     </div>
   );
