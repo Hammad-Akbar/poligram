@@ -7,6 +7,7 @@ function Dictionary() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
+    Socket.emit('word of the day');
     Socket.on('forward message', (data) => {
       setMessage(data.messageReceived);
     });
