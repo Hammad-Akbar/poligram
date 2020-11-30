@@ -25,6 +25,9 @@ function SearchBar() {
       <form onSubmit={handleSubmit}>
         <Autocomplete
           onSubmit={handleSubmit}
+          onInputChange={(event, newInputVal) => {
+            setText(newInputVal);
+          }}
           freeSolo
           options={items.map((option) => option.label)}
           className="search-bar"
@@ -32,6 +35,7 @@ function SearchBar() {
             <TextField
               /* eslint-disable-next-line react/jsx-props-no-spreading */
               {...params}
+              autoFocus
               onChange={handleChange}
               value={text}
               required
