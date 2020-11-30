@@ -35,7 +35,7 @@
     "react": "^16.12.0",
     "react-bootstrap": "^0.31.0",
     "react-dom": "^16.12.0",
-    "react-google-login": "^5.1.22",
+    "react-google-login": "^5.1.24",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-usa-map": "^1.5.0",

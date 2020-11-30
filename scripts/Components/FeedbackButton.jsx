@@ -26,7 +26,8 @@ export default function FeedbackButton() {
             <input type="text" id="name_input" name="name_input" /><br></br>
           </div>
           <div className='message-box'> 
-            <input type="text" id="message_input" name="message_input" /><br></br>
+            <label for="message">Feedback:</label><br></br>
+            <textarea id="message" name="message" rows="4" cols="50"> </textarea>
           </div>
           <button type="submit">Give Feedback</button>
         </form>
