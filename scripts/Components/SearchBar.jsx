@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Autocomplete from 'react-autocomplete';
 import Socket from './Socket';
 
 function SearchBar() {
@@ -18,30 +17,13 @@ function SearchBar() {
     Socket.emit('send message', text);
     setText('');
   }
-
   return (
     <div className="form">
       <form onSubmit={handleSubmit}>
-        <Autocomplete
+        <input
           className="search-bar"
-          getItemValue={(item) => item.label}
-          items={[
-            { label: 'Ballot' },
-            { label: 'Election' },
-            { label: 'Voter' },
-          ]}
-          renderItem={(item, isHighlighted) => (
-            <div style={{
-              background: isHighlighted ? 'lightgray' : 'white',
-              font: 'Roboto',
-            }}
-            >
-              {item.label}
-            </div>
-          )}
           type={text}
           onChange={handleChange}
-          onSelect={handleSelect}
           value={text}
           placeholder="Enter a political term..."
           required
