@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import Socket from './Socket';
 
 function SearchBar() {
   const [text, setText] = useState('');
 
+  const items = [
+    { label: 'Ballot' },
+    { label: 'Election' },
+    { label: 'Voter' },
+  ];
+
   function handleChange(e) {
     setText(e.target.value);
   }
-
-  function handleSelect(e) {
-    setText(e);
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
     Socket.emit('send message', text);
@@ -20,17 +23,24 @@ function SearchBar() {
   return (
     <div className="form">
       <form onSubmit={handleSubmit}>
-        <input
+        <Autocomplete
+          onSubmit={handleSubmit}
+          freeSolo
+          options={items.map((option) => option.label)}
           className="search-bar"
-          type={text}
-          onChange={handleChange}
-          value={text}
-          placeholder="Enter a political term..."
-          required
+          renderInput={(params) => (
+            <TextField
+              /* eslint-disable-next-line react/jsx-props-no-spreading */
+              {...params}
+              onChange={handleChange}
+              value={text}
+              required
+              placeholder="Enter a political term..."
+              margin="normal"
+              variant="outlined"
+            />
+          )}
         />
-        <button className="button" type="submit">
-          Search
-        </button>
       </form>
     </div>
   );
