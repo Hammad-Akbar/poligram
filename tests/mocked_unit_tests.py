@@ -29,14 +29,14 @@ class MockedTest(unittest.TestCase):
                 "feedback" : 123
             }
         ]
-        
+
     class MockSession():
         def add(self, value):
             pass
-        
+
         def commit(self):
             pass
-            
+
 
     @patch("app.api_call_for_news")
     def test_app_mock(self, mock_api_call):
@@ -70,13 +70,13 @@ class MockedTest(unittest.TestCase):
     def test_dictionary_success(self, mocked_get):
         """dictionary api Mocked unit test"""
         with patch('app.requests.get') as mocked_get:
-            mocked_get.return_value.json.return_value = [{"shortdef": ["a piece of paper indicating a person\u0027s "
+            mocked_get.return_value.json.return_value = [{"shortdef": ["A piece of paper indicating a person\u0027s "
                                                                         "preferences in an election",
                                                                         "the right to formally express one\u0027s "
                                                                         "position "
                                                                         "or will in an election"]}]
             response = app.messageDict('ballot')
-            result = "a piece of paper indicating a person\u0027s " \
+            result = "A piece of paper indicating a person\u0027s " \
                  "preferences in an election, " \
                  "the right to formally express one\u0027s " \
                  "position " \
@@ -96,7 +96,7 @@ class MockedTest(unittest.TestCase):
         result = socketio_test_client.get_received()
         user = result[0]['args'][0]['user']
         self.assertEqual(user, 'Jay Amin')
-        
+
     def test_on_new_message_success(self):
         """ testing success of new feedback  """
         mock_session = self.MockSession()
@@ -130,10 +130,10 @@ class MockedTest(unittest.TestCase):
                             self.text = text
                             self.group_name = group_name
                             self.multiplier = multiplier
-                    
+
                     return [MockRecord('Test question for unit test', 'unittest group', 99)]
-                    
-            
+
+
             def query(self, param):
                 return self.MockQuery()
 
@@ -151,31 +151,31 @@ class MockedTest(unittest.TestCase):
         with unittest.mock.patch('app.db.session', MockSession()):
             with unittest.mock.patch('app.socketio.emit', mocked_emit):
                 app.request_quiz()
-    
+
     def test_quiz_load(self):
         class MockSession:
             def __init__(self, unittest_class):
                 self.questions = []
                 self.unittest_class = unittest_class
-            
+
             class MockQuery:
                 def delete(self):
                     pass
-            
+
             def query(self, param):
                 return self.MockQuery()
-                
+
             def commit(self):
                 pass
-            
+
             def add(self, question_record):
                 # make sure question texts are all unique, since text is used as primary key
                 self.unittest_class.assertNotIn(question_record.text, self.questions)
                 self.questions.append(question_record.text)
-            
+
         with unittest.mock.patch('app.db.session', MockSession(self)):
             app.load_quiz_questions()
-    
+
 
 if __name__ == '__main__':
     unittest.main()
