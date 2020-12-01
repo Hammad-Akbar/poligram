@@ -169,6 +169,5 @@ pip install pylint_flask_sqlalchemy
 
 
 ## References:
-
 quiz: https://www.studentnewsdaily.com/conservative-vs-liberal-beliefs/
 pylint: https://pypi.org/project/pylint-flask-sqlalchemy/
