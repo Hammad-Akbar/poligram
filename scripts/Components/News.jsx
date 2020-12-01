@@ -19,10 +19,7 @@ function News() {
 
   return (
     <div> 
-    <br />
-    <br />
     <NewsSearch /> 
-     <br />
       {newsData.map((news) => (
         <p>
           
