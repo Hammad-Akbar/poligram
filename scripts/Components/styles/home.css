@@ -167,7 +167,7 @@ body {
 }
 
 .feedback-button button {
-	display: inline-block;
+	display: inline;
 	padding: 0.35em 1.2em;
 	border: 0.1em solid #314455;
 	margin: 0 0.3em 0.3em 0;
@@ -193,3 +193,14 @@ body {
 		margin: 0.4em auto;
 	}
 }
+
+.feedback-button label {
+	color: white;
+	font-family: 'Lora', serif;
+}
+
+.feedback-button h6 {
+	color: white;
+	font-family: 'Lora', serif;
+	text-align: right;
+}	
