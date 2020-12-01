@@ -1,0 +1,139 @@
+{
+    "states": [
+        {
+            "stateName": "Alaska",
+            "stateCode": "AL",
+            "population": 4903000,
+            "electoralVotes": 9,
+            "senators": 2,
+            "house": 7,
+            "website": "https://www.alabama.gov/"
+        },
+        {
+            "stateName": "Arkansas",
+            "stateCode": "AK",
+            "population": 731545,
+            "electoralVotes": 3,
+            "senators": 2,
+            "house": 1,
+            "website": "http://alaska.gov/"
+        },
+        {
+            "stateName": "Arizona",
+            "stateCode": "AZ",
+            "population": 7279000,
+            "electoralVotes": 11,
+            "senators": 2,
+            "house": 9,
+            "website": "https://az.gov/"
+        },
+        {
+            "stateName": "Alaska",
+            "stateCode": "AR",
+            "population": 3018000,
+            "electoralVotes": 6,
+            "senators": 2,
+            "house": 4,
+            "website": "https://portal.arkansas.gov/"
+        },
+        {
+            "stateName": "California",
+            "stateCode": "CA",
+            "population": 39051000,
+            "electoralVotes": 55,
+            "senators": 2,
+            "house": 53,
+            "website": "https://www.ca.gov/"
+        },
+        {
+            "stateName": "Colorado",
+            "stateCode": "CO",
+            "population": 5759000,
+            "electoralVotes": 9,
+            "senators": 2,
+            "house": 7,
+            "website": "https://www.colorado.gov/"
+        },
+        {
+            "stateName": "Connecticut",
+            "stateCode": "CT",
+            "population": 3565000,
+            "electoralVotes": 7,
+            "senators": 2,
+            "house": 5,
+            "website": "https://portal.ct.gov/"
+        },
+        {
+            "stateName": "Delaware",
+            "stateCode": "DE",
+            "population": 973764,
+            "electoralVotes": 3,
+            "senators": 2,
+            "house": 1,
+            "website": "https://delaware.gov/"
+        },
+        {
+            "stateName": "Florida",
+            "stateCode": "FL",
+            "population": 21048000,
+            "electoralVotes": 29,
+            "senators": 2,
+            "house": 27,
+            "website": "http://www.myflorida.com/"
+        },
+        {
+            "stateName": "Georgia",
+            "stateCode": "GA",
+            "population": 10062000,
+            "electoralVotes": 16,
+            "senators": 2,
+            "house": 14,
+            "website": "https://georgia.gov/"
+        },
+        {
+            "stateName": "Hawaii",
+            "stateCode": "HI",
+            "population": 1416000,
+            "electoralVotes": 4,
+            "senators": 2,
+            "house": 2,
+            "website": "https://portal.ehawaii.gov/"
+        },
+        {
+            "stateName": "Idaho",
+            "stateCode": "ID",
+            "population": 1787000,
+            "electoralVotes": 4,
+            "senators": 2,
+            "house": 2,
+            "website": "https://www.idaho.gov/"
+        },
+        {
+            "stateName": "Illinois",
+            "stateCode": "IL",
+            "population": 12067000,
+            "electoralVotes": 20,
+            "senators": 2,
+            "house": 18,
+            "website": "https://www2.illinois.gov/"
+        },
+        {
+            "stateName": "New Jersey",
+            "stateCode": "NJ",
+            "population": 8882000,
+            "electoralVotes": 14,
+            "senators": 2,
+            "house": 12,
+            "website": "https://www.nj.gov/"
+        },
+        {
+            "stateName": "New York",
+            "stateCode": "NY",
+            "population": 19450000,
+            "electoralVotes": 29,
+            "senators": 2,
+            "house": 27,
+            "website": "https://www.ny.gov/"
+        }
+    ]
+}
