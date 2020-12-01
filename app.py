@@ -185,7 +185,7 @@ def api_call_for_news(data):
 def news_api_call():
     """ sending news back to client """
     print("Got an event for newz:")
-    news_list = api_call_for_news('news')
+    news_list = api_call_for_news('politics')
 
     socketio.emit('newsData', {
         'newsObjectLst': newsObjectLst
