@@ -1,7 +1,7 @@
 {
     "states": [
         {
-            "stateName": "Alaska",
+            "stateName": "Alabama",
             "stateCode": "AL",
             "population": 4903000,
             "electoralVotes": 9,
@@ -10,7 +10,7 @@
             "website": "https://www.alabama.gov/"
         },
         {
-            "stateName": "Arkansas",
+            "stateName": "Alaska",
             "stateCode": "AK",
             "population": 731545,
             "electoralVotes": 3,
@@ -28,7 +28,7 @@
             "website": "https://az.gov/"
         },
         {
-            "stateName": "Alaska",
+            "stateName": "Arkansas",
             "stateCode": "AR",
             "population": 3018000,
             "electoralVotes": 6,
@@ -134,6 +134,114 @@
             "senators": 2,
             "house": 27,
             "website": "https://www.ny.gov/"
+        },
+        {
+            "stateName": "Indiana",
+            "stateCode": "IN",
+            "population": 6732219,
+            "electoralVotes": 11,
+            "senators": 2,
+            "house": 9,
+            "website": "https://www.in.gov/core/"
+        },
+        {
+            "stateName": "Iowa",
+            "stateCode": "IA",
+            "population": 3155070,
+            "electoralVotes": 6,
+            "senators": 2,
+            "house": 4,
+            "website": "https://www.iowa.gov/"
+        },
+        {
+            "stateName": "Kansas",
+            "stateCode": "KS",
+            "population": 2913314,
+            "electoralVotes": 6 ,
+            "senators": 2,
+            "house": 4,
+            "website": "https://portal.kansas.gov/"
+        },
+        {
+            "stateName": "Kentucky",
+            "stateCode": "KY",
+            "population": 4467673,
+            "electoralVotes": 8 ,
+            "senators": 2,
+            "house": 6,
+            "website": "https://kentucky.gov/Pages/home.aspx"
+        },
+        {
+            "stateName": "Kentucky",
+            "stateCode": "KY",
+            "population": 4467673,
+            "electoralVotes": 8 ,
+            "senators": 2,
+            "house": 6,
+            "website": "https://kentucky.gov/Pages/home.aspx"
+        },
+        {
+            "stateName": "Louisiana",
+            "stateCode": "LA",
+            "population": 4467673,
+            "electoralVotes": 8 ,
+            "senators": 2,
+            "house": 6,
+            "website": "https://www.louisiana.gov/"
+        },
+        {
+            "stateName": "Maine",
+            "stateCode": "ME",
+            "population": 1344212,
+            "electoralVotes": 4,
+            "senators": 2,
+            "house": 2,
+            "website": "https://www.maine.gov/portal/index.html"
+        },
+        {
+            "stateName": "Maryland",
+            "stateCode": "MD",
+            "population": 6045680,
+            "electoralVotes": 10,
+            "senators": 2,
+            "house": 8,
+            "website": "https://www.maryland.gov/Pages/default.aspx"
+        },
+        {
+            "stateName": "Massachusetts",
+            "stateCode": "MA",
+            "population": 6892503,
+            "electoralVotes": 11,
+            "senators": 2,
+            "house": 9,
+            "website": "https://www.maryland.gov/Pages/default.aspx"
+        },
+        {
+            "stateName": "Michigan",
+            "stateCode": "MI",
+            "population": 9986857,
+            "electoralVotes": 16,
+            "senators": 2,
+            "house": 14,
+            "website": "https://www.michigan.gov/som/"
+        },
+        {
+            "stateName": "Minnesota",
+            "stateCode": "MN",
+            "population": 5639632,
+            "electoralVotes": 10,
+            "senators": 2,
+            "house": 8,
+            "website": "https://mn.gov/portal/"
+        },
+        {
+            "stateName": "Mississippi",
+            "stateCode": "MS",
+            "population": 2976149,
+            "electoralVotes": 6,
+            "senators": 2,
+            "house": 4,
+            "website": "https://www.ms.gov/home"
         }
     ]
 }
