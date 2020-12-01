@@ -103,10 +103,10 @@ If that doesn't work: `sudo vim $(psql -c "show hba_file;" | grep pg_hba.conf)`
 
 ### Run your code!    
 1. `npm run watch`. If prompted to install webpack-cli, type "yes"    
-2. Go into the python interactive shell and run the following:
-    a) `import models`
-    b) `models.db.create_all()`
-    c) `quit()`
+2. Go into the python interactive shell and run the following:  
+    a) `import models`  
+    b) `models.db.create_all()`     
+    c) `quit()` 
 3. In a new terminal, `sudo service postgresql start` to start PSQL
 4. `source news.env`
 5. `python app.py`    
@@ -116,9 +116,9 @@ If that doesn't work: `sudo vim $(psql -c "show hba_file;" | grep pg_hba.conf)`
 After you create your heroku app, you will need to push the database to heroku:
 1. Create a database on heroku `heroku addons:create heroku-postgresql:hobby-dev`
 2. Wait until ready to use `heroku pg:wait`
-3. Alter the database owner:
-    a) `psql`
-    b) `ALTER DATABASE Postgres OWNER TO user` [where user is the username created in Section: "Setting up PSQL", 7b]
+3. Alter the database owner:    
+    a) `psql`   
+    b) `ALTER DATABASE Postgres OWNER TO user` [where user is the username created in Section: "Setting up PSQL", 7b]   
 4. Now push the database onto heroku, `heroku pg:push postgres DATABASE_URL`
 
 ### Unit Testing
