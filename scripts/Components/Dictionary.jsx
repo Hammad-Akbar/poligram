@@ -5,14 +5,21 @@ import './styles/dictionary.css';
 
 function Dictionary() {
   const [message, setMessage] = useState('');
+  const [wordOfDay, setWordOfDay] = useState('');
+  const [definition, setDefinition] = useState('');
 
   useEffect(() => {
     Socket.emit('word of the day');
     Socket.on('forward message', (data) => {
       setMessage(data.messageReceived);
     });
+    Socket.on('send word of day', (data) => {
+      setDefinition(data.messageReceived);
+      setWordOfDay(data.wordOfDay);
+    });
     return () => {
       Socket.off('forward message');
+      Socket.off('send word of day');
     };
   }, []);
 
@@ -32,6 +39,16 @@ function Dictionary() {
 
   return (
     <div className="dictionary">
+      <div className="wordOfDayCard">
+        <div className="wordOfDay">
+          <strong> Word of the day: </strong>
+          {wordOfDay}
+        </div>
+        <br />
+        <div className="wordDefinition">
+          {definition}
+        </div>
+      </div>
       <SearchBar />
       <div>
         {toggleParagraph()}

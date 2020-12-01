@@ -37,10 +37,28 @@ body {
 	height: 40px;
 }
 
-
 .definition {
 	height: auto;
   	background-color: lightgray;
 	padding: 10px;
 	box-shadow: 0.5px 0.5px #888888;
+}
+
+.wordOfDay {
+	font-family: 'Roboto', cursive;
+	font-size: 20px;
+	text-align: center;
+}
+
+.wordOfDayCard {
+	margin-right: 30px;
+	text-align: center;
+	height: auto;
+  	background-color: lightgray;
+	padding: 10px;
+	box-shadow: 0.5px 0.5px #888888;
+}
+
+.wordDefinition {
+	font-family: Roboto, fantasy;
 }

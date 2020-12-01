@@ -40,6 +40,7 @@ def messageDict(text):
     if 'shortdef' in result[0]:
         definition = result[0]['shortdef']
         messageReceived = ', '.join(definition)
+        messageReceived = messageReceived.capitalize()
     else:
         messageReceived = "Sorry, we can't find the definition of the term you are looking for."
     return messageReceived
@@ -81,15 +82,15 @@ def on_connect(userProfile):
 
 @socketio.on('word of the day')
 def word_of_day():
-    print('HERE')
     socketId = request.sid
-    politicalLst = ['Cabinet', 'Campaign', 'Candidate', 'Canvass', 'Capitalize', 'Career', 'Catalyst',
-                    'Background', 'Bait', 'Balanced budget', 'Ballot', 'Ballot box', 'Bandwagon', 'Barnstorm',
+    politicalLst = ['Cabinet', 'Campaign', 'Candidate', 'Canvass', 'Capitalize', 'Catalyst',
+                    'Balanced budget', 'Ballot', 'Ballot box', 'Bandwagon', 'Barnstorm',
                     'Absentee', 'Accountable', 'Activist', 'Adverse', 'Advertising', 'Advice', 'Advise']
     wordOfDay = random.choice(politicalLst)
     messageReceived = messageDict(wordOfDay)
-    socketio.emit('forward message', {
-        'messageReceived': messageReceived
+    socketio.emit('send word of day', {
+        'messageReceived': messageReceived,
+        'wordOfDay': wordOfDay
     }, room=socketId)
 
 
