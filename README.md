@@ -42,15 +42,19 @@ We've seen some political websites that quiz you on different things about polit
 ### Setting up React     
 1. Install your stuff! 
 ```
-`npm install`    
-`pip install flask-socketio`    
-`pip install eventlet`    
-`npm install -g webpack`    
-`npm install --save-dev webpack`    
-`npm install socket.io-client --save`    
-`npm install --save react-router-dom`
-`npm install --save-dev style-loader css-loader`
-`npm install react-google-login`
+npm install
+pip install flask-socketio 
+pip install eventlet 
+npm install -g webpack   
+npm install --save-dev webpack
+npm install socket.io-client --save   
+npm install --save react-router-dom
+npm install --save-dev style-loader css-loader
+npm install react-google-login
+npm install @material-ui/core
+npm install @material-ui/lab
+npm install --save sweetalert2
+npm i react-usa-map
 ```
 
 :warning: :warning: :warning: If you see any error messages, make sure you use `sudo pip` or `sudo npm`. If it says "pip cannot be found", run `which pip` and use `sudo [path to pip from which pip] install` :warning: :warning: :warning:    
