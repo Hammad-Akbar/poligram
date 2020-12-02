@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom';
-import LoginPage from './LoginPage';
+import { LoginPage, LogoutPage } from './LoginPage';
 import IconButton from '@material-ui/core/IconButton';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
@@ -58,7 +58,7 @@ const Navigation = ({ user }) => {
                 open={open} 
                 onClose={handleClose} 
               >
-                <MenuItem className={styles.dropdownStyle} onClick={handleClose}> <LoginPage setIsAuth={setIsAuth} /> </MenuItem>
+                <MenuItem className={styles.dropdownStyle} onClick={handleClose}> <LogoutPage setIsAuth={setIsAuth} /> </MenuItem>
               </Menu>
             </div>
           </div>

@@ -4,7 +4,7 @@ import { GoogleLogout } from 'react-google-login';
 import socket from './Socket';
 import './styles/home.css';
 
-function LoginPage({ setIsAuth }) {
+export function LoginPage({ setIsAuth }) {
   function responseGoogleSuccess(response) {
     setIsAuth(true);
     if ('profileObj' in response) {
@@ -21,10 +21,6 @@ function LoginPage({ setIsAuth }) {
     alert('Sorry, login failed!');
   }
   
-  function logout(repsonse) {
-    setIsAuth(false);
-  }
-  
   return (
     <div className="login-page">
       <div>
@@ -36,15 +32,24 @@ function LoginPage({ setIsAuth }) {
           cookiePolicy="single_host_origin"
         />
       </div>
-      <div>
-        <GoogleLogout
-          clientId="326998400447-ku2me5to6bp01icn5m4pr7lgd1jbkfet.apps.googleusercontent.com"
-          buttonText="Logout"
-          onLogoutSuccess={logout}
-        />
-      </div>
     </div>
   );
 }
 
-export default LoginPage;
+export function LogoutPage({ setIsAuth }) {
+  function logout(response) {
+    setIsAuth(false);
+  }
+  return (
+    <div className="login-page">
+      <div>
+          <GoogleLogout
+            clientId="326998400447-ku2me5to6bp01icn5m4pr7lgd1jbkfet.apps.googleusercontent.com"
+            buttonText="Logout"
+            onLogoutSuccess={logout}
+          />
+      </div>
+    </div>
+  )
+}
+
