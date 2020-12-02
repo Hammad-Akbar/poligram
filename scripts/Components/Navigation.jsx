@@ -49,7 +49,15 @@ const Navigation = ({ user }) => {
               <AccountBoxIcon style={{ color:"white" , fontSize: "30px" }} /> <p> {user} </p>
             </IconButton>
             <div className="menu">
-              <Menu className={styles.dropdownStyle} open={open} onClose={handleClose} className="menu">
+              <Menu 
+                className={styles.dropdownStyle} 
+                anchorEl={anchorEl}
+                getContentAnchorEl={null}
+                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                transformOrigin={{ vertical: "top", horizontal: "center" }}
+                open={open} 
+                onClose={handleClose} 
+              >
                 <MenuItem className={styles.dropdownStyle} onClick={handleClose}> <LoginPage setIsAuth={setIsAuth} /> </MenuItem>
               </Menu>
             </div>
@@ -68,7 +76,14 @@ const Navigation = ({ user }) => {
           <IconButton className={styles.customHoverFocus} onClick={handleMenu} color="inherit">
             <p> LOGIN </p>
           </IconButton>
-          <Menu className={styles.dropdownStyle} open={open} onClose={handleClose}>
+          <Menu 
+            className={styles.dropdownStyle} 
+            anchorEl={anchorEl}
+            getContentAnchorEl={null}
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            transformOrigin={{ vertical: "top", horizontal: "center" }}
+            open={open} 
+            onClose={handleClose}>
             <MenuItem className={styles.dropdownStyle} onClick={handleClose}> <LoginPage setIsAuth={setIsAuth} /> </MenuItem>
           </Menu>
         </div>
