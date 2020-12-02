@@ -13,6 +13,10 @@ const useStyles = makeStyles(theme => ({
     "&:hover, &.Mui-focusVisible": { backgroundColor: "#644E5B" },
     "border-radius": 0,
     "padding": 0
+  },
+  dropdownStyle: {
+    "position": "relative",
+    "float": "right"
   }
 }));
 
@@ -45,8 +49,8 @@ const Navigation = ({ user }) => {
               <AccountBoxIcon style={{ color:"white" , fontSize: "30px" }} /> <p> {user} </p>
             </IconButton>
             <div className="menu">
-              <Menu open={open} onClose={handleClose} className="menu">
-                <MenuItem onClick={handleClose}>Logout</MenuItem>
+              <Menu className={styles.dropdownStyle} open={open} onClose={handleClose} className="menu">
+                <MenuItem className={styles.dropdownStyle} onClick={handleClose}> <LoginPage setIsAuth={setIsAuth} /> </MenuItem>
               </Menu>
             </div>
           </div>
@@ -64,8 +68,8 @@ const Navigation = ({ user }) => {
           <IconButton className={styles.customHoverFocus} onClick={handleMenu} color="inherit">
             <p> LOGIN </p>
           </IconButton>
-          <Menu open={open} onClose={handleClose}>
-            <MenuItem onClick={handleClose}> <LoginPage setIsAuth={setIsAuth} /> </MenuItem>
+          <Menu className={styles.dropdownStyle} open={open} onClose={handleClose}>
+            <MenuItem className={styles.dropdownStyle} onClick={handleClose}> <LoginPage setIsAuth={setIsAuth} /> </MenuItem>
           </Menu>
         </div>
       </div>
