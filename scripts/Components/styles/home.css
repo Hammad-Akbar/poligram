@@ -55,7 +55,11 @@ body {
 }
 
 .login-page {
-	margin: 7px;
+	float: right;
+	padding: 0px;
+}
+
+.menu {
 	float: right;
 }
 
@@ -203,4 +207,63 @@ body {
 	color: white;
 	font-family: 'Lora', serif;
 	text-align: right;
-}	
+}
+
+.MuiIconButton-root {
+	float: right;
+}
+
+.MuiIconButton-colorInherit {
+    color: inherit;
+}
+
+.login-button {
+    color: inherit;
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    display: inline-flex;
+    outline: 0;
+    padding: 0;
+    position: relative;
+    align-items: center;
+    user-select: none;
+    border-radius: 0;
+    vertical-align: middle;
+    justify-content: center;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: #644E5B;
+}
+
+.MuiIconButton-root {
+    flex: 0 0 auto;
+    color: #644E5B;
+    overflow: visible;
+    font-size: 1.5rem;
+    text-align: center;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.MuiMenu-list {
+    outline: 0;
+}
+
+.MuiList-padding {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.MuiList-root {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    float: right;
+    list-style: none;
+}
+
+.MuiIconButton-label {
+	padding: 0px;
+	float: right;
+}
