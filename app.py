@@ -84,7 +84,7 @@ def on_connect(userProfile):
 def word_of_day():
     socketId = request.sid
     politicalLst = ['Cabinet', 'Campaign', 'Candidate', 'Canvass', 'Capitalize', 'Catalyst',
-                    'Balanced budget', 'Ballot', 'Ballot box', 'Bandwagon', 'Barnstorm',
+                    'Balanced budget', 'Ballot', 'Bandwagon', 'Barnstorm',
                     'Absentee', 'Accountable', 'Activist', 'Adverse', 'Advertising', 'Advice', 'Advise']
     wordOfDay = random.choice(politicalLst)
     messageReceived = messageDict(wordOfDay)
