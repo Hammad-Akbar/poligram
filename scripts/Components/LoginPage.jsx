@@ -2,6 +2,7 @@ import React from 'react';
 import GoogleLogin from 'react-google-login';
 import { GoogleLogout } from 'react-google-login';
 import socket from './Socket';
+import Swal from 'sweetalert2';
 import './styles/home.css';
 
 export function LoginPage({ setIsAuth }) {
@@ -18,7 +19,7 @@ export function LoginPage({ setIsAuth }) {
   }
 
   function responseGoogleFailure(error) {
-    alert('Sorry, login failed!');
+    Swal.fire({icon: 'error', text: 'Login failed. Try again.'})
   }
   
   return (
