@@ -84,7 +84,7 @@ def on_connect(userProfile):
 def word_of_day():
     socketId = request.sid
     politicalLst = ['Cabinet', 'Campaign', 'Candidate', 'Canvass', 'Capitalize', 'Catalyst',
-                    'Balanced budget', 'Ballot', 'Ballot box', 'Bandwagon', 'Barnstorm',
+                    'Balanced budget', 'Ballot', 'Bandwagon', 'Barnstorm',
                     'Absentee', 'Accountable', 'Activist', 'Adverse', 'Advertising', 'Advice', 'Advise']
     wordOfDay = random.choice(politicalLst)
     messageReceived = messageDict(wordOfDay)
@@ -177,20 +177,65 @@ def api_call_for_news(data):
     socketio.emit('newsData', {
         'newsObjectLst': newsObjectLst
     })
+    
+    
+    
 
     return response_json["articles"]
 
+def trending_news():
+    "Trending news Api call"
+    query = ['Trump', 'Biden', 'election', 'obama', 'Republican', 'democrat', 'governor', 'politics', 'government', 'law', 'state', 'union', 'bills', 'congress']
+    random_query=(random.choices(query))
+    print(random_query)
+    trend_url = 'https://newsapi.org/v2/top-headlines'
+    parameter = {
+        'country': 'us',
+        'q': random_query, # query phrase
+        'pageSize': 3,  # maximum is 100
+        'apiKey': NEWS_API_KEY
+    }
+
+    response_trend = requests.get(trend_url, params=parameter)
+    Response_json = response_trend.json()
+    print("Trending \n", Response_json)
+    
+    return Response_json["articles"]
 
 @socketio.on('news api call')
 def news_api_call():
     """ sending news back to client """
-    print("Got an event for newz:")
-    news_list = api_call_for_news('news')
-
+    news_list = api_call_for_news('politics')
+    
     socketio.emit('newsData', {
         'newsObjectLst': newsObjectLst
     })
+    
+    news_Trend = trending_news()
+    
+    TrendnewsLst = []
+    for newz in news_Trend:
+        if newz["content"] == None:
+            final_news_content = "To read full article... "
+        else:
+            news_content = newz["content"].split("…")
+            final_news_content = str(news_content[0]) + "(continue reading)... "
 
+        TrendnewsLst.append(
+            {
+                'title': newz["title"],
+                'author': newz["author"],
+                'content': final_news_content,
+                'published': newz["publishedAt"],
+                'source': newz["source"]["name"],
+                'url': newz["url"],
+                'img': newz["urlToImage"]
+            }
+        )
+    socketio.emit('trendNews', {
+        'TrendnewsLst': TrendnewsLst
+    })
+    
     return newsObjectLst
 
 
