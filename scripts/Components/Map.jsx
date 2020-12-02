@@ -23,40 +23,40 @@ function Map() {
   function statesCustomConfig() {
     return {
       NJ: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       NY: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       ME: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       VT: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       NH: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       MA: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       RI: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       CT: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       DE: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       MD: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       PA: {
-        fill: 'plum',
+        fill: 'darkorchid',
       },
       VA: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       WV: {
         fill: 'indianred',
@@ -74,7 +74,7 @@ function Map() {
         fill: 'indianred',
       },
       FL: {
-        fill: 'plum',
+        fill: 'darkorchid',
       },
       AL: {
         fill: 'indianred',
@@ -89,13 +89,13 @@ function Map() {
         fill: 'indianred',
       },
       MI: {
-        fill: 'plum',
+        fill: 'darkorchid',
       },
       WI: {
-        fill: 'plum',
+        fill: 'darkorchid',
       },
       IL: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       MS: {
         fill: 'indianred',
@@ -113,7 +113,7 @@ function Map() {
         fill: 'indianred',
       },
       MN: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       ND: {
         fill: 'indianred',
@@ -140,19 +140,19 @@ function Map() {
         fill: 'indianred',
       },
       CO: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       NM: {
         fill: 'indianred',
       },
       AZ: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       AK: {
         fill: 'indianred',
       },
       HI: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       UT: {
         fill: 'indianred',
@@ -161,16 +161,16 @@ function Map() {
         fill: 'indianred',
       },
       WA: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       OR: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       NV: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
       CA: {
-        fill: 'skyblue',
+        fill: 'dodgerblue',
       },
     };
   }
