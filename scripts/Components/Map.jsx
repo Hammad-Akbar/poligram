@@ -23,154 +23,154 @@ function Map() {
   function statesCustomConfig() {
     return {
       NJ: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       NY: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       ME: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       VT: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       NH: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       MA: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       RI: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       CT: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       DE: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       MD: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       PA: {
-        fill: 'grey',
+        fill: 'plum',
       },
       VA: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       WV: {
-        fill: 'red',
+        fill: 'indianred',
       },
       NC: {
-        fill: 'red',
+        fill: 'indianred',
       },
       OH: {
-        fill: 'red',
+        fill: 'indianred',
       },
       SC: {
-        fill: 'red',
+        fill: 'indianred',
       },
       GA: {
-        fill: 'red',
+        fill: 'indianred',
       },
       FL: {
-        fill: 'grey',
+        fill: 'plum',
       },
       AL: {
-        fill: 'red',
+        fill: 'indianred',
       },
       TN: {
-        fill: 'red',
+        fill: 'indianred',
       },
       KY: {
-        fill: 'red',
+        fill: 'indianred',
       },
       IN: {
-        fill: 'red',
+        fill: 'indianred',
       },
       MI: {
-        fill: 'grey',
+        fill: 'plum',
       },
       WI: {
-        fill: 'grey',
+        fill: 'plum',
       },
       IL: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       MS: {
-        fill: 'red',
+        fill: 'indianred',
       },
       LA: {
-        fill: 'red',
+        fill: 'indianred',
       },
       AR: {
-        fill: 'red',
+        fill: 'indianred',
       },
       MO: {
-        fill: 'red',
+        fill: 'indianred',
       },
       IA: {
-        fill: 'red',
+        fill: 'indianred',
       },
       MN: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       ND: {
-        fill: 'red',
+        fill: 'indianred',
       },
       SD: {
-        fill: 'red',
+        fill: 'indianred',
       },
       NE: {
-        fill: 'red',
+        fill: 'indianred',
       },
       KS: {
-        fill: 'red',
+        fill: 'indianred',
       },
       OK: {
-        fill: 'red',
+        fill: 'indianred',
       },
       TX: {
-        fill: 'red',
+        fill: 'indianred',
       },
       MT: {
-        fill: 'red',
+        fill: 'indianred',
       },
       WY: {
-        fill: 'red',
+        fill: 'indianred',
       },
       CO: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       NM: {
-        fill: 'red',
+        fill: 'indianred',
       },
       AZ: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       AK: {
-        fill: 'red',
+        fill: 'indianred',
       },
       HI: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       UT: {
-        fill: 'red',
+        fill: 'indianred',
       },
       ID: {
-        fill: 'red',
+        fill: 'indianred',
       },
       WA: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       OR: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       NV: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
       CA: {
-        fill: 'navy',
+        fill: 'skyblue',
       },
     };
   }
