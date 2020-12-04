@@ -242,6 +242,114 @@
             "senators": 2,
             "house": 4,
             "website": "https://www.ms.gov/home"
+        },
+        {
+        	"stateName": "Rhode Island",
+        	"stateCode": "RI",
+        	"population": 1059361,
+        	"electoralVotes": 4,
+        	"senators": 2,
+        	"house": 2,
+        	"website": ""
+        },
+        {
+        	"stateName": "South Carolina",
+        	"stateCode": "SC",
+        	"population": 5148714,
+        	"electoralVotes": 9,
+        	"senators": 2,
+        	"house": 7,
+        	"website": ""
+        },
+        {
+        	"stateName": "South Dakota",
+        	"stateCode": "SD",
+        	"population": 884659,
+        	"electoralVotes": 3,
+        	"senators": 2,
+        	"house": 1,
+        	"website": ""
+        },
+        {
+        	"stateName": "Tennessee",
+        	"stateCode": "TN",
+        	"population": 6829174,
+        	"electoralVotes": 11,
+        	"senators": 2,
+        	"house": 9,
+        	"website": ""
+        },
+        {
+        	"stateName": "Texas",
+        	"stateCode": "TX",
+        	"population": 28995881,
+        	"electoralVotes": 38,
+        	"senators": 2,
+        	"house": 36,
+        	"website": ""
+        },
+        {
+        	"stateName": "Utah",
+        	"stateCode": "UT",
+        	"population": 3205958,
+        	"electoralVotes": 6,
+        	"senators": 2,
+        	"house": 4,
+        	"website": ""
+        },
+        {
+        	"stateName": "Vermont",
+        	"stateCode": "VT",
+        	"population": 623989,
+        	"electoralVotes": 3,
+        	"senators": 2,
+        	"house": 1,
+        	"website": ""
+        },
+        {
+        	"stateName": "Virginia",
+        	"stateCode": "VA",
+        	"population": 8535519,
+        	"electoralVotes": 13,
+        	"senators": 2,
+        	"house": 11,
+        	"website": ""
+        },
+        {
+        	"stateName": "Washington",
+        	"stateCode": "WA",
+        	"population": 7614893,
+        	"electoralVotes": 12,
+        	"senators": 2,
+        	"house": 10,
+        	"website": ""
+        },
+        {
+        	"stateName": "West Virginia",
+        	"stateCode": "WV",
+        	"population": 1792147,
+        	"electoralVotes": 5,
+        	"senators": 2,
+        	"house": 3,
+        	"website": ""
+        },
+        {
+        	"stateName": "Wisconsin",
+        	"stateCode": "WI",
+        	"population": 5822434,
+        	"electoralVotes": 10,
+        	"senators": 2,
+        	"house": 8,
+        	"website": ""
+        },
+        {
+        	"stateName": "Wyoming",
+        	"stateCode": "WY",
+        	"population": 578759,
+        	"electoralVotes": 3,
+        	"senators": 2,
+        	"house": 1,
+        	"website": ""
         }
     ]
 }
