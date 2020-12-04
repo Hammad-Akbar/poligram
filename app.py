@@ -178,9 +178,6 @@ def api_call_for_news(data):
         'newsObjectLst': newsObjectLst
     })
     
-    
-    
-
     return response_json["articles"]
 
 def trending_news():
@@ -198,7 +195,6 @@ def trending_news():
 
     response_trend = requests.get(trend_url, params=parameter)
     Response_json = response_trend.json()
-    print("Trending \n", Response_json)
     
     return Response_json["articles"]
 
