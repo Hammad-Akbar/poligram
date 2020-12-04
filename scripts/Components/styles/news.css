@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Alfa Slab One');
+
 .headerclass {
     font-family: "Times New Roman";
     text-align: center;
@@ -22,4 +24,29 @@
 }
 .image {
   border-radius: 50%;
+}
+.news-form {
+ text-align: center;
+}
+.search-bar {
+  border-radius: 25px;
+  border: 2px solid black;
+  padding: 20px; 
+  width: 800px;
+  height: 15px;  
+}
+.newsbutton{
+  border-style: hidden;
+  height: 40px;
+  font-size: 120%;
+  font-style: bold;
+}
+.news-title {
+  background-color: #C96567;
+  padding-top: 4em;
+	padding-bottom: 1em;
+	padding-left: 1em;
+  color: white;
+  font-family: 'Alfa Slab One';
+  font-size: 32px;
 }
