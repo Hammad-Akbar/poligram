@@ -182,7 +182,7 @@ def api_call_for_news(data):
 
 def trending_news():
     "Trending news Api call"
-    query = ['Trump', 'Biden', 'election', 'obama', 'Republican', 'democrat', 'governor', 'politics', 'government', 'law', 'state', 'union', 'bills', 'congress']
+    query = ['Trump']
     random_query=(random.choices(query))
     print(random_query)
     trend_url = 'https://newsapi.org/v2/top-headlines'
