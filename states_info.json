@@ -244,6 +244,114 @@
             "website": "https://www.ms.gov/home"
         },
         {
+            "stateName": "Missouri",
+            "stateCode": "MO",
+            "population": 6155246,
+            "electoralVotes": 10,
+            "senators": 2,
+            "house": 8,
+            "website": "https://www.mo.gov/"
+        },
+        {
+            "stateName": "Montana",
+            "stateCode": "MT",
+            "population": 1068778,
+            "electoralVotes": 3,
+            "senators": 2,
+            "house": 1,
+            "website": "https://mt.gov/"
+        },
+        {
+            "stateName": "Nebraska",
+            "stateCode": "NE",
+            "population": 1934408,
+            "electoralVotes": 5,
+            "senators": 2,
+            "house": 3,
+            "website": "https://www.nebraska.gov/"
+        },
+        {
+            "stateName": "Nevada",
+            "stateCode": "NV",
+            "population": 3080156,
+            "electoralVotes": 6,
+            "senators": 2,
+            "house": 4,
+            "website": "https://nv.gov/"
+        },
+        {
+            "stateName": "New Hampshire",
+            "stateCode": "NH",
+            "population": 1359711,
+            "electoralVotes": 4,
+            "senators": 2,
+            "house": 2,
+            "website": "https://www.nh.gov/"
+        },
+        {
+            "stateName": "New Mexico",
+            "stateCode": "NM",
+            "population": 2096829,
+            "electoralVotes": 5,
+            "senators": 2,
+            "house": 3,
+            "website": "https://www.newmexico.gov/"
+        },
+        {
+            "stateName": "North Carolina",
+            "stateCode": "NC",
+            "population": 10488084,
+            "electoralVotes": 15,
+            "senators": 2,
+            "house": 13,
+            "website": "https://www.nc.gov/"
+        },
+        {
+            "stateName": "North Dakota",
+            "stateCode": "ND",
+            "population": 762062,
+            "electoralVotes": 3,
+            "senators": 2,
+            "house": 1,
+            "website": "https://www.nd.gov/"
+        },
+        {
+            "stateName": "Ohio",
+            "stateCode": "OH",
+            "population": 11689100,
+            "electoralVotes": 18,
+            "senators": 2,
+            "house": 16,
+            "website": "https://ohio.gov/"
+        },
+        {
+            "stateName": "Oklahoma",
+            "stateCode": "OK",
+            "population": 649021,
+            "electoralVotes": 7,
+            "senators": 2,
+            "house": 5,
+            "website": "https://oklahoma.gov/"
+        },
+        {
+            "stateName": "Oregon",
+            "stateCode": "OR",
+            "population": 4217737,
+            "electoralVotes": 7,
+            "senators": 2,
+            "house": 5,
+            "website": "https://www.oregon.gov/"
+        },
+        {
+            "stateName": "Pennsylvania",
+            "stateCode": "PA",
+            "population": 12801989,
+            "electoralVotes": 20,
+            "senators": 2,
+            "house": 18,
+            "website": "https://www.pa.gov/"
+        },
+        {
         	"stateName": "Rhode Island",
         	"stateCode": "RI",
         	"population": 1059361,
