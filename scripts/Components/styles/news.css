@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Alfa Slab One');
 
-
-.news{
+.news {
   padding: 10px;
 }
 
 .headerclass {
-    font-family: "Times New Roman";
-    text-align: center;
-    font-weight: bold;
-    font-size: 40px;
+  font-family: "Times New Roman";
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -19,7 +19,7 @@
   float: left;
   width: 50%;
   padding: 10px;
-  height: 300px; 
+  height: 300px;
 }
 
 .row:after {
@@ -27,54 +27,66 @@
   display: table;
   clear: both;
 }
+
 .image {
   border-radius: 50%;
 }
+
 .news-form {
- text-align: center;
+  text-align: center;
 }
+
 .search-bar {
   border-radius: 25px;
   border: 2px solid black;
-  padding: 20px; 
+  padding: 20px;
   width: 800px;
-  height: 15px;  
+  height: 15px;
 }
-.newsbutton{
+
+.newsbutton {
   border-style: hidden;
   height: 40px;
   font-size: 120%;
   font-style: bold;
 }
+
 .news-title {
   background-color: #C96567;
   padding-top: 50px;
-	padding-bottom: 50px;
+  padding-bottom: 50px;
   color: white;
   font-family: 'Alfa Slab One';
   font-size: 40px;
   text-align: center;
 }
+
 a {
   color: white;
 }
+
 .container {
   position: relative;
   max-width: 800px;
   margin: 0 auto;
 }
 
-.container img {vertical-align: middle;}
+.container img {
+  vertical-align: middle;
+}
 
 .container .content {
   position: absolute;
   bottom: 0;
-  background: rgb(0, 0, 0); /* Fallback color */
-  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  background: rgb(0, 0, 0);
+  /* Fallback color */
+  background: rgba(0, 0, 0, 0.5);
+  /* Black background with 0.5 opacity */
   color: #f1f1f1;
   width: 100%;
   padding: 20px;
 }
-li {
-  display: inline;
+
+.tabStyle {
+  width: 100%;
 }
