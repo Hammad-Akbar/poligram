@@ -16,8 +16,9 @@ function NewsSearch() {
   }
 
   return (
+    <body>
+    <h1 className="news-title"> Learn about what is happening today. </h1>
     <div className="news-form">
-    <p className="news-title"> Learn about what is happening today. </p>
       <form onSubmit={handleSubmit}>
         <input
           className="search-bar"
@@ -30,6 +31,7 @@ function NewsSearch() {
         <button className="newsbutton" type="submit">Search</button>
       </form>
     </div>
+    </body>
   );
 }
 
