@@ -177,9 +177,9 @@ def api_call_for_news(data):
     socketio.emit('newsData', {
         'newsObjectLst': newsObjectLst
     })
-    
-    
-    
+
+
+
 
     return response_json["articles"]
 
@@ -199,20 +199,20 @@ def trending_news():
     response_trend = requests.get(trend_url, params=parameter)
     Response_json = response_trend.json()
     print("Trending \n", Response_json)
-    
+
     return Response_json["articles"]
 
 @socketio.on('news api call')
 def news_api_call():
     """ sending news back to client """
     news_list = api_call_for_news('politics')
-    
+
     socketio.emit('newsData', {
         'newsObjectLst': newsObjectLst
     })
-    
+
     news_Trend = trending_news()
-    
+
     TrendnewsLst = []
     for newz in news_Trend:
         if newz["content"] == None:
@@ -235,7 +235,7 @@ def news_api_call():
     socketio.emit('trendNews', {
         'TrendnewsLst': TrendnewsLst
     })
-    
+
     return newsObjectLst
 
 
@@ -244,15 +244,24 @@ def map_state(objState):
     state = objState['state']
     socketId = request.sid
     sendData = ''
-    if state == 'NY':
-        sendData = 'User hits NY'
-    elif state == 'NJ':
-        sendData = 'User hits NJ'
-    else:
-        sendData = 'Please choose New Jersey or New York'
-
+    news_file = open('states_info.json', 'r')
+    news_json = json.load(news_file)
+    news_file.close()
+    for stateData in news_json['states']:
+        if state == stateData['stateCode']:
+            sendData = stateData['stateName']
+            sendPop = stateData['population']
+            sendVotes = stateData['electoralVotes']
+            sendSenators = stateData['senators']
+            sendHouse = stateData['house']
+            sendWeb = stateData['website']
     socketio.emit('sendState', {
-        'sendState': sendData
+        'sendState': sendData,
+        'sendPop': sendPop,
+        'sendVotes': sendVotes,
+        'sendSenators': sendSenators,
+        'sendHouse': sendHouse,
+        'sendWeb': sendWeb
     }, room=socketId)
 
 

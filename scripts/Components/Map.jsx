@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import USAMap from 'react-usa-map';
 import './styles/map.css';
 import Socket from './Socket';
 
 function Map() {
+  const [stateObj, setStateObj] = useState({});
+  const [showData, setShowData] = useState(false);
   useEffect(() => {
     Socket.on('sendState', (data) => {
-      alert(data.sendState);
+      setStateObj(data);
+      setShowData(true);
     });
     return () => {
       Socket.off('sendState');
@@ -18,6 +21,33 @@ function Map() {
     Socket.emit('state', {
       state,
     });
+  }
+
+  function showStateData() {
+    if (showData) {
+      return (
+        <>
+          <div>
+            <div>
+              {stateObj.sendState}
+            </div>
+            <div>
+              {stateObj.sendPop}
+            </div>
+            <div>
+              {stateObj.sendVotes}
+            </div>
+            <div>
+              {stateObj.sendSenators}
+            </div>
+            <div>
+              {setStateObj.sendHouse}
+            </div>
+            <a href={stateObj.sendWeb}> Gov Website </a>
+          </div>
+        </>
+      );
+    }
   }
 
   function statesCustomConfig() {
@@ -185,6 +215,7 @@ function Map() {
         <div className="box3"> </div>
         <div className="competitive"> Competitive </div>
       </div>
+      {showStateData()}
       <USAMap onClick={mapHandler} customize={statesCustomConfig()} />
     </div>
   );
