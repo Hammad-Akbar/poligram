@@ -30,6 +30,7 @@ function News() {
     <div>
     {trendNews.map((newz) => (
         <p>
+        <li>
           <div className="container">
           <img src={newz.img} alt="" width="800" height="500" />
           <div class="content">
@@ -42,6 +43,7 @@ function News() {
           </div>
           </div>
           <br />
+          </li>
         </p>
       ))}
       </div>
