@@ -250,7 +250,7 @@
         	"electoralVotes": 4,
         	"senators": 2,
         	"house": 2,
-        	"website": ""
+        	"website": "https://www.ri.gov/"
         },
         {
         	"stateName": "South Carolina",
@@ -259,7 +259,7 @@
         	"electoralVotes": 9,
         	"senators": 2,
         	"house": 7,
-        	"website": ""
+        	"website": "https://sc.gov/"
         },
         {
         	"stateName": "South Dakota",
@@ -268,7 +268,7 @@
         	"electoralVotes": 3,
         	"senators": 2,
         	"house": 1,
-        	"website": ""
+        	"website": "https://sd.gov/"
         },
         {
         	"stateName": "Tennessee",
@@ -277,7 +277,7 @@
         	"electoralVotes": 11,
         	"senators": 2,
         	"house": 9,
-        	"website": ""
+        	"website": "https://www.tn.gov/"
         },
         {
         	"stateName": "Texas",
@@ -286,7 +286,7 @@
         	"electoralVotes": 38,
         	"senators": 2,
         	"house": 36,
-        	"website": ""
+        	"website": "https://www.texas.gov/"
         },
         {
         	"stateName": "Utah",
@@ -295,7 +295,7 @@
         	"electoralVotes": 6,
         	"senators": 2,
         	"house": 4,
-        	"website": ""
+        	"website": "https://www.utah.gov/"
         },
         {
         	"stateName": "Vermont",
@@ -304,7 +304,7 @@
         	"electoralVotes": 3,
         	"senators": 2,
         	"house": 1,
-        	"website": ""
+        	"website": "https://www.vermont.gov/"
         },
         {
         	"stateName": "Virginia",
@@ -313,7 +313,7 @@
         	"electoralVotes": 13,
         	"senators": 2,
         	"house": 11,
-        	"website": ""
+        	"website": "https://www.virginia.gov/"
         },
         {
         	"stateName": "Washington",
@@ -322,7 +322,7 @@
         	"electoralVotes": 12,
         	"senators": 2,
         	"house": 10,
-        	"website": ""
+        	"website": "https://access.wa.gov/"
         },
         {
         	"stateName": "West Virginia",
@@ -331,7 +331,7 @@
         	"electoralVotes": 5,
         	"senators": 2,
         	"house": 3,
-        	"website": ""
+        	"website": "https://www.wv.gov/"
         },
         {
         	"stateName": "Wisconsin",
@@ -340,7 +340,7 @@
         	"electoralVotes": 10,
         	"senators": 2,
         	"house": 8,
-        	"website": ""
+        	"website": "https://www.wisconsin.gov/"
         },
         {
         	"stateName": "Wyoming",
@@ -349,7 +349,7 @@
         	"electoralVotes": 3,
         	"senators": 2,
         	"house": 1,
-        	"website": ""
+        	"website": "http://www.wyo.gov/"
         }
     ]
 }
