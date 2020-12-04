@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './styles/news.css';
 import Socket from './Socket';
 
 function NewsSearch() {
@@ -15,7 +16,8 @@ function NewsSearch() {
   }
 
   return (
-    <div className="form">
+    <div className="news-form">
+    <p className="news-title"> Learn about what is happening today. </p>
       <form onSubmit={handleSubmit}>
         <input
           className="search-bar"
@@ -25,7 +27,7 @@ function NewsSearch() {
           placeholder="Search for news.."
           required
         />
-        <button className="button" type="submit"> Search </button>
+        <button className="newsbutton" type="submit">Search</button>
       </form>
     </div>
   );
