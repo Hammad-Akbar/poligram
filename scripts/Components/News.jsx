@@ -8,7 +8,7 @@ function News() {
   const [trendNews, setTrendNews] = useState([]);
   useEffect(() => {
     Socket.emit('news api call');
-    
+
     Socket.on('newsData', (data) => {
       setNewsData(data.newsObjectLst);
     });
@@ -21,31 +21,35 @@ function News() {
       Socket.off('trendNews');
     };
   }, []);
-  
+
   console.log(trendNews);
 
   return (
     <div > 
     <NewsSearch />
     <div>
-    {trendNews.map((newz) => (
-        <p>
-        <li>
-          <div className="container">
-          <img src={newz.img} alt="" width="800" height="500" />
-          <div class="content">
-            <h1><a href={newz.url} target="_blank" rel="noopener noreferrer">{newz.title}</a></h1>
-            <p>
-                Article:
-                {newz.content}
-                <a href={newz.url} target="_blank" rel="noopener noreferrer">Click Here</a>
-              </p>
-          </div>
-          </div>
-          <br />
-          </li>
-        </p>
-      ))}
+    <table className="tabStyle">
+      <tr>
+          {trendNews.map((newz) => (
+                <th>
+                <p>
+                  <div className="container">
+                  <img src={newz.img} alt="" width="800" height="500" />
+                  <div class="content">
+                    <h1><a href={newz.url} target="_blank" rel="noopener noreferrer">{newz.title}</a></h1>
+                    <p>
+                        Article:
+                        {newz.content}
+                        <a href={newz.url} target="_blank" rel="noopener noreferrer">Click Here</a>
+                      </p>
+                  </div>
+                  </div>
+                  <br />
+                </p>
+                </th>
+            ))}
+      </tr>
+    </table>
       </div>
       {newsData.map((news) => (
         <p>
