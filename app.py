@@ -182,7 +182,7 @@ def api_call_for_news(data):
 
 def trending_news():
     "Trending news Api call"
-    query = ['Trump']
+    query = ['virus']
     random_query=(random.choices(query))
     print(random_query)
     trend_url = 'https://newsapi.org/v2/top-headlines'
@@ -195,7 +195,7 @@ def trending_news():
 
     response_trend = requests.get(trend_url, params=parameter)
     Response_json = response_trend.json()
-    
+    print(Response_json["articles"])
     return Response_json["articles"]
 
 @socketio.on('news api call')
