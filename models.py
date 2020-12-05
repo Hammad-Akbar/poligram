@@ -37,3 +37,13 @@ class QuizQuestions(db.Model):
             'group name': self.group_name,
             'multiplier': self.multiplier
         })
+        
+class UserInfo(db.Model):
+    email = db.Column(db.String(256), primary_key=True)
+    name = db.Column(db.String(256))
+    img_url = db.Column(db.String(512))
+
+    def __init__(self, user_id, name, img_url):
+        self.user_id = user_id
+        self.name = name
+        self.img_url = img_url
