@@ -45,14 +45,24 @@ function Quiz() {
         </div>,
       );
     });
+    
+    Socket.on('save quiz response', (data) => {
+      console.log("quiz save response received");
+      console.log("message: " + data["message"]);
+    });
 
     return () => {
       Socket.off('quiz generated');
+      Socket.off('save quiz response');
     };
   });
 
   function generateQuiz() {
     Socket.emit('request quiz');
+  }
+  
+  function saveQuiz() {
+    Socket.emit('save quiz');
   }
 
   function submitQuiz(event) {
@@ -95,7 +105,7 @@ function Quiz() {
     setDisplay(
       <div>
         <h2>You are {descriptor} {ideology}</h2>
-        <button>Save result</button>
+        <button onClick={saveQuiz}>Save result</button>
       </div>
     );
   }

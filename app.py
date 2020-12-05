@@ -278,6 +278,19 @@ def map_state(objState):
     }, room=socketId)
 
 
+@socketio.on('save quiz')
+def save_quiz():
+    global user_sids
+    socketId = request.sid
+    
+    if socketId not in user_sids:
+        message = 'user not logged in'
+    else:
+        message = 'success'
+    
+    socketio.emit('save quiz response', {'message': message}, room=socketId)
+
+
 def load_quiz_questions():
     """ Loads the questions for the quiz into the database from the questions JSON file """
 
@@ -293,7 +306,7 @@ def load_quiz_questions():
             db.session.add(models.QuizQuestions(question['text'], group_name, question['multiplier']))
 
     db.session.commit()
-
+    
 
 if __name__ == '__main__':
     models.db.create_all()
