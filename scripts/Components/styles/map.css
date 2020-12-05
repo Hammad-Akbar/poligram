@@ -2,6 +2,26 @@
     text-align: center;
 }
 
+.show-state-data {
+    font-family: Roboto, fantasy;
+    font-weight: lighter;
+	height: auto;
+    border-radius: 10px;
+    width: max-content;
+  	background-color: whitesmoke;
+	padding: 20px;
+	box-shadow: 0.5px 0.5px #888888;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.data {
+    display: flex;
+    justify-content: center;
+}
+
 .flex-container-map {
     margin-top: 25px;
     display: flex;
@@ -52,3 +72,4 @@
     font-family: Roboto, sans-serif;
     font-weight: lighter;
 }
+

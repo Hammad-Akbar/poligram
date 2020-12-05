@@ -1,23 +1,77 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import USAMap from 'react-usa-map';
 import './styles/map.css';
 import Socket from './Socket';
 
 function Map() {
+  const [stateObj, setStateObj] = useState({});
+  const [showData, setShowData] = useState(false);
+
   useEffect(() => {
     Socket.on('sendState', (data) => {
-      alert(data.sendState);
+      setStateObj(data);
+      setShowData(true);
     });
     return () => {
       Socket.off('sendState');
     };
   }, []);
 
+  const handleToggle = () => {
+    setShowData(false);
+  };
+
   function mapHandler(event) {
     const state = event.target.dataset.name;
     Socket.emit('state', {
       state,
     });
+  }
+
+  function showStateData() {
+    if (showData) {
+      return (
+        <>
+          {/* eslint-disable-next-line max-len */}
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
+          <div className="show-state-data" onClick={handleToggle}>
+            <div>
+              <strong className="bold"> State: </strong>
+              {' '}
+              {stateObj.sendState}
+            </div>
+            <div>
+              <strong className="bold"> Population: </strong>
+              {' '}
+              {stateObj.sendPop}
+            </div>
+            <div>
+              <strong className="bold"> Senators: </strong>
+              {' '}
+              {stateObj.sendSenators}
+            </div>
+            <div>
+              <strong className="bold"> House of Representatives: </strong>
+              {' '}
+              {stateObj.sendHouse}
+            </div>
+            <div>
+              <strong className="bold"> Electoral Votes: </strong>
+              {' '}
+              {stateObj.sendVotes}
+            </div>
+            <div>
+              <strong className="bold"> Link: </strong>
+              <a href={stateObj.sendWeb} target="_blank" rel="noreferrer"> Government Website </a>
+            </div>
+          </div>
+        </>
+      );
+    }
+    return (
+      <>
+      </>
+    );
   }
 
   function statesCustomConfig() {
@@ -184,6 +238,9 @@ function Map() {
         <div className="democratic"> Democratic </div>
         <div className="box3"> </div>
         <div className="competitive"> Competitive </div>
+      </div>
+      <div className="data">
+        {showStateData()}
       </div>
       <USAMap onClick={mapHandler} customize={statesCustomConfig()} />
     </div>
