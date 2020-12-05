@@ -95,6 +95,7 @@ function Quiz() {
     setDisplay(
       <div>
         <h2>You are {descriptor} {ideology}</h2>
+        <button>Save result</button>
       </div>
     );
   }
