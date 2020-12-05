@@ -243,26 +243,19 @@ def news_api_call():
 def map_state(objState):
     state = objState['state']
     socketId = request.sid
-    sendData = ''
     news_file = open('states_info.json', 'r')
     news_json = json.load(news_file)
     news_file.close()
     for stateData in news_json['states']:
         if state == stateData['stateCode']:
-            sendData = stateData['stateName']
-            sendPop = stateData['population']
-            sendVotes = stateData['electoralVotes']
-            sendSenators = stateData['senators']
-            sendHouse = stateData['house']
-            sendWeb = stateData['website']
-    socketio.emit('sendState', {
-        'sendState': sendData,
-        'sendPop': sendPop,
-        'sendVotes': sendVotes,
-        'sendSenators': sendSenators,
-        'sendHouse': sendHouse,
-        'sendWeb': sendWeb
-    }, room=socketId)
+            socketio.emit('sendState', {
+                'sendState': stateData['stateName'],
+                'sendPop': stateData['population'],
+                'sendVotes': stateData['electoralVotes'],
+                'sendSenators': stateData['senators'],
+                'sendHouse': stateData['house'],
+                'sendWeb': stateData['website']
+            }, room=socketId)
 
 
 def load_quiz_questions():
