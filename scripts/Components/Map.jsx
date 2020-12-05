@@ -62,7 +62,7 @@ function Map() {
             </div>
             <div>
               <strong className="bold"> Link: </strong>
-              <a href={stateObj.sendWeb}> Government Website </a>
+              <a href={stateObj.sendWeb} target="_blank" rel="noreferrer"> Government Website </a>
             </div>
           </div>
         </>
