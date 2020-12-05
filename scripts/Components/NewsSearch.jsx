@@ -21,7 +21,7 @@ function NewsSearch() {
     <div className="news-form">
       <form onSubmit={handleSubmit}>
         <input
-          className="search-bar"
+          className="search-news"
           type={news}
           onChange={handleChange}
           value={news}
