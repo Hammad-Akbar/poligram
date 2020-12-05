@@ -10,6 +10,7 @@ import Map from './Components/Map';
 
 const Content = () => {
   const [user, setUser] = useState('');
+  const [isAuth, setAuth] = useState(false);
 
   useEffect(() => {
     Socket.on('new connection', (data) => {
@@ -24,7 +25,7 @@ const Content = () => {
   return (
     <HashRouter>
       <div>
-        <Navigation user={user} />
+        <Navigation user={user} isAuth={isAuth} setAuth={setAuth} />
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/Dictionary" component={Dictionary} />
