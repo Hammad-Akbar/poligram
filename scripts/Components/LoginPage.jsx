@@ -1,9 +1,11 @@
 import React from 'react';
 import GoogleLogin from 'react-google-login';
+import { GoogleLogout } from 'react-google-login';
 import socket from './Socket';
+import Swal from 'sweetalert2';
 import './styles/home.css';
 
-function LoginPage({ setIsAuth }) {
+export function LoginPage({ setIsAuth }) {
   function responseGoogleSuccess(response) {
     setIsAuth(true);
     if ('profileObj' in response) {
@@ -17,9 +19,9 @@ function LoginPage({ setIsAuth }) {
   }
 
   function responseGoogleFailure(error) {
-    alert('Sorry, login failed!');
+    Swal.fire({icon: 'error', text: 'Login failed. Try again.'})
   }
-
+  
   return (
     <div className="login-page">
       <div>
@@ -35,4 +37,20 @@ function LoginPage({ setIsAuth }) {
   );
 }
 
-export default LoginPage;
+export function LogoutPage({ setIsAuth }) {
+  function logout(response) {
+    setIsAuth(false);
+  }
+  return (
+    <div className="login-page">
+      <div>
+          <GoogleLogout
+            clientId="326998400447-ku2me5to6bp01icn5m4pr7lgd1jbkfet.apps.googleusercontent.com"
+            buttonText="Logout"
+            onLogoutSuccess={logout}
+          />
+      </div>
+    </div>
+  )
+}
+

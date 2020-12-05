@@ -84,7 +84,7 @@ def on_connect(userProfile):
 def word_of_day():
     socketId = request.sid
     politicalLst = ['Cabinet', 'Campaign', 'Candidate', 'Canvass', 'Capitalize', 'Catalyst',
-                    'Balanced budget', 'Ballot', 'Bandwagon', 'Barnstorm',
+                    'Ballot', 'Bandwagon', 'Barnstorm', 'Bipartisan'
                     'Absentee', 'Accountable', 'Activist', 'Adverse', 'Advertising', 'Advice', 'Advise']
     wordOfDay = random.choice(politicalLst)
     messageReceived = messageDict(wordOfDay)
@@ -177,7 +177,7 @@ def api_call_for_news(data):
     socketio.emit('newsData', {
         'newsObjectLst': newsObjectLst
     })
-    
+
     return response_json["articles"]
 
 def trending_news():
@@ -195,19 +195,20 @@ def trending_news():
 
     response_trend = requests.get(trend_url, params=parameter)
     Response_json = response_trend.json()
+
     return Response_json["articles"]
 
 @socketio.on('news api call')
 def news_api_call():
     """ sending news back to client """
     news_list = api_call_for_news('politics')
-    
+
     socketio.emit('newsData', {
         'newsObjectLst': newsObjectLst
     })
-    
+
     news_Trend = trending_news()
-    
+
     TrendnewsLst = []
     for newz in news_Trend:
         if newz["content"] == None:
@@ -230,7 +231,7 @@ def news_api_call():
     socketio.emit('trendNews', {
         'TrendnewsLst': TrendnewsLst
     })
-    
+
     return newsObjectLst
 
 
@@ -238,17 +239,19 @@ def news_api_call():
 def map_state(objState):
     state = objState['state']
     socketId = request.sid
-    sendData = ''
-    if state == 'NY':
-        sendData = 'User hits NY'
-    elif state == 'NJ':
-        sendData = 'User hits NJ'
-    else:
-        sendData = 'Please choose New Jersey or New York'
-
-    socketio.emit('sendState', {
-        'sendState': sendData
-    }, room=socketId)
+    news_file = open('states_info.json', 'r')
+    news_json = json.load(news_file)
+    news_file.close()
+    for stateData in news_json['states']:
+        if state == stateData['stateCode']:
+            socketio.emit('sendState', {
+                'sendState': stateData['stateName'],
+                'sendPop': stateData['population'],
+                'sendVotes': stateData['electoralVotes'],
+                'sendSenators': stateData['senators'],
+                'sendHouse': stateData['house'],
+                'sendWeb': stateData['website']
+            }, room=socketId)
 
 
 def load_quiz_questions():
