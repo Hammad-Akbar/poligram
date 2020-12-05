@@ -68,6 +68,7 @@ def on_new_feedback(data):
 @socketio.on('connect user')
 def on_connect(userProfile):
     """ User's profile validating """
+    global user_sids
     socketId = request.sid
     name = userProfile['name']
     email = userProfile['email']
@@ -77,14 +78,32 @@ def on_connect(userProfile):
     if db.session.query(models.UserInfo).filter(models.UserInfo.email==email).first() is None:
         db.session.add(models.UserInfo(email, name, image))
         db.session.commit()
-        print('ADDED USER TO DB')
+
+    user_sids[socketId] = email
 
     socketio.emit('new connection', {
         "user": name,
         "userEmail": email,
         "userImage": image
     }, room=socketId)
+    
 
+def remove_sid_from_dict(socketId):
+    global user_sids
+
+    if socketId in user_sids:
+        email = user_sids.pop(socketId)
+
+
+@socketio.on('user logout')
+def user_logout():
+    remove_sid_from_dict(request.sid)
+    
+
+@socketio.on('disconnect')
+def on_disconnect():
+    remove_sid_from_dict(request.sid)
+    
 
 @socketio.on('word of the day')
 def word_of_day():
@@ -279,6 +298,8 @@ def load_quiz_questions():
 if __name__ == '__main__':
     models.db.create_all()
     load_quiz_questions()
+
+    user_sids = {}
 
     socketio.run(
         app,
