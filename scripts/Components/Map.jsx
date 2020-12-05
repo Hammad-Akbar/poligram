@@ -27,27 +27,41 @@ function Map() {
     if (showData) {
       return (
         <>
-          <div>
+          <div className="show-state-data">
             <div>
+              State:
+              {' '}
               {stateObj.sendState}
             </div>
             <div>
+              Population:
+              {' '}
               {stateObj.sendPop}
             </div>
             <div>
-              {stateObj.sendVotes}
-            </div>
-            <div>
+              Senators:
+              {' '}
               {stateObj.sendSenators}
             </div>
             <div>
-              {setStateObj.sendHouse}
+              House of Representatives:
+              {' '}
+              {stateObj.sendHouse}
             </div>
-            <a href={stateObj.sendWeb}> Gov Website </a>
+            <div>
+              Electoral Votes:
+              {' '}
+              {stateObj.sendVotes}
+            </div>
+            <a href={stateObj.sendWeb}> Government Website </a>
           </div>
         </>
       );
     }
+    return (
+      <>
+      </>
+    );
   }
 
   function statesCustomConfig() {
@@ -215,7 +229,9 @@ function Map() {
         <div className="box3"> </div>
         <div className="competitive"> Competitive </div>
       </div>
-      {showStateData()}
+      <div className="data">
+        {showStateData()}
+      </div>
       <USAMap onClick={mapHandler} customize={statesCustomConfig()} />
     </div>
   );
