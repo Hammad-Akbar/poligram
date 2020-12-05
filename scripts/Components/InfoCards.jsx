@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './styles/carousel.css';
-import jay from './images/jay.jpg';
 
 const slideWidth = 30;
 
@@ -9,8 +8,8 @@ const _items = [
         player: {
             title: 'Hammad Akbar',
             desc:
-                'TODO',
-            image: "j"
+                'Software Developer',
+            image: "https://web.njit.edu/~haa38/Resume/IMG_3898.jpg"
         }
     },
     {
@@ -18,12 +17,12 @@ const _items = [
             title: "Jay Amin",
             desc:
                 "TODO",
-            image: {jay}
+            image: "https://media-exp1.licdn.com/dms/image/C4D03AQFTp8ZUUBxrVw/profile-displayphoto-shrink_400_400/0/1607210924525?e=1612396800&v=beta&t=KvgM2ktgElcH_Pn-6a8PZ2s1bETOHczTFRKWqdnaQRw"
         }
     },
     {
         player: {
-            title: 'Akhil Samarth',
+            title: 'Shivani Patel',
             desc:
                 'TODO',
             image: 'https://i.postimg.cc/cHdMJQKG/svb-slider.jpg'
@@ -31,9 +30,9 @@ const _items = [
     },
     {
         player: {
-            title: 'Mike Sigel',
+            title: 'Akhil Samarth',
             desc:
-                'Mike Sigel or "Captain Hook" as many like to call him is an American professional pool player with over 108 tournament wins.',
+                '',
             image: 'https://i.postimg.cc/C12h7nZn/ms-1.jpg'
         }
     }

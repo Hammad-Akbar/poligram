@@ -90,7 +90,6 @@ body {
 }
 
 .slogan-white {
-	height: 100px;
 	color: white;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 300;
@@ -142,7 +141,7 @@ body {
 
 .box {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 5px;
   padding-bottom: 20px;
 }
