@@ -6,6 +6,7 @@ import Socket from './Socket';
 function Map() {
   const [stateObj, setStateObj] = useState({});
   const [showData, setShowData] = useState(false);
+
   useEffect(() => {
     Socket.on('sendState', (data) => {
       setStateObj(data);
@@ -15,6 +16,10 @@ function Map() {
       Socket.off('sendState');
     };
   }, []);
+
+  const handleToggle = () => {
+    setShowData(false);
+  };
 
   function mapHandler(event) {
     const state = event.target.dataset.name;
@@ -27,33 +32,38 @@ function Map() {
     if (showData) {
       return (
         <>
-          <div className="show-state-data">
+          {/* eslint-disable-next-line max-len */}
+          {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
+          <div className="show-state-data" onClick={handleToggle}>
             <div>
-              State:
+              <strong className="bold"> State: </strong>
               {' '}
               {stateObj.sendState}
             </div>
             <div>
-              Population:
+              <strong className="bold"> Population: </strong>
               {' '}
               {stateObj.sendPop}
             </div>
             <div>
-              Senators:
+              <strong className="bold"> Senators: </strong>
               {' '}
               {stateObj.sendSenators}
             </div>
             <div>
-              House of Representatives:
+              <strong className="bold"> House of Representatives: </strong>
               {' '}
               {stateObj.sendHouse}
             </div>
             <div>
-              Electoral Votes:
+              <strong className="bold"> Electoral Votes: </strong>
               {' '}
               {stateObj.sendVotes}
             </div>
-            <a href={stateObj.sendWeb}> Government Website </a>
+            <div>
+              <strong className="bold"> Link: </strong>
+              <a href={stateObj.sendWeb}> Government Website </a>
+            </div>
           </div>
         </>
       );
