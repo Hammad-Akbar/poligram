@@ -43,7 +43,7 @@ class UserInfo(db.Model):
     name = db.Column(db.String(256))
     img_url = db.Column(db.String(512))
 
-    def __init__(self, user_id, name, img_url):
-        self.user_id = user_id
+    def __init__(self, email, name, img_url):
+        self.email = email
         self.name = name
         self.img_url = img_url

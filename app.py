@@ -73,6 +73,12 @@ def on_connect(userProfile):
     email = userProfile['email']
     image = userProfile['imageUrl']
 
+    # if user doesn't exist in DB, add user
+    if db.session.query(models.UserInfo).filter(models.UserInfo.email==email).first() is None:
+        db.session.add(models.UserInfo(email, name, image))
+        db.session.commit()
+        print('ADDED USER TO DB')
+
     socketio.emit('new connection', {
         "user": name,
         "userEmail": email,
@@ -177,9 +183,6 @@ def api_call_for_news(data):
     socketio.emit('newsData', {
         'newsObjectLst': newsObjectLst
     })
-    
-    
-    
 
     return response_json["articles"]
 
