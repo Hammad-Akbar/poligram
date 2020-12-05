@@ -36,11 +36,11 @@ function News() {
                   <div className="container">
                   <img src={newz.img} alt="" width="800" height="500" />
                   <div class="content">
-                    <h1><a href={newz.url} target="_blank" rel="noopener noreferrer">{newz.title}</a></h1>
+                    <h1><a className="trend-link" href={newz.url} target="_blank" rel="noopener noreferrer">{newz.title}</a></h1>
                     <p>
                         Article:
                         {newz.content}
-                        <a href={newz.url} target="_blank" rel="noopener noreferrer">Click Here</a>
+                        <a className="trend-link" href={newz.url} target="_blank" rel="noopener noreferrer">Click Here</a>
                       </p>
                   </div>
                   </div>
