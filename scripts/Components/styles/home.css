@@ -27,7 +27,7 @@ body {
 	font-weight: 400;
 	font-size: 60px;
 	text-align: left;
-	padding-top: 2em;
+	padding-top: 1em;
 	padding-bottom: 1em;
 	padding-left: 1em;
 }
@@ -103,6 +103,13 @@ body {
 
 .slogan-description-white {
 	height: 87px;
+	color: white;
+	font-family: 'Lora', serif;
+	font-size: 15px;
+	text-align: center;
+}
+
+.slogan-description-white2 {
 	color: white;
 	font-family: 'Lora', serif;
 	font-size: 15px;
