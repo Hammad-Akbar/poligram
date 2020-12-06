@@ -238,7 +238,7 @@ def news_api_call():
 @socketio.on('state')
 def map_state(objState):
     state = objState['state']
-    socketId = request.sid
+    socketId = flask.request.sid
     news_file = open('states_info.json', 'r')
     news_json = json.load(news_file)
     news_file.close()

@@ -83,14 +83,28 @@ class MockedTest(unittest.TestCase):
                      "or will in an election"
             self.assertEqual(response, result)
 
-    def test_word_of_day(self):
-        flask_test_client = app.app.test_client()
-        socketio_test_client = app.socketio.test_client(app.app,
-                                                        flask_test_client=flask_test_client)
-        socketio_test_client.emit('word of the day')
-        result = socketio_test_client.get_received()
-        message = result[0]['args'][0]['messageReceived']
-        self.assertNotEqual(message, "word of the day")
+    @patch('app.flask')
+    def test_map_feature(self, mocked_flask):
+        mocked_flask.request.sid = 'abcdef'
+
+        def mocked_open(file, mode):
+            return open("tests/fake_map.json", 'r')
+
+        def mocked_emit(event, data, room):
+            self.assertEqual(event, "sendState")
+            self.assertEqual(room, "abcdef")
+            self.assertEqual(data, {
+                'sendState': 'Fake State',
+                'sendPop': 'FK',
+                'sendVotes': '10',
+                'sendSenators': '5',
+                'sendHouse': '5',
+                'sendWeb': 'gov.org'
+            })
+
+        with unittest.mock.patch('app.open', mocked_open):
+            with unittest.mock.patch('app.socketio.emit', mocked_emit):
+                app.map_state(objState={'state': 'Fake State'})
 
     def test_new_user_connection(self):
         """user connection Mocked unit test"""
