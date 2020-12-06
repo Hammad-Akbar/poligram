@@ -2,6 +2,7 @@ import React from 'react';
 
 import Question from './Question';
 import Socket from '../Socket';
+import Swal from 'sweetalert2';
 
 // max values of each classification
 const cutoffs = {
@@ -47,8 +48,9 @@ function Quiz() {
     });
     
     Socket.on('save quiz response', (data) => {
-      console.log("quiz save response received");
-      console.log("message: " + data["message"]);
+      if (data["message"] == "user not logged in") {
+        Swal.fire({icon: 'error', text: 'Please log in before saving your quiz result.'});
+      }
     });
 
     return () => {
