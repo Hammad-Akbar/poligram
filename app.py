@@ -82,9 +82,9 @@ def on_connect(userProfile):
 
 @socketio.on('word of the day')
 def word_of_day():
-    socketId = request.sid
+    socketId = flask.request.sid
     politicalLst = ['Cabinet', 'Campaign', 'Candidate', 'Canvass', 'Capitalize', 'Catalyst',
-                    'Ballot', 'Bandwagon', 'Barnstorm', 'Bipartisan'
+                    'Ballot', 'Bandwagon', 'Barnstorm', 'Bipartisan',
                     'Absentee', 'Accountable', 'Activist', 'Adverse', 'Advertising', 'Advice', 'Advise']
     wordOfDay = random.choice(politicalLst)
     messageReceived = messageDict(wordOfDay)
@@ -97,16 +97,7 @@ def word_of_day():
 @socketio.on('send message')
 def send_message(text):
     socketId = flask.request.sid
-    response = requests.get(
-        f'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{text}?key={DICTIONARY_API_KEY}')
-    result = response.json()
-    messageReceived = ''
-    if 'shortdef' in result[0]:
-        definition = result[0]['shortdef']
-        messageReceived = ', '.join(definition)
-        messageReceived = messageReceived.capitalize()
-    else:
-        messageReceived = "Sorry, we can't find the definition of the term you are looking for."
+    messageReceived = messageDict(text)
     socketio.emit('forward message', {
         'messageReceived': messageReceived
     }, room=socketId)

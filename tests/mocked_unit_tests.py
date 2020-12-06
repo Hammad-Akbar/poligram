@@ -83,28 +83,14 @@ class MockedTest(unittest.TestCase):
                      "or will in an election"
             self.assertEqual(response, result)
 
-    def test_socket_dictionary(self):
-        with patch('requests.get') as mocked_get:
-            mocked_get.return_value.json.return_value = [{"shortdef": ["A piece of paper indicating a person\u0027s "
-                                                                       "preferences in an election",
-                                                                       "the right to formally express one\u0027s "
-                                                                       "position "
-                                                                       "or will in an election"]}]
-            response = app.messageDict('ballot')
-            result = "A piece of paper indicating a person\u0027s " \
-                     "preferences in an election, " \
-                     "the right to formally express one\u0027s " \
-                     "position " \
-                     "or will in an election"
-            self.assertEqual(response, result)
+    def test_word_of_day(self):
         flask_test_client = app.app.test_client()
         socketio_test_client = app.socketio.test_client(app.app,
                                                         flask_test_client=flask_test_client)
-        socketio_test_client.emit('send message', 'ballot')
+        socketio_test_client.emit('word of the day')
         result = socketio_test_client.get_received()
         message = result[0]['args'][0]['messageReceived']
-        self.assertEqual(message, "A piece of paper indicating a person's preferences in an election, "
-                                  "the right to formally express one's position or will in an election")
+        self.assertNotEqual(message, "word of the day")
 
     def test_new_user_connection(self):
         """user connection Mocked unit test"""
