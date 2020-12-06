@@ -96,6 +96,18 @@ class MockedTest(unittest.TestCase):
             self.assertEqual(message, "A piece of paper indicating a person's preferences in an election, "
                                       "the right to formally express one's position or will in an election")
 
+    def test_word_of_day(self):
+        flask_test_client = app.app.test_client()
+        with unittest.mock.patch('app.messageDict') as mocked_messageDict:
+            mocked_messageDict.return_value = "None"
+            socketio_test_client = app.socketio.test_client(app.app,
+                                                            flask_test_client=flask_test_client)
+            socketio_test_client.emit('word of the day')
+            result = socketio_test_client.get_received()
+            message = result[0]['args'][0]['messageReceived']
+            self.assertNotEqual(message, "A piece of paper indicating a person's preferences in an election, "
+                                      "the right to formally express one's position or will in an election")
+
     @patch('app.flask')
     def test_map_feature(self, mocked_flask):
         mocked_flask.request.sid = 'abcdef'
