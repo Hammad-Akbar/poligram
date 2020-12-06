@@ -4,6 +4,8 @@
 
 from app import db
 
+import datetime as dt
+
 class FeedbackLog(db.Model):
     """ Add feedback table to database """
 
@@ -47,3 +49,13 @@ class UserInfo(db.Model):
         self.email = email
         self.name = name
         self.img_url = img_url
+        
+class QuizScore(db.Model):
+    timestamp = db.Column(db.DateTime, primary_key=True)
+    email = db.Column(db.String(256))
+    score = db.Column(db.Integer)
+
+    def __init__(self, email, score):
+        self.timestamp = dt.datetime.now()
+        self.email = email
+        self.score = score
