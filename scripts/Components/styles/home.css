@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Aclonica');
 @import url('https://fonts.googleapis.com/css?family=Amethysta');
 @import url('https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
 body {
 	background-color: white;
@@ -129,6 +130,14 @@ body {
 
 .slogan-description-black {
 	height: 87px;
+	color: black;
+	font-family: 'Lora', serif;
+	font-size: 15px;
+	text-align: center;
+}
+
+.slogan-description-black2 {
+	height: 30px;
 	color: black;
 	font-family: 'Lora', serif;
 	font-size: 15px;
@@ -272,4 +281,14 @@ body {
 .MuiIconButton-label {
 	padding: 0px;
 	float: right;
+}
+
+.centerGit {
+    text-align: center; 
+    width: 100%;
+}
+
+.fa-github:before {
+    content: "\f09b";
+    font-size: 36px;
 }

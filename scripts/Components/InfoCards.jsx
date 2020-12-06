@@ -17,7 +17,7 @@ const _items = [
             title: "Jay Amin",
             desc:
                 "TODO",
-            image: "https://media-exp1.licdn.com/dms/image/C4D03AQFTp8ZUUBxrVw/profile-displayphoto-shrink_400_400/0/1607210924525?e=1612396800&v=beta&t=KvgM2ktgElcH_Pn-6a8PZ2s1bETOHczTFRKWqdnaQRw"
+            image: "https://ca.slack-edge.com/T017JP7PHFY-U019QQQ8H98-b8cb8ade5e14-512"
         }
     },
     {
@@ -25,7 +25,7 @@ const _items = [
             title: 'Shivani Patel',
             desc:
                 'TODO',
-            image: 'https://i.postimg.cc/cHdMJQKG/svb-slider.jpg'
+            image: 'https://ca.slack-edge.com/T017JP7PHFY-U019S9U228K-edc13d3af846-512'
         }
     },
     {

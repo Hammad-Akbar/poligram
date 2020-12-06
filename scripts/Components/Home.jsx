@@ -73,7 +73,8 @@ export default function Home() {
       <div className="horizontal-line"/>
       <section id="section-white">
         <br></br>
-        <div className="slogan-description-black"> This app is using a production build of React </div>
+        <div className="slogan-description-black2"> This app was made using a production build of React </div>
+        <div className="centerGit"> <a href="https://github.com/AkhilSamarth/cs490-poligram-sprint2"> <i class="fa fa-github w3-hover-opacity center"></i></a> </div>
       </section>
     </body>
   );
