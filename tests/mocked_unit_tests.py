@@ -83,6 +83,19 @@ class MockedTest(unittest.TestCase):
                      "or will in an election"
             self.assertEqual(response, result)
 
+    def test_socket_dictionary(self):
+        flask_test_client = app.app.test_client()
+        with unittest.mock.patch('app.messageDict') as mocked_messageDict:
+            mocked_messageDict.return_value = "A piece of paper indicating a person's preferences in an election, " \
+                                              "the right to formally express one's position or will in an election"
+            socketio_test_client = app.socketio.test_client(app.app,
+                                                            flask_test_client=flask_test_client)
+            socketio_test_client.emit('send message', 'ballot')
+            result = socketio_test_client.get_received()
+            message = result[0]['args'][0]['messageReceived']
+            self.assertEqual(message, "A piece of paper indicating a person's preferences in an election, "
+                                      "the right to formally express one's position or will in an election")
+
     @patch('app.flask')
     def test_map_feature(self, mocked_flask):
         mocked_flask.request.sid = 'abcdef'
