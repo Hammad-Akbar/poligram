@@ -83,34 +83,15 @@ class MockedTest(unittest.TestCase):
                      "or will in an election"
             self.assertEqual(response, result)
 
-    @patch('app.flask')
-    def test_socket_dictionary(self, mocked_flask):
-        mocked_flask.request.sid = 'abcdef'
-
-        with patch('app.requests.get') as mocked_get:
-            mocked_get.return_value.json.return_value = [{"shortdef": ["A piece of paper indicating a person\u0027s "
-                                                                       "preferences in an election",
-                                                                       "the right to formally express one\u0027s "
-                                                                       "position "
-                                                                       "or will in an election"]}]
-            response = app.messageDict('ballot')
-            result = "A piece of paper indicating a person\u0027s " \
-                     "preferences in an election, " \
-                     "the right to formally express one\u0027s " \
-                     "position " \
-                     "or will in an election"
-            self.assertEqual(response, result)
-
-        def mocked_emit(event, obj, room):
-            self.assertEqual(event, "forward message")
-            self.assertEqual(room, "abcdef")
-            self.assertEqual(obj, {'messageReceived': "A piece of paper indicating a person\u0027s "
-                                                      "preferences in an election, "
-                                                      "the right to formally express one\u0027s ""position "
-                                                      "or will in an election"})
-
-        with unittest.mock.patch('app.socketio.emit', mocked_emit):
-            app.send_message('ballot')
+    def test_socket_dictionary(self):
+        flask_test_client = app.app.test_client()
+        socketio_test_client = app.socketio.test_client(app.app,
+                                                        flask_test_client=flask_test_client)
+        socketio_test_client.emit('send message', 'ballot')
+        result = socketio_test_client.get_received()
+        message = result[0]['args'][0]['messageReceived']
+        self.assertEqual(message, "A piece of paper indicating a person's preferences in an election, "
+                                  "the right to formally express one's position or will in an election")
 
     def test_new_user_connection(self):
         """user connection Mocked unit test"""
