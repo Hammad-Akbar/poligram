@@ -49,20 +49,22 @@ function Quiz() {
     
     Socket.on('save quiz response', (data) => {
       if (data["message"] == "user not logged in") {
-        Swal.fire({icon: 'error', text: 'Please log in before saving your quiz result.'});
+        Swal.fire({icon: 'warning', text: 'Please log in before saving your quiz result.'});
+      } else if (data["message"] == "success") {
+        Swal.fire({icon: 'success', text: 'Score saved successfully!'});
       }
     });
     
     Socket.on('prev quiz result', (data) => {
       if (data["message"] == "user not logged in") {
-        Swal.fire({icon: 'error', text: 'Please log in before saving your quiz result.'});
+        Swal.fire({icon: 'warning', text: 'Please log in before saving your quiz result.'});
       } else if (data["message"] == "no record found") {
-        Swal.fire({icon: 'error', text: "You don't seem to have a previous result. Make sure you save your result to compare!"});
+        Swal.fire({icon: 'warning', text: "You don't seem to have a previous result. Make sure you save your result to compare!"});
       } else if (data["message"] == "success") {
         let score = data["score"];
         
         let prevDescriptor = convertScoreToDescription(score);
-        Swal.fire("Your previous result was: " + prevDescriptor);
+        Swal.fire({text: "Your previous result was: " + prevDescriptor});
       }
     });
 
