@@ -36,6 +36,18 @@ class MockedTest(unittest.TestCase):
 
         def commit(self):
             pass
+        
+        def remove(self):
+            pass
+        
+        def query(self, param):
+            return self
+            
+        def filter(self, param):
+            return self
+            
+        def first(self):
+            return None
 
 
     @patch("app.api_call_for_news")
@@ -83,7 +95,9 @@ class MockedTest(unittest.TestCase):
                  "or will in an election"
             self.assertEqual(response, result)
 
-    def test_new_user_connection(self):
+    @patch("app.db.session", MockSession())
+    @patch("app.user_sids", create=True)
+    def test_new_user_connection(self, mock_sids):
         """user connection Mocked unit test"""
         flask_test_client = app.app.test_client()
         socketio_test_client = app.socketio.test_client(app.app,
@@ -175,7 +189,7 @@ class MockedTest(unittest.TestCase):
 
         with unittest.mock.patch('app.db.session', MockSession(self)):
             app.load_quiz_questions()
-
+        
 
 if __name__ == '__main__':
     unittest.main()

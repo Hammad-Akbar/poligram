@@ -50,6 +50,13 @@ class UserInfo(db.Model):
         self.name = name
         self.img_url = img_url
         
+    def __repr__(self):
+        return str({
+            'email': self.email,
+            'name': self.name,
+            'img_url': self.img_url
+        })
+        
 class QuizScore(db.Model):
     email = db.Column(db.String(256), primary_key=True)
     score = db.Column(db.Integer)
@@ -57,3 +64,9 @@ class QuizScore(db.Model):
     def __init__(self, email, score):
         self.email = email
         self.score = score
+
+    def __repr__(self):
+        return str({
+            'email': self.email,
+            'score': self.score,
+        })
