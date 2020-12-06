@@ -52,39 +52,28 @@ function Quiz() {
         Swal.fire({icon: 'error', text: 'Please log in before saving your quiz result.'});
       }
     });
+    
+    Socket.on('prev quiz result', (data) => {
+      if (data["message"] == "user not logged in") {
+        Swal.fire({icon: 'error', text: 'Please log in before saving your quiz result.'});
+      } else if (data["message"] == "no record found") {
+        Swal.fire({icon: 'error', text: "You don't seem to have a previous result. Make sure you save your result to compare!"});
+      } else if (data["message"] == "success") {
+        let score = data["score"];
+        
+        let prevDescriptor = convertScoreToDescription(score);
+        Swal.fire("Your previous result was: " + prevDescriptor);
+      }
+    });
 
     return () => {
       Socket.off('quiz generated');
       Socket.off('save quiz response');
+      Socket.off('prev quiz result');
     };
   });
 
-  function generateQuiz() {
-    Socket.emit('request quiz');
-  }
-  
-  function saveQuiz(score) {
-    Socket.emit('save quiz', score);
-  }
-
-  function submitQuiz(event) {
-    event.preventDefault();
-
-    let score = 0;
-    let counter = 0;
-    for (const radio of event.target) {
-      if (radio.checked) {
-        const multiplier = radio.name.substring(radio.name.indexOf(',') + 1);
-        score += multiplier * radio.value;
-        counter++;
-      }
-    }
-
-    if (counter < num_questions) {
-      alert('Please answer all questions before submitting');
-      return;
-    }
-
+  function convertScoreToDescription(score) {
     let ideology;
     let descriptor;
     let score_abs;
@@ -106,11 +95,48 @@ function Quiz() {
         break;
       }
     }
+    
+    return descriptor + " " + ideology;
+  }
+
+  function generateQuiz() {
+    Socket.emit('request quiz');
+  }
+  
+  function saveQuiz(score) {
+    Socket.emit('save quiz', score);
+  }
+
+  function showPrevResult() {
+    Socket.emit('request prev quiz result');
+  }
+
+  function submitQuiz(event) {
+    event.preventDefault();
+
+    let score = 0;
+    let counter = 0;
+    for (const radio of event.target) {
+      if (radio.checked) {
+        const multiplier = radio.name.substring(radio.name.indexOf(',') + 1);
+        score += multiplier * radio.value;
+        counter++;
+      }
+    }
+
+    if (counter < num_questions) {
+      Swal.fire({icon: 'error', text: 'Please answer all questions before submitting'});
+      return;
+    }
+
+    let descriptor = convertScoreToDescription(score);
 
     setDisplay(
       <div>
-        <h2>You are {descriptor} {ideology}</h2>
+        <h2>You are {descriptor}</h2>
         <button onClick={() => saveQuiz(score)}>Save result</button>
+        <br />
+        <button onClick={showPrevResult}>Show previous result</button>
       </div>
     );
   }
