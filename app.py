@@ -68,17 +68,42 @@ def on_new_feedback(data):
 @socketio.on('connect user')
 def on_connect(userProfile):
     """ User's profile validating """
+    global user_sids
     socketId = request.sid
     name = userProfile['name']
     email = userProfile['email']
     image = userProfile['imageUrl']
+
+    # if user doesn't exist in DB, add user
+    if db.session.query(models.UserInfo).filter(models.UserInfo.email==email).first() is None:
+        db.session.add(models.UserInfo(email, name, image))
+        db.session.commit()
+
+    user_sids[socketId] = email
 
     socketio.emit('new connection', {
         "user": name,
         "userEmail": email,
         "userImage": image
     }, room=socketId)
+    
 
+def remove_sid_from_dict(socketId):
+    global user_sids
+
+    if socketId in user_sids:
+        email = user_sids.pop(socketId)
+
+
+@socketio.on('user logout')
+def user_logout():
+    remove_sid_from_dict(request.sid)
+    
+
+@socketio.on('disconnect')
+def on_disconnect():
+    remove_sid_from_dict(request.sid)
+    
 
 @socketio.on('word of the day')
 def word_of_day():
@@ -254,6 +279,47 @@ def map_state(objState):
             }, room=socketId)
 
 
+@socketio.on('save quiz')
+def save_quiz(score):
+    global user_sids
+    socketId = request.sid
+    
+    if socketId not in user_sids:
+        message = 'user not logged in'
+    else:
+        email = user_sids[socketId]
+        
+        existing_record = db.session.query(models.QuizScore).filter(models.QuizScore.email==email) 
+        
+        if existing_record.first() is not None:
+            existing_record.delete()
+        
+        db.session.add(models.QuizScore(email, score))
+        db.session.commit()
+        
+        message = 'success'
+    
+    socketio.emit('save quiz response', {'message': message}, room=socketId)
+
+
+@socketio.on('request prev quiz result')
+def get_prev_quiz_result():
+    global user_sids
+    socketId = request.sid
+    
+    if socketId not in user_sids:
+        socketio.emit('prev quiz result', {'message': 'user not logged in'})
+        return
+    
+    email = user_sids[socketId]
+    record = db.session.query(models.QuizScore).filter(models.QuizScore.email==email).first()
+    
+    if record is None:
+        socketio.emit('prev quiz result', {'message': 'no record found'})
+    else:
+        socketio.emit('prev quiz result', {'message': 'success', 'score': record.score})
+
+
 def load_quiz_questions():
     """ Loads the questions for the quiz into the database from the questions JSON file """
 
@@ -269,11 +335,13 @@ def load_quiz_questions():
             db.session.add(models.QuizQuestions(question['text'], group_name, question['multiplier']))
 
     db.session.commit()
-
+    
 
 if __name__ == '__main__':
     models.db.create_all()
     load_quiz_questions()
+
+    user_sids = {}
 
     socketio.run(
         app,

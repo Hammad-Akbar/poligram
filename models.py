@@ -4,6 +4,8 @@
 
 from app import db
 
+import datetime as dt
+
 class FeedbackLog(db.Model):
     """ Add feedback table to database """
 
@@ -36,4 +38,35 @@ class QuizQuestions(db.Model):
             'text': self.text,
             'group name': self.group_name,
             'multiplier': self.multiplier
+        })
+        
+class UserInfo(db.Model):
+    email = db.Column(db.String(256), primary_key=True)
+    name = db.Column(db.String(256))
+    img_url = db.Column(db.String(512))
+
+    def __init__(self, email, name, img_url):
+        self.email = email
+        self.name = name
+        self.img_url = img_url
+        
+    def __repr__(self):
+        return str({
+            'email': self.email,
+            'name': self.name,
+            'img_url': self.img_url
+        })
+        
+class QuizScore(db.Model):
+    email = db.Column(db.String(256), primary_key=True)
+    score = db.Column(db.Integer)
+
+    def __init__(self, email, score):
+        self.email = email
+        self.score = score
+
+    def __repr__(self):
+        return str({
+            'email': self.email,
+            'score': self.score,
         })
