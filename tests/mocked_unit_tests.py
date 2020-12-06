@@ -86,17 +86,11 @@ class MockedTest(unittest.TestCase):
     @patch('app.flask')
     def test_socket_dictionary(self, mocked_flask):
         mocked_flask.request.sid = 'abcdef'
-        messageReceived = "A piece of paper indicating a person\u0027s " \
-                          "preferences in an election, " \
-                          "the right to formally express one\u0027s " \
-                          "position " \
-                          "or will in an election"
-        obj = {'messageReceived': messageReceived}
 
         def mocked_emit(event, obj, room):
             self.assertEqual(event, "forward message")
             self.assertEqual(room, "abcdef")
-            self.assertEqual(obj, {'messageReceived': messageReceived})
+            self.assertEqual(obj, {'messageReceived': "A piece of paper indicating a person\u0027s ""preferences in an election, ""the right to formally express one\u0027s ""position ""or will in an election"})
 
         with unittest.mock.patch('app.socketio.emit', mocked_emit):
             app.send_message('ballot')
