@@ -27,8 +27,21 @@ function alertSubmit(count) {
   }
 }
 
+function checkButton(count) {
+  if (count > 1000) {
+    return true
+  }
+  else if (count == 0) {
+    return true
+  }
+  else {
+    return false
+  }
+}
+
 export default function FeedbackButton() {
   const [count, setCount] = useState(0);
+  
   return (
     <div className='feedback-button'>
         <form onSubmit={handleSubmit}>
@@ -48,7 +61,7 @@ export default function FeedbackButton() {
             />
           </div>
           <h6>{count}/1000 characters</h6>
-          <button onClick={alertSubmit(count)} type="submit">Give Feedback</button>
+          <button disabled={checkButton(count)} onClick={alertSubmit(count)} type="submit">Give Feedback</button>
         </form>
     </div>
   );
