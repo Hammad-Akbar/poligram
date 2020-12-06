@@ -61,8 +61,8 @@ function Quiz() {
     Socket.emit('request quiz');
   }
   
-  function saveQuiz() {
-    Socket.emit('save quiz');
+  function saveQuiz(score) {
+    Socket.emit('save quiz', score);
   }
 
   function submitQuiz(event) {
@@ -85,18 +85,21 @@ function Quiz() {
 
     let ideology;
     let descriptor;
+    let score_abs;
 
     if (score < 0) {
       ideology = 'conservative';
-      score *= -1;
+      score_abs = score * -1;
     } else if (score > 0) {
       ideology = 'liberal';
+      score_abs = score;
     } else {
       ideology = '';
+      score_abs = score;
     }
 
     for (const cutoff in cutoffs) {
-      if (score <= cutoff) {
+      if (score_abs <= cutoff) {
         descriptor = cutoffs[cutoff];
         break;
       }
@@ -105,7 +108,7 @@ function Quiz() {
     setDisplay(
       <div>
         <h2>You are {descriptor} {ideology}</h2>
-        <button onClick={saveQuiz}>Save result</button>
+        <button onClick={() => saveQuiz(score)}>Save result</button>
       </div>
     );
   }

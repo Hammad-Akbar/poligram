@@ -279,13 +279,17 @@ def map_state(objState):
 
 
 @socketio.on('save quiz')
-def save_quiz():
+def save_quiz(score):
     global user_sids
     socketId = request.sid
     
     if socketId not in user_sids:
         message = 'user not logged in'
     else:
+        email = user_sids[socketId]
+        db.session.add(models.QuizScore(email, score))
+        db.session.commit()
+        
         message = 'success'
     
     socketio.emit('save quiz response', {'message': message}, room=socketId)
