@@ -287,6 +287,12 @@ def save_quiz(score):
         message = 'user not logged in'
     else:
         email = user_sids[socketId]
+        
+        existing_record = db.session.query(models.QuizScore).filter(models.QuizScore.email==email) 
+        
+        if existing_record.first() is not None:
+            existing_record.delete()
+        
         db.session.add(models.QuizScore(email, score))
         db.session.commit()
         

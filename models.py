@@ -51,11 +51,9 @@ class UserInfo(db.Model):
         self.img_url = img_url
         
 class QuizScore(db.Model):
-    timestamp = db.Column(db.DateTime, primary_key=True)
-    email = db.Column(db.String(256))
+    email = db.Column(db.String(256), primary_key=True)
     score = db.Column(db.Integer)
 
     def __init__(self, email, score):
-        self.timestamp = dt.datetime.now()
         self.email = email
         self.score = score
