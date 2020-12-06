@@ -97,7 +97,16 @@ def word_of_day():
 @socketio.on('send message')
 def send_message(text):
     socketId = flask.request.sid
-    messageReceived = messageDict(text)
+    response = requests.get(
+        f'https://www.dictionaryapi.com/api/v3/references/thesaurus/json/{text}?key={DICTIONARY_API_KEY}')
+    result = response.json()
+    messageReceived = ''
+    if 'shortdef' in result[0]:
+        definition = result[0]['shortdef']
+        messageReceived = ', '.join(definition)
+        messageReceived = messageReceived.capitalize()
+    else:
+        messageReceived = "Sorry, we can't find the definition of the term you are looking for."
     socketio.emit('forward message', {
         'messageReceived': messageReceived
     }, room=socketId)
