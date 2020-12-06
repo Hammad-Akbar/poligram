@@ -1,7 +1,7 @@
 """Mocked unit test"""
-#pylint: disable=C0301
-#pylint: disable=C0103
-#pylint: disable=W0613
+# pylint: disable=C0301
+# pylint: disable=C0103
+# pylint: disable=W0613
 import unittest
 from unittest.mock import patch
 from os.path import dirname, join
@@ -14,19 +14,20 @@ import app
 
 class MockedTest(unittest.TestCase):
     """ Mocked unit test cases """
+
     def setUp(self):
         """feedback db Mocked unit test"""
         self.success_test_params = [
             {
-                "name" : "Hammad",
-                "feedback" : "test"
+                "name": "Hammad",
+                "feedback": "test"
             }
         ]
 
         self.failure_test_params = [
             {
-                "name" : 123,
-                "feedback" : 123
+                "name": 123,
+                "feedback": 123
             }
         ]
 
@@ -36,7 +37,6 @@ class MockedTest(unittest.TestCase):
 
         def commit(self):
             pass
-
 
     @patch("app.api_call_for_news")
     def test_app_mock(self, mock_api_call):
@@ -58,9 +58,9 @@ class MockedTest(unittest.TestCase):
         """dictionary api Mocked unit test"""
         with patch('app.requests.get') as mocked_get:
             mocked_get.return_value.json.return_value = ["added", "daddy", "add", "adds", "dad", "dads", "dead",
-                                                        "deed", "did", "dido",
-                                                        "died", "dodo", "dud", "dude", "duds", "dyad",
-                                                        "dyed", "eddy", "odd", "odds"]
+                                                         "deed", "did", "dido",
+                                                         "died", "dodo", "dud", "dude", "duds", "dyad",
+                                                         "dyed", "eddy", "odd", "odds"]
 
             response = app.messageDict('dddd')
             result = "Sorry, we can't find the definition of the term you are looking for."
@@ -71,17 +71,31 @@ class MockedTest(unittest.TestCase):
         """dictionary api Mocked unit test"""
         with patch('app.requests.get') as mocked_get:
             mocked_get.return_value.json.return_value = [{"shortdef": ["A piece of paper indicating a person\u0027s "
-                                                                        "preferences in an election",
-                                                                        "the right to formally express one\u0027s "
-                                                                        "position "
-                                                                        "or will in an election"]}]
+                                                                       "preferences in an election",
+                                                                       "the right to formally express one\u0027s "
+                                                                       "position "
+                                                                       "or will in an election"]}]
             response = app.messageDict('ballot')
             result = "A piece of paper indicating a person\u0027s " \
-                 "preferences in an election, " \
-                 "the right to formally express one\u0027s " \
-                 "position " \
-                 "or will in an election"
+                     "preferences in an election, " \
+                     "the right to formally express one\u0027s " \
+                     "position " \
+                     "or will in an election"
             self.assertEqual(response, result)
+
+    @patch('app.flask')
+    def test_socket_dictionary(self, mocked_flask):
+        mocked_flask.request.sid = 'abcdef'
+        messageReceived = app.messageDict('ballot')
+        obj = {'messageReceived': messageReceived}
+
+        def mocked_emit(event, obj, room):
+            self.assertEqual(event, "forward message")
+            self.assertEqual(room, "abcdef")
+            self.assertEqual(obj, {'messageReceived': messageReceived})
+
+        with unittest.mock.patch('app.socketio.emit', mocked_emit):
+            app.send_message('ballot')
 
     def test_new_user_connection(self):
         """user connection Mocked unit test"""
@@ -133,10 +147,8 @@ class MockedTest(unittest.TestCase):
 
                     return [MockRecord('Test question for unit test', 'unittest group', 99)]
 
-
             def query(self, param):
                 return self.MockQuery()
-
 
         def mocked_emit(event, data, room):
             """Quiz Mocked unit test"""

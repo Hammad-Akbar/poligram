@@ -96,7 +96,7 @@ def word_of_day():
 
 @socketio.on('send message')
 def send_message(text):
-    socketId = request.sid
+    socketId = flask.request.sid
     messageReceived = messageDict(text)
     socketio.emit('forward message', {
         'messageReceived': messageReceived
