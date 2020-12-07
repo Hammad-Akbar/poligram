@@ -3,6 +3,7 @@ import React from 'react';
 import Question from './Question';
 import Socket from '../Socket';
 import Swal from 'sweetalert2';
+import './quiz.css';
 
 // max values of each classification
 const cutoffs = {
@@ -38,12 +39,13 @@ function Quiz() {
       setDisplay(
         <div>
           <form onSubmit={submitQuiz}>
-            <div style={{ margin: '2em', border: 'solid' }}>
+            <div style={{ margin: '20px', border: '1px solid' }}>
               {questions}
             </div>
-            <button style={{ marginBottom: '3em' }}>Submit quiz</button>
+            <div className="quiz-button"> <button style={{ marginBottom: '3em' }}>Submit quiz</button> </div>
           </form>
-        </div>,
+        </div>
+        ,
       );
     });
     
@@ -135,19 +137,48 @@ function Quiz() {
 
     setDisplay(
       <div>
-        <h2>You are {descriptor}</h2>
-        <button onClick={() => saveQuiz(score)}>Save result</button>
-        <br />
-        <button onClick={showPrevResult}>Show previous result</button>
+      <div className='slogan-description-black3'>
+          <p>You are <strong> {descriptor} </strong> </p>
+          </div>
+          <div className="quiz-button"> <button onClick={() => saveQuiz(score)}>Save result</button> </div>
+          <br />
+          <div className="quiz-button"> <button onClick={showPrevResult}>Show previous result</button> </div>
+      <div className="row">
+        <div className="leftcolumn">
+          <div className="card">
+            <p> <strong> Liberal </strong> </p>
+            <p> A person who is 'liberal' is one that is a supporter of policies that are socially progressive and promote social welfare. </p>
+            <br></br>
+            <p> <strong> Conservative </strong> </p>
+            <p> A person who is 'conservative' is one that is averse to change and holds traditional values. </p>
+          </div>
+        </div>
+        <div className="rightcolumn">
+          <div className="card">
+            <p> <strong> This quiz will show how strongly you identify with a certain ideology. </strong> </p>
+            <p> <em> extremely: </em> Your views are sharp and heavy towards one side of the ideological spectrum. </p>
+            <p> <em> very: </em> Your views fall strongly on one side of the ideological spectrum. </p>
+            <p> <em> moderately: </em> Your views on a broad range of issues but lean more towards one side of the ideological spectrum. </p>
+            <p> <em> slightly: </em> Your views lean toward one side of the ideological spectrum, but not very strongly and you likely hold some opposing views as well. </p>
+            <p> <em> neutral: </em> Your views are evenly spread across the ideological spectrum and don't lean towards one side.</p>
+          </div>
+        </div>
+        </div>
       </div>
     );
   }
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <h2>Ideology Quiz</h2>
-      <button onClick={generateQuiz}>Generate new quiz</button>
-      {display}
+    <section id="section-red"> <div className="slogan-white"> Take an ideology Quiz and Learn where you stand </div> </section>
+    <section id="section-white">
+      <div className='slogan-black'> What is an ideology? </div>
+      <div className='slogan-description-black2'> An ideology is the science of ideas! basically it is a set of beliefs or philosophies attributed to a person or group of persons </div>
+      <div className="slogan-description-black2"> Take the quiz and find out where you stand! </div>
+    </section>
+      <div className="quiz-button"> <button onClick={generateQuiz}>Generate new quiz</button> </div>
+      <div className="horizontal-line"/>
+      {display} 
     </div>
   );
 }
