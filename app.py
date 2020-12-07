@@ -159,7 +159,6 @@ def request_quiz():
 @socketio.on('search news')
 def api_call_for_news(data):
     """ API call for News """
-    print("we got query to search", data)
     if data == "":
         query = 'politics'
     else:
@@ -211,7 +210,6 @@ def trending_news():
     """Trending news Api call"""
     query = ['Trump', 'Biden', 'election', 'obama', 'Republican', 'democrat', 'governor', 'politics', 'government', 'law', 'state', 'union', 'bills', 'congress']
     random_query=(random.choices(query))
-    print(random_query)
     trend_url = 'https://newsapi.org/v2/top-headlines'
     parameter = {
         'country': 'us',
