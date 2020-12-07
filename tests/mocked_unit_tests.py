@@ -2,6 +2,7 @@
 # pylint: disable=C0301
 # pylint: disable=C0103
 # pylint: disable=W0613
+# pylint: disable=W0107
 import unittest
 from unittest.mock import patch
 from os.path import dirname, join
@@ -32,22 +33,29 @@ class MockedTest(unittest.TestCase):
         ]
 
     class MockSession():
+        """mock session"""
         def add(self, value):
+            """add"""
             pass
 
         def commit(self):
+            """commit"""
             pass
-        
+
         def remove(self):
+            """remove"""
             pass
-        
+
         def query(self, param):
+            """query"""
             return self
-            
+
         def filter(self, param):
+            """filter"""
             return self
-            
+
         def first(self):
+            """first"""
             return None
 
     @patch("app.api_call_for_news")
@@ -96,6 +104,7 @@ class MockedTest(unittest.TestCase):
             self.assertEqual(response, result)
 
     def test_socket_dictionary(self):
+        """mocked test to check dictionary api"""
         flask_test_client = app.app.test_client()
         with unittest.mock.patch('app.messageDict') as mocked_messageDict:
             mocked_messageDict.return_value = "A piece of paper indicating a person's preferences in an election, " \
@@ -109,6 +118,7 @@ class MockedTest(unittest.TestCase):
                                       "the right to formally express one's position or will in an election")
 
     def test_word_of_day(self):
+        """mocked test to check word of the day"""
         flask_test_client = app.app.test_client()
         with unittest.mock.patch('app.messageDict') as mocked_messageDict:
             mocked_messageDict.return_value = "None"
@@ -122,12 +132,15 @@ class MockedTest(unittest.TestCase):
 
     @patch('app.flask')
     def test_map_feature(self, mocked_flask):
+        """mocked test for map method"""
         mocked_flask.request.sid = 'abcdef'
 
         def mocked_open(file, mode):
+            """file open for fake map json data"""
             return open("tests/fake_map.json", 'r')
 
         def mocked_emit(event, data, room):
+            """socket mocked test for map data"""
             self.assertEqual(event, "sendState")
             self.assertEqual(room, "abcdef")
             self.assertEqual(data, {
@@ -185,9 +198,13 @@ class MockedTest(unittest.TestCase):
         mocked_flask.request.sid = 'abcdef'
 
         class MockSession:
+            """mock session"""
             class MockQuery:
+                """mock query"""
                 def all(self):
+                    """all"""
                     class MockRecord:
+                        """mock record"""
                         def __init__(self, text, group_name, multiplier):
                             self.text = text
                             self.group_name = group_name
@@ -196,6 +213,7 @@ class MockedTest(unittest.TestCase):
                     return [MockRecord('Test question for unit test', 'unittest group', 99)]
 
             def query(self, param):
+                """mocked query"""
                 return self.MockQuery()
 
         def mocked_emit(event, data, room):
@@ -213,29 +231,35 @@ class MockedTest(unittest.TestCase):
                 app.request_quiz()
 
     def test_quiz_load(self):
+        """ testing for quiz load method"""
         class MockSession:
+            """mocke session"""
             def __init__(self, unittest_class):
+                """initial method to assign variables"""
                 self.questions = []
                 self.unittest_class = unittest_class
 
             class MockQuery:
+                """ mocking query """
                 def delete(self):
+                    """deleting method"""
                     pass
 
             def query(self, param):
+                """query"""
                 return self.MockQuery()
 
             def commit(self):
+                """commit"""
                 pass
 
             def add(self, question_record):
-                # make sure question texts are all unique, since text is used as primary key
+                """make sure question texts are all unique, since text is used as primary key"""
                 self.unittest_class.assertNotIn(question_record.text, self.questions)
                 self.questions.append(question_record.text)
 
         with unittest.mock.patch('app.db.session', MockSession(self)):
             app.load_quiz_questions()
-        
 
 if __name__ == '__main__':
     unittest.main()
