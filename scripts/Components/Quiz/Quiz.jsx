@@ -38,31 +38,12 @@ function Quiz() {
 
       setDisplay(
         <div>
-        <div className="leftcolumn">
           <form onSubmit={submitQuiz}>
             <div style={{ margin: '20px', border: '1px solid' }}>
               {questions}
             </div>
             <div className="quiz-button"> <button style={{ marginBottom: '3em' }}>Submit quiz</button> </div>
           </form>
-        </div>
-        <div className="rightcolumn">
-          <div className="card">
-            <p> <strong> Liberal </strong> </p>
-            <p> A person who is 'liberal' is one that is a supporter of policies that are socially progressive and promote social welfare. </p>
-            <br></br>
-            <p> <strong> Conservative </strong> </p>
-            <p> A person who is 'conservative' is one that is averse to change and holds traditional values. </p>
-          </div>
-          <div className="card">
-            <p> <strong> This quiz will show how strongly you identify with a certain ideology. </strong> </p>
-            <p> <em> extremely: </em> Your views are sharp and heavy towards one side of the ideological spectrum. </p>
-            <p> <em> very: </em> Your views fall strongly on one side of the ideological spectrum. </p>
-            <p> <em> moderately: </em> Your views on a broad range of issues but lean more towards one side of the ideological spectrum. </p>
-            <p> <em> slightly: </em> Your views lean toward one side of the ideological spectrum, but not very strongly and you likely hold some opposing views as well. </p>
-            <p> <em> neutral: </em> Your views are evenly spread across the ideological spectrum and don't lean towards one side.</p>
-          </div>
-        </div>
         </div>
         ,
       );
@@ -156,15 +137,14 @@ function Quiz() {
 
     setDisplay(
       <div>
-        <div className="leftcolumn">
-          <div className='slogan-description-black3'>
-            <p>You are <strong> {descriptor} </strong> </p>
+      <div className='slogan-description-black3'>
+          <p>You are <strong> {descriptor} </strong> </p>
           </div>
           <div className="quiz-button"> <button onClick={() => saveQuiz(score)}>Save result</button> </div>
           <br />
           <div className="quiz-button"> <button onClick={showPrevResult}>Show previous result</button> </div>
-        </div>
-        <div className="rightcolumn">
+      <div className="row">
+        <div className="leftcolumn">
           <div className="card">
             <p> <strong> Liberal </strong> </p>
             <p> A person who is 'liberal' is one that is a supporter of policies that are socially progressive and promote social welfare. </p>
@@ -172,6 +152,8 @@ function Quiz() {
             <p> <strong> Conservative </strong> </p>
             <p> A person who is 'conservative' is one that is averse to change and holds traditional values. </p>
           </div>
+        </div>
+        <div className="rightcolumn">
           <div className="card">
             <p> <strong> This quiz will show how strongly you identify with a certain ideology. </strong> </p>
             <p> <em> extremely: </em> Your views are sharp and heavy towards one side of the ideological spectrum. </p>
@@ -180,6 +162,7 @@ function Quiz() {
             <p> <em> slightly: </em> Your views lean toward one side of the ideological spectrum, but not very strongly and you likely hold some opposing views as well. </p>
             <p> <em> neutral: </em> Your views are evenly spread across the ideological spectrum and don't lean towards one side.</p>
           </div>
+        </div>
         </div>
       </div>
     );
