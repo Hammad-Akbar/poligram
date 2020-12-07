@@ -8,15 +8,19 @@ const _items = [
         player: {
             title: 'Hammad Akbar',
             desc:
-                'Software Developer',
-            image: "https://web.njit.edu/~haa38/Resume/IMG_3898.jpg"
+                `Software Developer`,
+            desc2:
+                `Loves to play soccer, cook and watch Netflix all day`,
+            image: "https://web.njit.edu/~haa38/Resume/IMG_4808.jpeg"
         }
     },
     {
         player: {
             title: "Jay Amin",
             desc:
-                "TODO",
+                "Software Developer",
+            desc2:
+                `Loves to play video games, watch cricket, and sleep`,
             image: "https://ca.slack-edge.com/T017JP7PHFY-U019QQQ8H98-b8cb8ade5e14-512"
         }
     },
@@ -24,7 +28,9 @@ const _items = [
         player: {
             title: 'Shivani Patel',
             desc:
-                'TODO',
+                'Software Developer',
+            desc2:
+                `Loves to travel to adventurous places`,
             image: 'https://ca.slack-edge.com/T017JP7PHFY-U019S9U228K-edc13d3af846-512'
         }
     },
@@ -32,8 +38,10 @@ const _items = [
         player: {
             title: 'Akhil Samarth',
             desc:
-                '',
-            image: 'https://i.postimg.cc/C12h7nZn/ms-1.jpg'
+                'Software Developer',
+            desc2:
+                `TODO`,
+            image: 'https://ca.slack-edge.com/T017JP7PHFY-U01A3H3A6GZ-750822c5f57a-512'
         }
     }
 ]
@@ -79,7 +87,8 @@ const CarouselSlideItem = ({ pos, idx, activeIdx }) => {
             </div>
             <div className='carousel-slide-item__body'>
                 <h4>{item.player.title}</h4>
-                <p>{item.player.desc}</p>
+                <p><em>{item.player.desc}</em></p>
+                <p>{item.player.desc2}</p>
             </div>
         </li>
     )

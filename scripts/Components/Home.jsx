@@ -29,7 +29,7 @@ export default function Home() {
           With politics more important than ever, Poligram makes it easy to learn. Poligram will provide an interactive way to learn about politics in America. 
         </div>
       </section>
-      <div className="horizontal-line"/>
+      <div className="horizontal-line-home"/>
       <section id="section-white">
         <div className="slogan-black"> Features </div> 
         <div className="slogan-description-black"> Poligram will feature a way to learn about new political words, take meaningful quizzes to test your knowledge, and keep up with current issues in the news.  </div>
@@ -52,7 +52,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <div className="horizontal-line"/>
+      <div className="horizontal-line-home"/>
       <section id="section-blue">
         <div className="slogan-white">
           <span className="message">Meet the team!</span>
@@ -63,14 +63,14 @@ export default function Home() {
         <br></br>
         <br></br>
       </section>
-      <div className="horizontal-line"/>
+      <div className="horizontal-line-home"/>
       <section id="section-red">
         <div className="slogan-white">
           <span className="message">Get in touch with us!</span>
         </div>
         <FeedbackButton />
       </section>
-      <div className="horizontal-line"/>
+      <div className="horizontal-line-home"/>
       <section id="section-white">
         <br></br>
         <div className="slogan-description-black2"> This app was made using a production build of React </div>

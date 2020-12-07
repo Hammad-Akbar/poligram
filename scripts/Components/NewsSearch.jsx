@@ -17,9 +17,9 @@ function NewsSearch() {
 
   return (
     <body>
-    <h1 className="news-title"> Learn about what is happening today. </h1>
+     <section id="section-red"> <div className="slogan-white"> Explore the news and trending topics </div> </section>
     <div className="news-form">
-      <form onSubmit={handleSubmit}>
+      <form className="newsForm" onSubmit={handleSubmit}>
         <input
           className="search-news"
           type={news}
