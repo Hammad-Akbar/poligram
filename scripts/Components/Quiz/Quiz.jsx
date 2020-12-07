@@ -2,6 +2,7 @@ import React from 'react';
 
 import Question from './Question';
 import Socket from '../Socket';
+import Swal from 'sweetalert2';
 
 // max values of each classification
 const cutoffs = {
@@ -45,14 +46,71 @@ function Quiz() {
         </div>,
       );
     });
+    
+    Socket.on('save quiz response', (data) => {
+      if (data["message"] == "user not logged in") {
+        Swal.fire({icon: 'warning', text: 'Please log in before saving your quiz result.'});
+      } else if (data["message"] == "success") {
+        Swal.fire({icon: 'success', text: 'Score saved successfully!'});
+      }
+    });
+    
+    Socket.on('prev quiz result', (data) => {
+      if (data["message"] == "user not logged in") {
+        Swal.fire({icon: 'warning', text: 'Please log in before saving your quiz result.'});
+      } else if (data["message"] == "no record found") {
+        Swal.fire({icon: 'warning', text: "You don't seem to have a previous result. Make sure you save your result to compare!"});
+      } else if (data["message"] == "success") {
+        let score = data["score"];
+        
+        let prevDescriptor = convertScoreToDescription(score);
+        Swal.fire({text: "Your previous result was: " + prevDescriptor});
+      }
+    });
 
     return () => {
       Socket.off('quiz generated');
+      Socket.off('save quiz response');
+      Socket.off('prev quiz result');
     };
   });
 
+  function convertScoreToDescription(score) {
+    let ideology;
+    let descriptor;
+    let score_abs;
+
+    if (score < 0) {
+      ideology = 'conservative';
+      score_abs = score * -1;
+    } else if (score > 0) {
+      ideology = 'liberal';
+      score_abs = score;
+    } else {
+      ideology = '';
+      score_abs = score;
+    }
+
+    for (const cutoff in cutoffs) {
+      if (score_abs <= cutoff) {
+        descriptor = cutoffs[cutoff];
+        break;
+      }
+    }
+    
+    return descriptor + " " + ideology;
+  }
+
   function generateQuiz() {
     Socket.emit('request quiz');
+  }
+  
+  function saveQuiz(score) {
+    Socket.emit('save quiz', score);
+  }
+
+  function showPrevResult() {
+    Socket.emit('request prev quiz result');
   }
 
   function submitQuiz(event) {
@@ -69,32 +127,18 @@ function Quiz() {
     }
 
     if (counter < num_questions) {
-      alert('Please answer all questions before submitting');
+      Swal.fire({icon: 'error', text: 'Please answer all questions before submitting'});
       return;
     }
 
-    let ideology;
-    let descriptor;
-
-    if (score < 0) {
-      ideology = 'conservative';
-      score *= -1;
-    } else if (score > 0) {
-      ideology = 'liberal';
-    } else {
-      ideology = '';
-    }
-
-    for (const cutoff in cutoffs) {
-      if (score <= cutoff) {
-        descriptor = cutoffs[cutoff];
-        break;
-      }
-    }
+    let descriptor = convertScoreToDescription(score);
 
     setDisplay(
       <div>
-        <h2>You are {descriptor} {ideology}</h2>
+        <h2>You are {descriptor}</h2>
+        <button onClick={() => saveQuiz(score)}>Save result</button>
+        <br />
+        <button onClick={showPrevResult}>Show previous result</button>
       </div>
     );
   }

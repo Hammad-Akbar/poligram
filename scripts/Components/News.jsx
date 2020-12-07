@@ -8,7 +8,7 @@ function News() {
   const [trendNews, setTrendNews] = useState([]);
   useEffect(() => {
     Socket.emit('news api call');
-    
+
     Socket.on('newsData', (data) => {
       setNewsData(data.newsObjectLst);
     });
@@ -21,75 +21,55 @@ function News() {
       Socket.off('trendNews');
     };
   }, []);
-  
+
   console.log(trendNews);
 
   return (
-    <div> 
-    <NewsSearch /> 
+    <div > 
+    <NewsSearch />
     <div>
-    {trendNews.map((newz) => (
-        <p>
-          
-          <div className="headerclass">{newz.title}</div>
-          <br />
-
-          <div className="row">
-            <div className="column">
-              <p>
-                Article:
-                {newz.content}
-                <a href={newz.url} target="_blank" rel="noopener noreferrer">Click Here</a>
-              </p>
-              <p>
-                Written by:
-                {newz.author}
-              </p>
-              <p>
-                Posted by:
-                {newz.source}
-              </p>
-            </div>
-
-            <div className="column"><img src={newz.img} alt="" width="300" height="300" /></div>
-
-          </div>
-          <br />
-
-        </p>
-
-      ))}
+    <table className="tabStyle">
+      <tr>
+          {trendNews.map((newz) => (
+                <th>
+                <p>
+                  <div className="container">
+                  <img src={newz.img} alt="" width="800" height="500" />
+                  <div class="content">
+                    <h1><a className="trend-link" href={newz.url} target="_blank" rel="noopener noreferrer">{newz.title}</a></h1>
+                    <p>
+                        Article:
+                        {newz.content}
+                        <a className="trend-link" href={newz.url} target="_blank" rel="noopener noreferrer">Click Here</a>
+                      </p>
+                  </div>
+                  </div>
+                  <br />
+                </p>
+                </th>
+            ))}
+      </tr>
+    </table>
       </div>
       {newsData.map((news) => (
         <p>
-          
-          <div className="headerclass">{news.title}</div>
           <br />
-
+          <div className="news">
           <div className="row">
+           <div className="column"><img src={news.img} alt="" width="650" height="300" /></div>
             <div className="column">
+              <h2 className="headerclass">
+                {news.title}
+              </h2>
               <p>
-                Article:
                 {news.content}
                 <a href={news.url} target="_blank" rel="noopener noreferrer">Click Here</a>
               </p>
-              <p>
-                Written by:
-                {news.author}
-              </p>
-              <p>
-                Posted by:
-                {news.source}
-              </p>
             </div>
-
-            <div className="column"><img src={news.img} alt="" width="300" height="300" /></div>
-
           </div>
           <br />
-
+          </div>
         </p>
-
       ))}
     </div>
   );

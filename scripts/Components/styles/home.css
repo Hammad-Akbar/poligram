@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Aclonica');
 @import url('https://fonts.googleapis.com/css?family=Amethysta');
 @import url('https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
 body {
 	background-color: white;
@@ -27,7 +28,7 @@ body {
 	font-weight: 400;
 	font-size: 60px;
 	text-align: left;
-	padding-top: 2em;
+	padding-top: 1em;
 	padding-bottom: 1em;
 	padding-left: 1em;
 }
@@ -90,7 +91,6 @@ body {
 }
 
 .slogan-white {
-	height: 100px;
 	color: white;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 300;
@@ -103,6 +103,13 @@ body {
 
 .slogan-description-white {
 	height: 87px;
+	color: white;
+	font-family: 'Lora', serif;
+	font-size: 15px;
+	text-align: center;
+}
+
+.slogan-description-white2 {
 	color: white;
 	font-family: 'Lora', serif;
 	font-size: 15px;
@@ -129,13 +136,21 @@ body {
 	text-align: center;
 }
 
+.slogan-description-black2 {
+	height: 30px;
+	color: black;
+	font-family: 'Lora', serif;
+	font-size: 15px;
+	text-align: center;
+}
+
 .message {
 	text-align: center;
 }
 
 .box {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 5px;
   padding-bottom: 20px;
 }
@@ -266,4 +281,14 @@ body {
 .MuiIconButton-label {
 	padding: 0px;
 	float: right;
+}
+
+.centerGit {
+    text-align: center; 
+    width: 100%;
+}
+
+.fa-github:before {
+    content: "\f09b";
+    font-size: 36px;
 }

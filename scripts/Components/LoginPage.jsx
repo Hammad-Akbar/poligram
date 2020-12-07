@@ -40,6 +40,8 @@ export function LoginPage({ setIsAuth }) {
 export function LogoutPage({ setIsAuth }) {
   function logout(response) {
     setIsAuth(false);
+    
+    socket.emit("user logout");
   }
   return (
     <div className="login-page">
