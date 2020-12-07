@@ -88,6 +88,7 @@ def on_connect(userProfile):
     }, room=socketId)
 
 def remove_sid_from_dict(socketId):
+    " removing sid "
     global user_sids
 
     if socketId in user_sids:
@@ -96,14 +97,17 @@ def remove_sid_from_dict(socketId):
 
 @socketio.on('user logout')
 def user_logout():
+    "remove sid on logout"
     remove_sid_from_dict(request.sid)
 
 @socketio.on('disconnect')
 def on_disconnect():
+    "remove sid on disconnect "
     remove_sid_from_dict(request.sid)
 
 @socketio.on('word of the day')
 def word_of_day():
+    " word of the day for dictionary page"
     socketId = flask.request.sid
     politicalLst = ['Cabinet', 'Campaign', 'Candidate', 'Canvass', 'Capitalize', 'Catalyst',
                     'Ballot', 'Bandwagon', 'Barnstorm', 'Bipartisan',
@@ -118,6 +122,7 @@ def word_of_day():
 
 @socketio.on('send message')
 def send_message(text):
+    "send the synonym of word entered by user"
     socketId = flask.request.sid
     messageReceived = messageDict(text)
     socketio.emit('forward message', {
@@ -203,7 +208,7 @@ def api_call_for_news(data):
     return response_json["articles"]
 
 def trending_news():
-    "Trending news Api call"
+    """Trending news Api call"""
     query = ['Trump', 'Biden', 'election', 'obama', 'Republican', 'democrat', 'governor', 'politics', 'government', 'law', 'state', 'union', 'bills', 'congress']
     random_query=(random.choices(query))
     print(random_query)
@@ -259,6 +264,7 @@ def news_api_call():
 
 @socketio.on('state')
 def map_state(objState):
+    """ state information for map section """
     state = objState['state']
     socketId = flask.request.sid
     news_file = open('states_info.json', 'r')
@@ -278,6 +284,7 @@ def map_state(objState):
 
 @socketio.on('save quiz')
 def save_quiz(score):
+    """ score saved in database """
     global user_sids
     socketId = request.sid
     if socketId not in user_sids:
@@ -296,6 +303,7 @@ def save_quiz(score):
 
 @socketio.on('request prev quiz result')
 def get_prev_quiz_result():
+    """ previous result fetched from database """
     global user_sids
     socketId = request.sid
     if socketId not in user_sids:
