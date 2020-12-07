@@ -5,13 +5,13 @@
 import os
 import json
 import random
+from datetime import date, timedelta
 import flask
 from flask import request
 import flask_socketio
 import flask_sqlalchemy
 import requests
 import dotenv
-from datetime import date, timedelta
 
 dotenv.load_dotenv()
 
@@ -86,7 +86,6 @@ def on_connect(userProfile):
         "userEmail": email,
         "userImage": image
     }, room=socketId)
-    
 
 def remove_sid_from_dict(socketId):
     global user_sids
@@ -98,12 +97,10 @@ def remove_sid_from_dict(socketId):
 @socketio.on('user logout')
 def user_logout():
     remove_sid_from_dict(request.sid)
-    
 
 @socketio.on('disconnect')
 def on_disconnect():
     remove_sid_from_dict(request.sid)
-    
 
 @socketio.on('word of the day')
 def word_of_day():
@@ -283,22 +280,17 @@ def map_state(objState):
 def save_quiz(score):
     global user_sids
     socketId = request.sid
-    
     if socketId not in user_sids:
         message = 'user not logged in'
     else:
         email = user_sids[socketId]
-        
-        existing_record = db.session.query(models.QuizScore).filter(models.QuizScore.email==email) 
-        
+        existing_record = db.session.query(models.QuizScore).filter(models.QuizScore.email==email)
         if existing_record.first() is not None:
             existing_record.delete()
-        
+
         db.session.add(models.QuizScore(email, score))
         db.session.commit()
-        
         message = 'success'
-    
     socketio.emit('save quiz response', {'message': message}, room=socketId)
 
 
@@ -306,14 +298,11 @@ def save_quiz(score):
 def get_prev_quiz_result():
     global user_sids
     socketId = request.sid
-    
     if socketId not in user_sids:
         socketio.emit('prev quiz result', {'message': 'user not logged in'})
         return
-    
     email = user_sids[socketId]
     record = db.session.query(models.QuizScore).filter(models.QuizScore.email==email).first()
-    
     if record is None:
         socketio.emit('prev quiz result', {'message': 'no record found'})
     else:
@@ -335,7 +324,6 @@ def load_quiz_questions():
             db.session.add(models.QuizQuestions(question['text'], group_name, question['multiplier']))
 
     db.session.commit()
-    
 
 if __name__ == '__main__':
     models.db.create_all()
