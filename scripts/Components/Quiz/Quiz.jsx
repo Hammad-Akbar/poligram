@@ -3,6 +3,7 @@ import React from 'react';
 import Question from './Question';
 import Socket from '../Socket';
 import Swal from 'sweetalert2';
+import './quiz.css';
 
 // max values of each classification
 const cutoffs = {
@@ -145,9 +146,9 @@ function Quiz() {
 
   return (
     <div style={{ textAlign: 'center' }}>
-      <h2>Ideology Quiz</h2>
-      <button onClick={generateQuiz}>Generate new quiz</button>
-      {display}
+    <section id="section-red"> <div className="slogan-white"> Take an ideaology Quiz and Learn where you stand </div> </section>
+      <div className="quiz-button"> <button onClick={generateQuiz}>Generate new quiz</button> </div>
+      {display} 
     </div>
   );
 }

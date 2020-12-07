@@ -230,6 +230,8 @@ function Map() {
   }
 
   return (
+    <div>
+    <section id="section-red"> <div className="slogan-white"> Explore the United States and learn about each state </div> </section>
     <div className="map">
       <div className="flex-container-map">
         <div className="box1"> </div>
@@ -243,6 +245,7 @@ function Map() {
         {showStateData()}
       </div>
       <USAMap onClick={mapHandler} customize={statesCustomConfig()} />
+    </div>
     </div>
   );
 }
