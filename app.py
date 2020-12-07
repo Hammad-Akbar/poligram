@@ -107,9 +107,9 @@ def on_disconnect():
 
 @socketio.on('word of the day')
 def word_of_day():
-    socketId = request.sid
+    socketId = flask.request.sid
     politicalLst = ['Cabinet', 'Campaign', 'Candidate', 'Canvass', 'Capitalize', 'Catalyst',
-                    'Ballot', 'Bandwagon', 'Barnstorm', 'Bipartisan'
+                    'Ballot', 'Bandwagon', 'Barnstorm', 'Bipartisan',
                     'Absentee', 'Accountable', 'Activist', 'Adverse', 'Advertising', 'Advice', 'Advise']
     wordOfDay = random.choice(politicalLst)
     messageReceived = messageDict(wordOfDay)
@@ -121,7 +121,7 @@ def word_of_day():
 
 @socketio.on('send message')
 def send_message(text):
-    socketId = request.sid
+    socketId = flask.request.sid
     messageReceived = messageDict(text)
     socketio.emit('forward message', {
         'messageReceived': messageReceived
@@ -263,7 +263,7 @@ def news_api_call():
 @socketio.on('state')
 def map_state(objState):
     state = objState['state']
-    socketId = request.sid
+    socketId = flask.request.sid
     news_file = open('states_info.json', 'r')
     news_json = json.load(news_file)
     news_file.close()

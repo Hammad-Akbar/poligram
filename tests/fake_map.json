@@ -1,0 +1,13 @@
+{
+  "states": [
+    {
+      "stateName": "Fake State",
+      "stateCode": "FK",
+      "population": 1000,
+      "electoralVotes": 7,
+      "senators": 2,
+      "house": 5,
+      "website": "gov.org"
+    }
+  ]
+}
