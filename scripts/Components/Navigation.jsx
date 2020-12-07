@@ -20,9 +20,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Navigation = ({ user }) => {
+const Navigation = ({ user, isAuth, setAuth }) => {
   const styles = useStyles();
-  const [isAuth, setIsAuth] = useState(false);
 
   function Authenticated() {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -58,7 +57,7 @@ const Navigation = ({ user }) => {
                 open={open} 
                 onClose={handleClose} 
               >
-                <MenuItem className={styles.dropdownStyle} onClick={handleClose}> <LogoutPage setIsAuth={setIsAuth} /> </MenuItem>
+                <MenuItem className={styles.dropdownStyle} onClick={handleClose}> <LogoutPage setIsAuth={setAuth} /> </MenuItem>
               </Menu>
             </div>
           </div>
@@ -84,7 +83,7 @@ const Navigation = ({ user }) => {
             transformOrigin={{ vertical: "top", horizontal: "center" }}
             open={open} 
             onClose={handleClose}>
-            <MenuItem className={styles.dropdownStyle} onClick={handleClose}> <LoginPage setIsAuth={setIsAuth} /> </MenuItem>
+            <MenuItem className={styles.dropdownStyle} onClick={handleClose}> <LoginPage setIsAuth={setAuth} /> </MenuItem>
           </Menu>
         </div>
       </div>
