@@ -40,7 +40,7 @@ const _items = [
             desc:
                 'Software Developer',
             desc2:
-                `TODO`,
+                `Enjoys motorsports, gardening, and relaxing.`,
             image: 'https://ca.slack-edge.com/T017JP7PHFY-U01A3H3A6GZ-750822c5f57a-512'
         }
     }
