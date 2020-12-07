@@ -38,6 +38,8 @@ function Dictionary() {
   }
 
   return (
+    <div>
+    <section id="section-red"> <div className="slogan-white"> Discover and learn new words </div> </section>
     <div className="dictionary">
       <div className="wordOfDayCard">
         <div className="wordOfDay">
@@ -53,6 +55,7 @@ function Dictionary() {
       <div>
         {toggleParagraph()}
       </div>
+    </div>
     </div>
   );
 }
