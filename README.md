@@ -10,7 +10,7 @@ We've seen some political websites that quiz you on different things about polit
 
 #### Heroku Link
 
-``https://poligram.herokuapp.com/#/``
+``https://poligram.herokuapp.com``
 
 ## Setup:
 
