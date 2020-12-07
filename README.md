@@ -146,7 +146,10 @@ pip install pylint_flask_sqlalchemy
 ### Shivani
 1. Created the News page.
 2. User can see any politics related news on this section which was completed with the help of news API.
-3. Unit testing and linted for associated parts.
+3. User can search news from the search bar.
+4. User can see top 3 trending news in politics.
+5. Unit testing for associated parts.
+6. Linting for associated parts.
 
 ### Jay
 1. Created Dictionary page, user can search for term related to politics.
