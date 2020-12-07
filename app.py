@@ -5,13 +5,13 @@
 import os
 import json
 import random
+from datetime import date, timedelta
 import flask
 from flask import request
 import flask_socketio
 import flask_sqlalchemy
 import requests
 import dotenv
-from datetime import date, timedelta
 
 dotenv.load_dotenv()
 
@@ -86,9 +86,9 @@ def on_connect(userProfile):
         "userEmail": email,
         "userImage": image
     }, room=socketId)
-    
 
 def remove_sid_from_dict(socketId):
+    " removing sid "
     global user_sids
 
     if socketId in user_sids:
@@ -97,16 +97,17 @@ def remove_sid_from_dict(socketId):
 
 @socketio.on('user logout')
 def user_logout():
+    "remove sid on logout"
     remove_sid_from_dict(request.sid)
-    
 
 @socketio.on('disconnect')
 def on_disconnect():
+    "remove sid on disconnect "
     remove_sid_from_dict(request.sid)
-    
 
 @socketio.on('word of the day')
 def word_of_day():
+    " word of the day for dictionary page"
     socketId = flask.request.sid
     politicalLst = ['Cabinet', 'Campaign', 'Candidate', 'Canvass', 'Capitalize', 'Catalyst',
                     'Ballot', 'Bandwagon', 'Barnstorm', 'Bipartisan',
@@ -121,6 +122,7 @@ def word_of_day():
 
 @socketio.on('send message')
 def send_message(text):
+    "send the synonym of word entered by user"
     socketId = flask.request.sid
     messageReceived = messageDict(text)
     socketio.emit('forward message', {
@@ -157,7 +159,6 @@ def request_quiz():
 @socketio.on('search news')
 def api_call_for_news(data):
     """ API call for News """
-    print("we got query to search", data)
     if data == "":
         query = 'politics'
     else:
@@ -206,10 +207,9 @@ def api_call_for_news(data):
     return response_json["articles"]
 
 def trending_news():
-    "Trending news Api call"
+    """Trending news Api call"""
     query = ['Trump', 'Biden', 'election', 'obama', 'Republican', 'democrat', 'governor', 'politics', 'government', 'law', 'state', 'union', 'bills', 'congress']
     random_query=(random.choices(query))
-    print(random_query)
     trend_url = 'https://newsapi.org/v2/top-headlines'
     parameter = {
         'country': 'us',
@@ -262,6 +262,7 @@ def news_api_call():
 
 @socketio.on('state')
 def map_state(objState):
+    """ state information for map section """
     state = objState['state']
     socketId = flask.request.sid
     news_file = open('states_info.json', 'r')
@@ -281,39 +282,33 @@ def map_state(objState):
 
 @socketio.on('save quiz')
 def save_quiz(score):
+    """ score saved in database """
     global user_sids
     socketId = request.sid
-    
     if socketId not in user_sids:
         message = 'user not logged in'
     else:
         email = user_sids[socketId]
-        
-        existing_record = db.session.query(models.QuizScore).filter(models.QuizScore.email==email) 
-        
+        existing_record = db.session.query(models.QuizScore).filter(models.QuizScore.email==email)
         if existing_record.first() is not None:
             existing_record.delete()
-        
+
         db.session.add(models.QuizScore(email, score))
         db.session.commit()
-        
         message = 'success'
-    
     socketio.emit('save quiz response', {'message': message}, room=socketId)
 
 
 @socketio.on('request prev quiz result')
 def get_prev_quiz_result():
+    """ previous result fetched from database """
     global user_sids
     socketId = request.sid
-    
     if socketId not in user_sids:
         socketio.emit('prev quiz result', {'message': 'user not logged in'})
         return
-    
     email = user_sids[socketId]
     record = db.session.query(models.QuizScore).filter(models.QuizScore.email==email).first()
-    
     if record is None:
         socketio.emit('prev quiz result', {'message': 'no record found'})
     else:
@@ -335,7 +330,6 @@ def load_quiz_questions():
             db.session.add(models.QuizQuestions(question['text'], group_name, question['multiplier']))
 
     db.session.commit()
-    
 
 if __name__ == '__main__':
     models.db.create_all()
