@@ -141,7 +141,9 @@ pip install pylint_flask_sqlalchemy
 ### Hammad
 1. Created the landing page and set up page linking using router dom.
 2. Created a feedback section on the landing page which allows users of the app to submit their thoughts. Incorporated database persistance through this step.
-3. Unit testing and linted for associated parts.
+3. Improved styling and UI design across the board for all sections to build a cohesive app. 
+4. Fixed bugs such as reload errors
+5. Unit testing and linted for associated parts.
 
 ### Shivani
 1. Created the News page.
@@ -161,14 +163,10 @@ pip install pylint_flask_sqlalchemy
 2. Created scoring system and question data for quiz + unit testing.
 3. Helped with initial set up of project (repo, setting up Sresht's lect8 as basis for app).
 
-### What is left to do
-1. Create the politician search page and include an interactive map to search for politicians [Struggling to find APIs to help with politician search]
-2. Ability to share scores with others [only allowed if registered]
+### If we had more time
+1. Create the politician search page and include an interactive map to search for politicians [would need to build our own API]
+2. Create public polls
 3. OAuth login with Facebook
-4. Create a section which shows people reviews [50/50 on if we should or should not do this]
-5. Store questions from the quiz into a database instead of the current JSON file
-6. Add character counters for feedback entry
-7. Create a public discussion room.
 
 
 ## References:
