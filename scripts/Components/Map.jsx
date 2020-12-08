@@ -116,16 +116,16 @@ function Map() {
         fill: 'indianred',
       },
       NC: {
-        fill: 'indianred',
+        fill: 'darkorchid',
       },
       OH: {
-        fill: 'indianred',
+        fill: 'darkorchid',
       },
       SC: {
         fill: 'indianred',
       },
       GA: {
-        fill: 'indianred',
+        fill: 'darkorchid',
       },
       FL: {
         fill: 'darkorchid',
@@ -164,7 +164,7 @@ function Map() {
         fill: 'indianred',
       },
       IA: {
-        fill: 'indianred',
+        fill: 'darkorchid',
       },
       MN: {
         fill: 'dodgerblue',
@@ -197,10 +197,10 @@ function Map() {
         fill: 'dodgerblue',
       },
       NM: {
-        fill: 'indianred',
+        fill: 'dodgerblue',
       },
       AZ: {
-        fill: 'dodgerblue',
+        fill: 'darkorchid',
       },
       AK: {
         fill: 'indianred',
