@@ -51,7 +51,7 @@ function Map() {
               {stateObj.sendSenators}
             </div>
             <div>
-              <strong className="bold"> House of Representatives: </strong>
+              <strong className="bold"> House Representatives: </strong>
               {' '}
               {stateObj.sendHouse}
             </div>
