@@ -22,8 +22,6 @@ function News() {
     };
   }, []);
 
-  console.log(trendNews);
-
   return (
     <div > 
     <NewsSearch />
