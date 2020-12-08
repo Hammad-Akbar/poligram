@@ -22,53 +22,51 @@ function News() {
     };
   }, []);
 
-  console.log(trendNews);
-
   return (
-    <div > 
-    <NewsSearch />
     <div>
-    <table className="tabStyle">
-      <tr>
-          {trendNews.map((newz) => (
-                <th>
+      <NewsSearch />
+      <div>
+        <table className="tabStyle">
+          <tr>
+            {trendNews.map((newz) => (
+              <th>
                 <p>
                   <div className="container">
-                  <img src={newz.img} alt="" width="700" height="500" />
-                  <div class="content">
-                    <h1><a className="trend-link" href={newz.url} target="_blank" rel="noopener noreferrer">{newz.title}</a></h1>
-                    <p>
+                    <img src={newz.img} alt="" width="700" height="500" />
+                    <div className="content">
+                      <h1><a className="trend-link" href={newz.url} target="_blank" rel="noopener noreferrer">{newz.title}</a></h1>
+                      <p>
                         Article:
                         {newz.content}
                         <a className="trend-link" href={newz.url} target="_blank" rel="noopener noreferrer">Click Here</a>
                       </p>
-                  </div>
+                    </div>
                   </div>
                   <br />
                 </p>
-                </th>
+              </th>
             ))}
-      </tr>
-    </table>
+          </tr>
+        </table>
       </div>
       {newsData.map((news) => (
         <p>
-        <div className="horizontal-line"/>
+          <div className="horizontal-line" />
           <br />
           <div className="news">
-          <div className="row">
-           <div className="column"><img src={news.img} alt="" width="650" height="300" /></div>
-            <div className="column">
-              <h2 className="headerclass">
-                {news.title}
-              </h2>
-              <p>
-                {news.content}
-                <a href={news.url} target="_blank" rel="noopener noreferrer">Click Here</a>
-              </p>
+            <div className="row">
+              <div className="column"><img src={news.img} alt="" width="650" height="300" /></div>
+              <div className="column">
+                <h2 className="headerclass">
+                  {news.title}
+                </h2>
+                <p>
+                  {news.content}
+                  <a href={news.url} target="_blank" rel="noopener noreferrer">Click Here</a>
+                </p>
+              </div>
             </div>
-          </div>
-          <br />
+            <br />
           </div>
         </p>
       ))}
