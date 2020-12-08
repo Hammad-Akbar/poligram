@@ -39,23 +39,27 @@ function Dictionary() {
 
   return (
     <div>
-    <section id="section-red"> <div className="slogan-white"> Discover and learn new words </div> </section>
-    <div className="dictionary">
-      <div className="wordOfDayCard">
-        <div className="wordOfDay">
-          <strong> Word of the day: </strong>
-          {wordOfDay}
+      <section id="section-red">
+        {' '}
+        <div className="slogan-white"> Discover and learn new words </div>
+        {' '}
+      </section>
+      <div className="dictionary">
+        <div className="wordOfDayCard">
+          <div className="wordOfDay">
+            <strong> Word of the day: </strong>
+            {wordOfDay}
+          </div>
+          <br />
+          <div className="wordDefinition">
+            {definition}
+          </div>
         </div>
-        <br />
-        <div className="wordDefinition">
-          {definition}
+        <SearchBar />
+        <div>
+          {toggleParagraph()}
         </div>
       </div>
-      <SearchBar />
-      <div>
-        {toggleParagraph()}
-      </div>
-    </div>
     </div>
   );
 }
