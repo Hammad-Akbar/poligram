@@ -44,7 +44,7 @@ export default function Home() {
           </div>
           <div>
             <div className="section-heading"> Quiz </div>
-            <div className="section-description"> Take a quiz and discover your political idealogy! </div>
+            <div className="section-description"> Take a quiz and discover your political ideology! </div>
           </div>
           <div>
             <div className="section-heading"> Map </div>
