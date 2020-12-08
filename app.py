@@ -187,7 +187,7 @@ def api_call_for_news(data):
             final_news_content = "To read full article... "
         else:
             news_content = news["content"].split("…")
-            final_news_content = str(news_content[0]) + "(continue reading)... "
+            final_news_content = str(news_content[0]) + "... "
 
         newsObjectLst.append(
             {
@@ -240,7 +240,7 @@ def news_api_call():
             final_news_content = "To read full article... "
         else:
             news_content = newz["content"].split("…")
-            final_news_content = str(news_content[0]) + "(continue reading)... "
+            final_news_content = str(news_content[0]) + "... "
 
         TrendnewsLst.append(
             {
