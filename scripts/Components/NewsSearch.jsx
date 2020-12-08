@@ -17,20 +17,24 @@ function NewsSearch() {
 
   return (
     <body>
-     <section id="section-red"> <div className="slogan-white"> Explore the news and trending topics </div> </section>
-    <div className="news-form">
-      <form className="newsForm" onSubmit={handleSubmit}>
-        <input
-          className="search-news"
-          type={news}
-          onChange={handleChange}
-          value={news}
-          placeholder="Search for news.."
-          required
-        />
-        <button className="newsbutton" type="submit">Search</button>
-      </form>
-    </div>
+      <section id="section-red">
+        {' '}
+        <div className="slogan-white"> Explore the news and trending topics </div>
+        {' '}
+      </section>
+      <div className="news-form">
+        <form className="newsForm" onSubmit={handleSubmit}>
+          <input
+            className="search-news"
+            type={news}
+            onChange={handleChange}
+            value={news}
+            placeholder="Search for news.."
+            required
+          />
+          <button className="newsbutton" type="submit">Search</button>
+        </form>
+      </div>
     </body>
   );
 }
