@@ -36,7 +36,7 @@ export default function Home() {
         <div className="box">
           <div> 
             <div className="section-heading"> News </div>
-            <div className="section-description"> Keep up with news related to politics and all your followed politicians! </div>
+            <div className="section-description"> Keep up with news and current events related to politics! </div>
           </div>
           <div>
             <div className="section-heading"> Dictionary </div>
