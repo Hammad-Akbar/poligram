@@ -35,11 +35,6 @@ function News() {
                   <img src={newz.img} alt="" width="650" height="300" />
                   <div class="content">
                     <h1><a className="trend-link" href={newz.url} target="_blank" rel="noopener noreferrer">{newz.title}</a></h1>
-                    <p>
-                        Article:
-                        {newz.content}
-                        <a className="trend-link" href={newz.url} target="_blank" rel="noopener noreferrer">Click Here</a>
-                      </p>
                     </div>
                   </div>
                   <br />
@@ -58,11 +53,10 @@ function News() {
               <div className="column"><img src={news.img} alt="" width="650" height="300" /></div>
               <div className="column">
                 <h2 className="headerclass">
-                  {news.title}
+                  <a href={news.url} target="_blank" rel="noopener noreferrer">{news.title}</a>
                 </h2>
                 <p>
                   {news.content}
-                  <a href={news.url} target="_blank" rel="noopener noreferrer">Click Here</a>
                 </p>
               </div>
             </div>
