@@ -51,7 +51,7 @@ function Map() {
               {stateObj.sendSenators}
             </div>
             <div>
-              <strong className="bold"> House of Representatives: </strong>
+              <strong className="bold"> House Representatives: </strong>
               {' '}
               {stateObj.sendHouse}
             </div>
@@ -116,16 +116,16 @@ function Map() {
         fill: 'indianred',
       },
       NC: {
-        fill: 'indianred',
+        fill: 'darkorchid',
       },
       OH: {
-        fill: 'indianred',
+        fill: 'darkorchid',
       },
       SC: {
         fill: 'indianred',
       },
       GA: {
-        fill: 'indianred',
+        fill: 'darkorchid',
       },
       FL: {
         fill: 'darkorchid',
@@ -164,7 +164,7 @@ function Map() {
         fill: 'indianred',
       },
       IA: {
-        fill: 'indianred',
+        fill: 'darkorchid',
       },
       MN: {
         fill: 'dodgerblue',
@@ -197,10 +197,10 @@ function Map() {
         fill: 'dodgerblue',
       },
       NM: {
-        fill: 'indianred',
+        fill: 'dodgerblue',
       },
       AZ: {
-        fill: 'dodgerblue',
+        fill: 'darkorchid',
       },
       AK: {
         fill: 'indianred',
@@ -235,11 +235,11 @@ function Map() {
     <div className="map">
       <div className="flex-container-map">
         <div className="box1"> </div>
-        <div className="republic"> Republic </div>
+        <div className="republic"> Republican </div>
         <div className="box2"> </div>
         <div className="democratic"> Democratic </div>
         <div className="box3"> </div>
-        <div className="competitive"> Competitive </div>
+        <div className="competitive"> Swing </div>
       </div>
       <div className="data">
         {showStateData()}

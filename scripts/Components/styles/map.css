@@ -53,6 +53,7 @@
     background-color: indianred;
     margin-right: 5px;
 }
+
 .box2 {
     justify-content: center;
     height: 20px;
@@ -61,6 +62,7 @@
     background-color: dodgerblue;
     margin-right: 5px;
 }
+
 .box3 {
     color: grey;
     justify-content: center;
@@ -70,18 +72,21 @@
     background-color: darkorchid;
     margin-right: 5px;
 }
+
 .republic {
     margin-top: 3px;
     margin-right: 25px;
     font-family: Roboto, sans-serif;
     font-weight: lighter;
 }
+
 .democratic {
     margin-top: 3px;
     margin-right: 25px;
     font-family: Roboto, sans-serif;
     font-weight: lighter;
 }
+
 .competitive {
     margin-top: 3px;
     margin-right: 25px;
@@ -89,3 +94,11 @@
     font-weight: lighter;
 }
 
+path {
+    pointer-events: all;
+}
+
+path:hover {
+    opacity: 0.75;
+    cursor: pointer;
+}
