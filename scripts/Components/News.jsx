@@ -34,7 +34,7 @@ function News() {
                 <th>
                 <p>
                   <div className="container">
-                  <img src={newz.img} alt="" width="700" height="500" />
+                  <img src={newz.img} alt="" width="650" height="300" />
                   <div class="content">
                     <h1><a className="trend-link" href={newz.url} target="_blank" rel="noopener noreferrer">{newz.title}</a></h1>
                     <p>
