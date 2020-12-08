@@ -75,7 +75,7 @@ export default function Home() {
       <div className="horizontal-line-home" />
       <section id="section-white">
         <br />
-        <div className="slogan-description-black2"> This app was made using a production build of React </div>
+        <div className="slogan-description-black2"> This app was made using a production build of React, Python-Flask, and PostgreSQL </div>
         <div className="centerGit">
           {' '}
           <a href="https://github.com/AkhilSamarth/cs490-poligram-sprint2">
