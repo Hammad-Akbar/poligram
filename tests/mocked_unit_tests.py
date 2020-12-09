@@ -32,7 +32,7 @@ class MockedTest(unittest.TestCase):
             }
         ]
 
-    class MockSession():
+    class MockSession:
         """mock session"""
         def add(self, value):
             """add"""
@@ -233,7 +233,7 @@ class MockedTest(unittest.TestCase):
     def test_quiz_load(self):
         """ testing for quiz load method"""
         class MockSession:
-            """mocke session"""
+            """mock session"""
             def __init__(self, unittest_class):
                 """initial method to assign variables"""
                 self.questions = []
@@ -260,6 +260,49 @@ class MockedTest(unittest.TestCase):
 
         with unittest.mock.patch('app.db.session', MockSession(self)):
             app.load_quiz_questions()
+    
+    @patch('app.flask')
+    def test_quiz_save(self, mocked_flask):
+        """ Test for save_quiz function """
+        mocked_flask.request.sid = 'abcdef'
+        
+        expected_msg = ""
+        def mocked_emit(event, data, room):
+            """ Mocked socketIO emit to test that correct message is being emitted """
+            self.assertEqual(data['message'], expected_msg)
+            self.assertEqual(room, 'abcdef')
+        
+        with unittest.mock.patch('app.db.session', self.MockSession()):
+            with unittest.mock.patch('app.socketio.emit', mocked_emit):
+                with unittest.mock.patch('app.user_sids', {}, create=True):
+                    expected_msg = 'user not logged in'
+                    app.save_quiz(50)
+                    
+                with unittest.mock.patch('app.user_sids', {'abcdef': 'test@test.com'}, create=True):
+                    expected_msg = 'success'
+                    app.save_quiz(-90)
+    
+    @patch('app.flask')
+    def test_prev_quiz_result(self, mocked_flask):
+        """ Test for get_prev_quiz_result function """
+        mocked_flask.request.sid = 'abcdef'
+        
+        expected_msg = ""
+        def mocked_emit(event, data, room):
+            """ Mocked socketIO emit to test that correct message is being emitted """
+            self.assertEqual(data['message'], expected_msg)
+            self.assertEqual(room, 'abcdef')
+        
+        with unittest.mock.patch('app.db.session', self.MockSession()):
+            with unittest.mock.patch('app.socketio.emit', mocked_emit):
+                with unittest.mock.patch('app.user_sids', {}, create=True):
+                    expected_msg = 'user not logged in'
+                    app.get_prev_quiz_result()
+                    
+                with unittest.mock.patch('app.user_sids', {'abcdef': 'test@test.com'}, create=True):
+                    expected_msg = 'no record found'
+                    app.get_prev_quiz_result()
+    
 
 if __name__ == '__main__':
     unittest.main()
