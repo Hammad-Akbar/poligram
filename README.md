@@ -98,8 +98,8 @@ If that doesn't work: `sudo vim $(psql -c "show hba_file;" | grep pg_hba.conf)`
 
 ### Claim your API Keys
 1. Go to `https://newsapi.org/` and Sign up!
-2. Create a file news.env in your root directory, Copy `export NEWS_API_KEY='YOUR API KEYS'` and save it to news.env.
-
+2. Go to `https://dictionaryapi.com` and Sign up!
+3. Create a file .env in your root directory, Copy `NEWS_API_KEY='YOUR API KEYS'`  and `DICT_API_KEY='YOUR API KEY` and save it to .env.
 
 ### Run your code!    
 1. `npm run watch`. If prompted to install webpack-cli, type "yes"    
@@ -141,9 +141,10 @@ pip install pylint_flask_sqlalchemy
 ### Hammad
 1. Created the landing page and set up page linking using router dom.
 2. Created a feedback section on the landing page which allows users of the app to submit their thoughts. Incorporated database persistance through this step.
-3. Improved styling and UI design across the board for all sections to build a cohesive app. 
-4. Fixed bugs such as reload errors
-5. Unit testing and linted for associated parts.
+3. Improved styling and UI design across the board for all sections to build a cohesive app.
+4. Added logout button for OAuth.
+5. Fixed bugs such as reload errors
+6. Unit testing and linted for associated parts.
 
 ### Shivani
 1. Created the News page.
@@ -156,12 +157,35 @@ pip install pylint_flask_sqlalchemy
 ### Jay
 1. Created Dictionary page, user can search for term related to politics.
 2. Created google login page, and the user will see his name on the landing page.
-3. Unit testing and linted for associated parts.
+3. Created guest mode for our app.
+4. Added autocomplete feature and word of the day for dictionary.
+5. Created a clickable map, and implemented the map feature of our app.
+5. Unit testing and linted for associated parts.
 
 ### Akhil
 1. Created the quiz page where users can take a quiz about ideology.
 2. Created scoring system and question data for quiz + unit testing.
 3. Helped with initial set up of project (repo, setting up Sresht's lect8 as basis for app).
+
+#### Technical Issues Faced in this project:
+1. After using one autocomplete library we had issues with styling the searchbar, so we had to research
+more and use another autocomplete library to do the feature.
+2. We had some issues with feedback section, like the limit of feedback was suppose to be 1000 characters,
+and had some issues doing that.
+3. Also, had some minor issues with styling the News page.
+
+#### Solving those issues:
+1. After researching, we used material-ui custom component to make the autocomplete feature work, and used
+custom props to style the component. 
+2. After researching, we used state to check the character count, and showed the user error the character count 
+has reached, and made sure user can't store that feedback in the database unless he reduces the character count.
+3. We came together as a group and gave ideas how how to solve the issue because the news card was covering the
+searchbar, so we gave our ideas, decided which is the best method to solve the issue and we were able to fix the 
+styling error for the News section.
+
+#### Issues still exist in the app:
+1. Our app is heavily reliant on APIs, so if in the future they stop working it could make some features
+of our app useless.
 
 ### If we had more time
 1. Create the politician search page and include an interactive map to search for politicians [would need to build our own API]
