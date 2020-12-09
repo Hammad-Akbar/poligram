@@ -186,7 +186,7 @@ has reached, and we made sure user can't store that feedback in the database unl
 3. We came together as a group and gave ideas how to solve the issue because the news card was covering the
 searchbar, so we gave our ideas, decided which is the best method to solve the issue, and we were able to fix the 
 styling error for the News section.
-4. After looking at the error reports, we realized that the issue seemed to be due to a database connection issue. This made sense, since CircleCI didn't have a local database like we did. We considered setting up a Docker image with a database, but ultimately settled on simply mocking out all database calls in the tests themselves.
+4. After looking at the error reports, we realized that the issue seemed to be due to a database connection problem. This made sense, since CircleCI didn't have a local database like we did. We considered setting up a Docker image with a database, but ultimately settled on simply mocking out all database calls in the tests themselves.
 
 ### Issues still exist in the app
 1. Our app is heavily reliant on APIs, so if in the future they stop working it could make some features
