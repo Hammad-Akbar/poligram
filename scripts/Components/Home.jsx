@@ -25,7 +25,7 @@ export default function Home() {
     <body>
       <section id="section-red">
         <div className="heading"> Poligram </div>
-        <div className="slogan-white"> The politicians handbook for everyone. </div>
+        <div className="slogan-white"> The politics handbook for everyone. </div>
         <div className="slogan-description-white">
           {/* eslint-disable-next-line max-len */}
           With politics more important than ever, Poligram makes it easy to learn. Poligram will provide an interactive way to learn about politics in America.
