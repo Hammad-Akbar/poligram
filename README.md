@@ -167,14 +167,14 @@ pip install pylint_flask_sqlalchemy
 2. Created scoring system and question data for quiz + unit testing.
 3. Helped with initial set up of project (repo, setting up Sresht's lect8 as basis for app).
 
-#### Technical Issues Faced in this project:
+### Technical Issues Faced in this project:
 1. After using one autocomplete library we had issues with styling the searchbar, so we had to research
 more and use another autocomplete library to do the feature.
 2. We had some issues with feedback section, like the limit of feedback was suppose to be 1000 characters,
 and had some issues doing that.
 3. Also, had some minor issues with styling the News page.
 
-#### Solving those issues:
+### Solving those issues:
 1. After researching, we used material-ui custom component to make the autocomplete feature work, and used
 custom props to style the component. 
 2. After researching, we used state to check the character count, and showed the user error the character count 
@@ -183,7 +183,7 @@ has reached, and made sure user can't store that feedback in the database unless
 searchbar, so we gave our ideas, decided which is the best method to solve the issue and we were able to fix the 
 styling error for the News section.
 
-#### Issues still exist in the app:
+### Issues still exist in the app:
 1. Our app is heavily reliant on APIs, so if in the future they stop working it could make some features
 of our app useless.
 
