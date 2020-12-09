@@ -305,14 +305,14 @@ def get_prev_quiz_result():
     global user_sids
     socketId = flask.request.sid
     if socketId not in user_sids:
-        socketio.emit('prev quiz result', {'message': 'user not logged in'})
+        socketio.emit('prev quiz result', {'message': 'user not logged in'}, room=socketId)
         return
     email = user_sids[socketId]
     record = db.session.query(models.QuizScore).filter(models.QuizScore.email==email).first()
     if record is None:
-        socketio.emit('prev quiz result', {'message': 'no record found'})
+        socketio.emit('prev quiz result', {'message': 'no record found'}, room=socketId)
     else:
-        socketio.emit('prev quiz result', {'message': 'success', 'score': record.score})
+        socketio.emit('prev quiz result', {'message': 'success', 'score': record.score}, room=socketId)
 
 
 def load_quiz_questions():
