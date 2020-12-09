@@ -190,7 +190,7 @@ styling error for the News section.
 
 ### Issues still exist in the app
 1. Our app is heavily reliant on APIs, so if in the future they stop working it could make some features
-of our app useless.
+of our app not that useful.
 
 ### If we had more time
 1. Create the politician search page and include an interactive map to search for politicians [would need to build our own API]
