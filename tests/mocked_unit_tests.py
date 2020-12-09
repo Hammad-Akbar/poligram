@@ -282,6 +282,26 @@ class MockedTest(unittest.TestCase):
                     expected_msg = 'success'
                     app.save_quiz(-90)
     
+    @patch('app.flask')
+    def test_prev_quiz_result(self, mocked_flask):
+        """ Test for get_prev_quiz_result function """
+        mocked_flask.request.sid = 'abcdef'
+        
+        expected_msg = ""
+        def mocked_emit(event, data, room):
+            """ Mocked socketIO emit to test that correct message is being emitted """
+            self.assertEqual(data['message'], expected_msg)
+            self.assertEqual(room, 'abcdef')
+        
+        with unittest.mock.patch('app.db.session', self.MockSession()):
+            with unittest.mock.patch('app.socketio.emit', mocked_emit):
+                with unittest.mock.patch('app.user_sids', {}, create=True):
+                    expected_msg = 'user not logged in'
+                    app.get_prev_quiz_result()
+                    
+                with unittest.mock.patch('app.user_sids', {'abcdef': 'test@test.com'}, create=True):
+                    expected_msg = 'no record found'
+                    app.get_prev_quiz_result()
     
 
 if __name__ == '__main__':
