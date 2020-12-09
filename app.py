@@ -284,7 +284,7 @@ def map_state(objState):
 def save_quiz(score):
     """ score saved in database """
     global user_sids
-    socketId = request.sid
+    socketId = flask.request.sid
     if socketId not in user_sids:
         message = 'user not logged in'
     else:
@@ -303,7 +303,7 @@ def save_quiz(score):
 def get_prev_quiz_result():
     """ previous result fetched from database """
     global user_sids
-    socketId = request.sid
+    socketId = flask.request.sid
     if socketId not in user_sids:
         socketio.emit('prev quiz result', {'message': 'user not logged in'})
         return
