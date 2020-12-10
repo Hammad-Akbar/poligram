@@ -231,21 +231,25 @@ function Map() {
 
   return (
     <div>
-    <section id="section-red"> <div className="slogan-white"> Explore the United States and learn about each state </div> </section>
-    <div className="map">
-      <div className="flex-container-map">
-        <div className="box1"> </div>
-        <div className="republic"> Republican </div>
-        <div className="box2"> </div>
-        <div className="democratic"> Democratic </div>
-        <div className="box3"> </div>
-        <div className="competitive"> Swing </div>
+      <section id="section-red">
+        {' '}
+        <div className="slogan-white"> Explore the United States and learn about each state </div>
+        {' '}
+      </section>
+      <div className="map">
+        <div className="flex-container-map">
+          <div className="box1"> </div>
+          <div className="republic"> Republican </div>
+          <div className="box2"> </div>
+          <div className="democratic"> Democratic </div>
+          <div className="box3"> </div>
+          <div className="competitive"> Swing </div>
+        </div>
+        <div className="data">
+          {showStateData()}
+        </div>
+        <USAMap onClick={mapHandler} customize={statesCustomConfig()} />
       </div>
-      <div className="data">
-        {showStateData()}
-      </div>
-      <USAMap onClick={mapHandler} customize={statesCustomConfig()} />
-    </div>
     </div>
   );
 }
