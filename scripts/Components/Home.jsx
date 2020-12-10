@@ -25,7 +25,7 @@ export default function Home() {
     <body>
       <section id="section-red">
         <div className="heading"> Poligram </div>
-        <div className="slogan-white"> The politicians handbook for everyone. </div>
+        <div className="slogan-white"> The politics handbook for everyone. </div>
         <div className="slogan-description-white">
           {/* eslint-disable-next-line max-len */}
           With politics more important than ever, Poligram makes it easy to learn. Poligram will provide an interactive way to learn about politics in America.
@@ -38,7 +38,7 @@ export default function Home() {
         <div className="box">
           <div>
             <div className="section-heading"> News </div>
-            <div className="section-description"> Keep up with news related to politics and all your followed politicians! </div>
+            <div className="section-description"> Keep up with news and current events related to politics! </div>
           </div>
           <div>
             <div className="section-heading"> Dictionary </div>
@@ -46,7 +46,7 @@ export default function Home() {
           </div>
           <div>
             <div className="section-heading"> Quiz </div>
-            <div className="section-description"> Take a quiz and discover your political idealogy! </div>
+            <div className="section-description"> Take a quiz and discover your political ideology! </div>
           </div>
           <div>
             <div className="section-heading"> Map </div>
@@ -75,7 +75,7 @@ export default function Home() {
       <div className="horizontal-line-home" />
       <section id="section-white">
         <br />
-        <div className="slogan-description-black2"> This app was made using a production build of React </div>
+        <div className="slogan-description-black2"> This app was created using technologies like React, Python-Flask, and PostgreSQL. Check out our GitHub repo by clicking the button below! </div>
         <div className="centerGit">
           {' '}
           <a href="https://github.com/AkhilSamarth/cs490-poligram-sprint2">

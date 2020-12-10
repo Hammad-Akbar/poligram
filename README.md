@@ -98,8 +98,8 @@ If that doesn't work: `sudo vim $(psql -c "show hba_file;" | grep pg_hba.conf)`
 
 ### Claim your API Keys
 1. Go to `https://newsapi.org/` and Sign up!
-2. Create a file news.env in your root directory, Copy `export NEWS_API_KEY='YOUR API KEYS'` and save it to news.env.
-
+2. Go to `https://dictionaryapi.com` and Sign up!
+3. Create a file .env in your root directory, Copy `NEWS_API_KEY='YOUR API KEYS'`  and `DICT_API_KEY='YOUR API KEY` and save it to .env.
 
 ### Run your code!    
 1. `npm run watch`. If prompted to install webpack-cli, type "yes"    
@@ -141,7 +141,10 @@ pip install pylint_flask_sqlalchemy
 ### Hammad
 1. Created the landing page and set up page linking using router dom.
 2. Created a feedback section on the landing page which allows users of the app to submit their thoughts. Incorporated database persistance through this step.
-3. Unit testing and linted for associated parts.
+3. Improved styling and UI design across the board for all sections to build a cohesive app.
+4. Added logout button for OAuth.
+5. Fixed bugs such as reload errors
+6. Unit testing and linted for associated parts.
 
 ### Shivani
 1. Created the News page.
@@ -154,21 +157,45 @@ pip install pylint_flask_sqlalchemy
 ### Jay
 1. Created Dictionary page, user can search for term related to politics.
 2. Created google login page, and the user will see his name on the landing page.
-3. Unit testing and linted for associated parts.
+3. Created guest mode for our app.
+4. Added autocomplete feature and word of the day for dictionary.
+5. Created a clickable map, and implemented the map feature of our app.
+5. Unit testing and linted for associated parts.
 
 ### Akhil
 1. Created the quiz page where users can take a quiz about ideology.
 2. Created scoring system and question data for quiz + unit testing.
 3. Helped with initial set up of project (repo, setting up Sresht's lect8 as basis for app).
+4. Did various project set-up tasks, including setting up CircleCI and an AWS database for development.
+5. Added database persistence for quiz results.
+6. Unit testing for quiz.
 
-### What is left to do
-1. Create the politician search page and include an interactive map to search for politicians [Struggling to find APIs to help with politician search]
-2. Ability to share scores with others [only allowed if registered]
+### Technical Issues Faced in this project
+1. After using one autocomplete library for React, we had issues with styling the searchbar, so we had to research
+more and use another autocomplete library to do the feature.
+2. We had some issues with feedback section, like the limit of feedback was suppose to be 1000 characters,
+and had some issues doing that.
+3. Also, had some minor issues with styling the News page.
+4. There were some issues with tests in CircleCI.
+
+### Solving those issues
+1. After researching, we used material-ui custom component to make the autocomplete feature work, and used
+custom props to style the component. 
+2. After researching, we used state to check the character count, and showed the user error when the character count 
+has reached, and we made sure user can't store that feedback in the database unless he reduces the character count.
+3. We came together as a group and gave ideas how to solve the issue because the news card was covering the
+searchbar, so we gave our ideas, decided which is the best method to solve the issue, and we were able to fix the 
+styling error for the News section.
+4. After looking at the error reports, we realized that the issue seemed to be due to a database connection problem. This made sense, since CircleCI didn't have a local database like we did. We considered setting up a Docker image with a database, but ultimately settled on simply mocking out all database calls in the tests themselves.
+
+### Issues still exist in the app
+1. Our app is heavily reliant on APIs, so if in the future they stop working it could make some features
+of our app not that useful.
+
+### If we had more time
+1. Create the politician search page and include an interactive map to search for politicians [would need to build our own API]
+2. Create public polls
 3. OAuth login with Facebook
-4. Create a section which shows people reviews [50/50 on if we should or should not do this]
-5. Store questions from the quiz into a database instead of the current JSON file
-6. Add character counters for feedback entry
-7. Create a public discussion room.
 
 
 ## References:

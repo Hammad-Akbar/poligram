@@ -243,7 +243,7 @@ function Quiz() {
       </section>
       <section id="section-white">
         <div className="slogan-black"> What is an ideology? </div>
-        <div className="slogan-description-black2"> An ideology is the science of ideas! Basically it is a set of beliefs or philosophies attributed to a person or group of persons </div>
+        <div className="slogan-description-black2"> An ideology is a core set of ideas and beliefs that a person holds, especially those of a political nature. </div>
         <div className="slogan-description-black2"> Take the quiz and find out where you stand! </div>
       </section>
       <div className="quiz-button">

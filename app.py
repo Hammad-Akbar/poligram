@@ -187,7 +187,7 @@ def api_call_for_news(data):
             final_news_content = "To read full article... "
         else:
             news_content = news["content"].split("…")
-            final_news_content = str(news_content[0]) + "(continue reading)... "
+            final_news_content = str(news_content[0]) + "... "
 
         newsObjectLst.append(
             {
@@ -240,7 +240,7 @@ def news_api_call():
             final_news_content = "To read full article... "
         else:
             news_content = newz["content"].split("…")
-            final_news_content = str(news_content[0]) + "(continue reading)... "
+            final_news_content = str(news_content[0]) + "... "
 
         TrendnewsLst.append(
             {
@@ -284,7 +284,7 @@ def map_state(objState):
 def save_quiz(score):
     """ score saved in database """
     global user_sids
-    socketId = request.sid
+    socketId = flask.request.sid
     if socketId not in user_sids:
         message = 'user not logged in'
     else:
@@ -303,16 +303,16 @@ def save_quiz(score):
 def get_prev_quiz_result():
     """ previous result fetched from database """
     global user_sids
-    socketId = request.sid
+    socketId = flask.request.sid
     if socketId not in user_sids:
-        socketio.emit('prev quiz result', {'message': 'user not logged in'})
+        socketio.emit('prev quiz result', {'message': 'user not logged in'}, room=socketId)
         return
     email = user_sids[socketId]
     record = db.session.query(models.QuizScore).filter(models.QuizScore.email==email).first()
     if record is None:
-        socketio.emit('prev quiz result', {'message': 'no record found'})
+        socketio.emit('prev quiz result', {'message': 'no record found'}, room=socketId)
     else:
-        socketio.emit('prev quiz result', {'message': 'success', 'score': record.score})
+        socketio.emit('prev quiz result', {'message': 'success', 'score': record.score}, room=socketId)
 
 
 def load_quiz_questions():
